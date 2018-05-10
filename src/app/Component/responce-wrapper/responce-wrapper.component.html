@@ -1,0 +1,91 @@
+<div class="container col-md-4 responsive" style="padding-top: 0px">
+
+  <form (ngSubmit)="processForm()"  >
+    <div class="form group">
+      <label for="client"><h3>Client</h3> </label>
+      <div id="client">
+        <div  class="form group">
+          <label for="numtel">numero de telephone</label>
+          <input id="numtel" type="number" name="numtel" autofocus="autofocus" class="form-control" [(ngModel)]="client.numtel" >
+        </div>
+        <div class="form group">
+          <label for="typeClient">type Client</label>
+          <select id="typeClient" name="typeClient" class="form-control" [(ngModel)]="client.typeClient">
+            <option value="societe" selected="selected">societe</option>
+            <option value="citoyen"  >citoyen</option>
+     
+          </select>
+      
+        </div>
+        <div class="form group">
+          <label for="nom">nom</label>
+          <input id="nom" type="text" name="nom" class="form-control" [(ngModel)]="client.nom" >
+        </div>
+        <div class="form group">
+          <label for="email">email</label>
+          <input id="email" type="email" name="email" class="form-control" [(ngModel)]="client.mail" >
+        </div>
+        <div class="form group">
+          <label for="adresse">adresse</label>
+          <input id="adresse" type="text" name="adresse" class="form-control" [(ngModel)]="client.adresse" >
+        </div>
+    
+      </div>
+    </div>
+
+      <hr style="widows: 80px; height: 3px; align-items: left">
+
+
+      <div class="form group">
+          <label for="article"><h3> Article</h3></label>
+          <div id="article">
+        <div class="form group">
+            <label for="marque">Marque</label>
+          <input id="marque" type="text" name="marque" class="form-control" [(ngModel)]="article.marque" >
+        </div>
+        <div class="form group">
+          <label for="Model">Model</label>
+          <input id="Model" type="text" name="Model" class="form-control" [(ngModel)]="article.model">
+      
+        </div>
+        <div class="form group">
+          <label for="serialNumber">Numero de serie</label>
+          <input id="serialNumber" type="text" name="serialNumber" class="form-control" [(ngModel)]="article.serialNumber" >
+        </div>
+        <div class="form group">
+          <label for="operator">Operateur</label>
+          <input id="operator" type="text" name="Operator" class="form-control" [(ngModel)]="article.operateur" >
+        </div>
+        <div class="form group">
+          <label for="commentaire">Commentaire</label>
+          <input id="commentaire" type="textarea" name="commentaire" class="form-control" [(ngModel)]="article.commentaire" >
+        </div>
+        <div class="form group">
+          <label for="codeSecurite">Code de securite</label>
+          <input id="codeSecurite" type="text" name="codeSecurite" class="form-control" [(ngModel)]="article.codeSecurite" >
+        </div>
+        <div class="form group">
+            <label for="designation">Designation</label>
+             <input id="designation" type="text" name="Designation" class="form-control" [(ngModel)]="article.designation" >
+        </div>
+</div>
+
+
+
+
+
+
+
+      </div>
+     <input type="submit" class="btn btn-success" value="save">
+    
+  </form>
+  <div [hidden]="!submitted">
+    <div class="btn-group ">
+      <h4>You submitted successfully!</h4>
+    </div>
+  </div>
+</div>
+
+
+

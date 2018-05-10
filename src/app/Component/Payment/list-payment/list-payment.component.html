@@ -1,0 +1,35 @@
+<div class="container table-responsive " style="padding-top: 0px">
+      
+  <table class="table table-striped table-bordered table-hover table-responsive" id="dataTables-example">
+         <thead>
+          <th>Payment Id</th>
+          <!--<th>Demande Reparation Id</th> -->
+          <th>article id</th>
+         <!-- <th>Boutique code</th> -->
+          <th>Montant Paye</th>
+          <th>MoyenPaiment</th>
+          <th>Reduction</th>
+          <th> tarif</th>
+          <th>TotalHT</th>
+          <th>TotalTTC</th>
+          <th>TVA</th>
+          <th>ResteAPaye</th>
+      </thead>
+      <tbody>
+          <tr *ngFor="let payment of payments">
+            <td>{{payment.IdEncaissement}}</td>
+            <!--  <td>{{payment.DemandeReparation.Rid }}</td>-->
+              <td>{{payment.article.idArticle}}</td>
+             <!-- <td>{{payment.Boutique.Code}}</td>-->
+              <td>{{payment.MontantPaye}}</td>
+              <td>{{payment.MoyenPaiment}}</td>
+              <td>{{payment.Reduction}}</td>
+              <td>{{payment.tarif}}</td>
+              <td>{{payment.TotalHT}}</td>
+              <td>{{payment.TotalTTC}}</td>
+              <td>{{payment.TVA}}</td>
+              <td>{{payment.ResteAPaye}}</td>
+          </tr>
+      </tbody>
+  </table>
+</div>

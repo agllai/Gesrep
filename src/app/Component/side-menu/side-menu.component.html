@@ -1,0 +1,48 @@
+<nav class="navbar navbar-default navbar-left navbar-fixed-side">
+    <div class="container"  role="navigation">
+        <div class="navbar-header "><h4 class="navbar-brand success">functions</h4>
+          <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggle collapsed">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+      </div>
+        <div class="sidebar-nav navbar-collapse collapse " aria-expanded="true">
+            <ul class="nav navbar-nav nav-tabs" id="side-menu">
+                
+                
+               <li [ngClass]="isactive('listArticle')" role="presentation">
+                    <a routerLink="./listArticle" (click)="onclick('listArticle')"> Article list</a>
+                </li>
+                <li [ngClass]="isactive('CreateArticle')" role="presentation"> 
+                    <a routerLink="./CreateArticle" (click)="onclick('CreateArticle')"> Create Article</a>                                                   
+                </li>
+                <li [ngClass]="isactive('CreateClient')" role="presentation">
+                    <a routerLink="./CreateClient" (click)="onclick('CreateClient')" > Create Client</a>                                                     
+                </li>
+                <li [ngClass]="isactive('ListeClient')" role="presentation">
+                    <a routerLink="./ListeClient"  (click)="onclick('ListeClient')">Clients List</a>                                                     
+                </li>
+                <li [ngClass]="isactive('MakePayment')" role="presentation">
+                    <a routerLink="./MakePayment"  (click)="onclick('MakePayment')">MakePayment</a>                                                     
+                </li>
+               <li [ngClass]="isactive('ListPayment')" role="presentation">
+                    <a routerLink="./ListPayment"  (click)="onclick('ListPayment')">List Payment</a>                                                     
+                </li>
+                <li [ngClass]="isactive('Piece/ListPiece')" role="presentation">
+                        <a routerLink="./Piece/ListPiece"  (click)="onclick('Piece/ListPiece')">List Piece</a>                                                     
+                </li>
+                <li [ngClass]="isactive('CreatePiece')" role="presentation">
+                    <a routerLink="./CreatePiece"  (click)="onclick('CreatePiece')"> Create Piece</a>                                                     
+                </li>
+                
+                
+                
+                
+            </ul>
+        </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
+    </nav>

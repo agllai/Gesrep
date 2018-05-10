@@ -1,0 +1,45 @@
+<div class="container col-md-4 responsive" style="padding-top: 0px">
+
+  <form (ngSubmit)="processForm(personnel)"  >
+    <div class="form group">
+      <label for="personnel"><h3> Personnel</h3></label>
+      <div id="personnel">
+       <!-- <div class="form group">
+          <label for="boutique">Boutique</label>
+          <input id="boutique" type="text" name="boutique" class="form-control" [(ngModel)]="personnel.boutique" >
+        </div>  -->      
+        <div class="form group">
+          <label for="nom">nom</label>
+          <input id="nom" type="text" name="nom" class="form-control" [(ngModel)]="personnel.nom">
+      
+        </div>
+        <div class="form group">
+          <label for="personnel">Model</label>
+          <input id="prenom" type="text" name="prenom" class="form-control" [(ngModel)]="personnel.prenom">
+      
+        </div>
+        <div class="form group">
+          <label for="email">Email</label>
+          <input id="email" type="text" name="email" class="form-control" [(ngModel)]="personnel.email" >
+        </div>
+        <div class="form group">
+          <label for="profile">Profile</label>
+          <input id="profile" type="text" (change)="changeprofile()" name="profile" class="form-control" required="required" [(ngModel)]="personnel.profile" >
+        </div>
+        <div class="form group" *ngIf="profile">
+          <label for="domaineReparation">Domaine Reparation</label>
+          <input id="domaineReparation" type="text" name="domaineReparation" class="form-control" [(ngModel)]="personnel.domaineReparation" >
+        </div>
+       
+        
+      </div>
+    </div>
+    <input type="submit" class="btn btn-success" value="save">
+    
+  </form>
+  <div [hidden]="!submitted">
+    <div class="btn-group ">
+      <h4>You submitted successfully!  </h4>
+    </div>
+  </div>
+</div>

@@ -1,14 +1,14 @@
 import { Boutique } from "./Boutique";
 
 export class Personnel{
-ID_Personnel:number;
+IDPersonnel:number;
  nom:String;
- Prénom:String;
+ prenom:String;
  image:File;
  boutique:Boutique;
  email:String;
  profile:String ;
- Domaine_Réparation:String;
+ domaineReparation:String;
 
 }
 

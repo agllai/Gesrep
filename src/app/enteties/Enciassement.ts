@@ -1,20 +1,22 @@
 import { Boutique } from "./Boutique";
 import { Demande_Reparation } from "./Demande_Reparation";
 import { Article } from "./Article";
+import { Tache_Reparation } from "./Tache_Reparation";
 
 export class Encaissement{
-    Id_Encaissement:number;
-	Boutique:Boutique;
-	Montant_avance:number;
-	Moyen_paiment:String ;
-	Réduction:number;
-	Montant_paye:number;
-	Demande_Reparation : Demande_Reparation;
-	Total_HT:number;
+    idEncaissement:number;
+	boutique:Boutique;
+	montantAvance:number;
+	moyenPaiment:String ;
+	reduction:number;
+	montantPaye:number;
+	demandeReparation : Demande_Reparation;
+	totalHT:number;
 	article:Article;
-	Total_TTC:number;
-	TVA:number;
-	Reste_a_Paye:number;
+	totalTTC:number;
+	tva:number;
+	resteAPaye:number;
 	tarif:number;
-
+	tacheRep:Tache_Reparation[];
+	constructor() { }
 }

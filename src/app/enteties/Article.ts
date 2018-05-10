@@ -1,16 +1,18 @@
 import {Boutique} from '../enteties/Boutique';
 import {Operateur} from '../enteties/Operateur';
-import {Reparation} from '../enteties/Reparation';
+import { Demande_Reparation } from './Demande_Reparation';
 export class Article{
-    Id_Article:number;
-    Serial_Number:String;
-	Marque:String;
-	Model:String ;
-	boutique:Boutique=new Boutique();
+    idArticle:number;
+    serialNumber:String;
+	marque:String;
+	model:String ;
+	boutique:Boutique;
 	operateur:Operateur;
-	reparation :Reparation;
-	Livraison:Boolean;
-	Date_récupération:Date;
+	reparation:Demande_Reparation;
+	livraison:Boolean;
+	dateRecuperation:Date;
 	commentaire:String;
-	Code_Securite:String;
+	designation:String;
+	codeSecurite:String;
+	constructor(){}
 }

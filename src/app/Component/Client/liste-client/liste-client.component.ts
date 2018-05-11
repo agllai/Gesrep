@@ -24,12 +24,12 @@ export class ListeClientComponent implements OnInit {
   deleteClient(client:Client){
     this._Clientservice.deleteClient(client.idClient).subscribe((data)=>{
        // console.log("data:",data);
-this.getClients();                                                                                               
+    this.getClients();                                                                                               
 
-this._router.navigate(["../ListeClient"]);
-this.client=client;
-setTimeout(()=>{this.hidden=false},100);
-setTimeout(()=>{this.hidden=true},1500);
+    this._router.navigate(["../ListeClient"]);
+    this.client=client;
+    setTimeout(()=>{this.hidden=false},100);
+    setTimeout(()=>{this.hidden=true},1500);
     },(error)=>{
       console.log(error);
     });
@@ -45,7 +45,6 @@ setTimeout(()=>{this.hidden=true},1500);
     this._Clientservice.getclient().subscribe((Clients)=>{
       console.log(Clients);
       this.clients=Clients;
-      console.log(this._Clientservice.getterClients())
     },
     (error:ErrorHandler)=>{console.log(error);
     

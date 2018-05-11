@@ -28,14 +28,13 @@ export class ArticleService {
   private articles:Article[];
   private response:any;
   private data:any;
+  private hidden:boolean=true;
   constructor(private _http:Http, private _httpClient:HttpClient) { }
   
   createArticle(article: Article) {
     return this._httpClient
-      .post(this.baseurl+'/Article', JSON.stringify(article), httpOptions)
-      .toPromise()
-      .then(res => {res as Article;this.data=res;this.article=res as Article;console.log(this.article)})
-      .catch(this.handleError);}
+      .post<Article>(this.baseurl+'/Article', JSON.stringify(article), httpOptions)
+      .map((article:Article)=> {this.article=article}).catch(this.handleError);}
 private handleError(error:Error) {
 console.log('Error', error);
 return Observable.throw(error||"SERVER ERROR"); }
@@ -44,6 +43,16 @@ getArticles(){
 
  return this.response;
 
+}
+updateArticle(article: Article) {
+  return this._httpClient
+    .put<Article>(this.baseurl+'/Article', JSON.stringify(article), httpOptions)
+    .map((article:Article)=> this.article=article).catch(this.handleError);
+  
+  }
+
+deleteArticle(idArticle:number){
+  return this._http.delete(this.baseurl+'/Article/'+idArticle,this.options);
 }
 getArticle(idArticle:number)
 {
@@ -63,5 +72,12 @@ return this.article;
 getterArticles()
 {
 return this.articles;
+}
+gethidden(){
+  return this.hidden;
+}
+sethidden(hidden:boolean):boolean{
+  return this.hidden;
+
 }
 }

@@ -31,6 +31,7 @@ data:any;
   private client:Client = new Client();
   private clients:Client[];
   private response:any;
+  private method:string="add";
   constructor(private _http:Http,private _httpClient:HttpClient ) { }
   /*createClient(client:Client){
     return this._http.post(this.baseurl+'/client',JSON.stringify(client)  ,this.options).map((response:Response)=> response.json(),error=>this.errorHandler(error));
@@ -40,9 +41,8 @@ data:any;
       createClient(client: Client) {
         return this._http
           .post(this.baseurl+'/client', JSON.stringify(client), {headers : this.headers})
-          .toPromise()
-          .then(res => {res.json() as Client;console.log(res);})
-          .catch(this.handleError);}
+          .map((response:Response)=> response.json()).catch(this.handleError);
+         }
    private handleError(error: any):Promise<any> {
     console.log('Error', error); // for demo purposes only
     return (error.message);
@@ -55,15 +55,16 @@ data:any;
     }
     
     updateClient(client: Client) {
-      return this._http
-        .put(this.baseurl+'/Client', JSON.stringify(client), {headers : this.headers})
-        .toPromise()
-        .then(res => {res.json() as Client;console.log(res);})
-        .catch(this.handleError);}
+      return this._httpClient
+        .put<Client>(this.baseurl+'/UpdateClient', JSON.stringify(client), httpOptions)
+        .map((client:Client)=> this.client=client).catch(this.handleError);
+      
+      }
  
     deleteClient(idClient:number){
       return this._http.delete(this.baseurl+'/Client/'+idClient,this.options);
     }
+   
 setter(client:Client)
 {
   this.client =client;
@@ -78,5 +79,11 @@ getter(){
 getterClients()
 {
   return this.clients;
+}
+getMethod(){
+  return this.method;
+}
+setMethod(method:string){
+  this.method=method;
 }
 }

@@ -14,6 +14,7 @@ export class ClientComponent implements OnInit {
   submitted = false;
   data:any;
   adresse:String;
+  method:String;
     constructor(private _ClientService:ClientService,private _rotuer:Router) { 
       
     }
@@ -21,23 +22,50 @@ export class ClientComponent implements OnInit {
     ngOnInit() {
       this.client=this._ClientService.getter();
       this.client.typeClient="citizen";
+      
     }
     newClient():void{
       this.submitted = false;
       this.client=new Client();
     }
     private save():any{
-      return this._ClientService.createClient(this.client);
+     // if(this.method==="add"){
+      return this._ClientService.createClient(this.client); 
       //console.log(this.client);
+   // }
+    //else{
+    ///  return this._ClientService.updateClient(this.client);
+    //}
+    }
+    private update():any{
+      return this._ClientService.updateClient(this.client);
     }
     processForm(){
-    //  this.reswrap.client=this.client;
-      //this.reswrap.article=this.article;
-      
+
+      if(this.client.idClient===undefined){
+      this.data=this._ClientService.createClient(this.client).subscribe((client:Client)=>{
+        console.log(client);
+        this._rotuer.navigate(['../ListeClient']);
+      },(error)=>{
+        console.log(error);
+      });
+        console.log("saved");
+      }else{
+        console.log(this.client);
+          this.data=this._ClientService.updateClient(this.client).subscribe((client:Client)=>{
+            console.log(client);
+            this._rotuer.navigate(['../ListeClient']);
+          },(error)=>{
+            console.log(error);
+          });
+        console.log("updated");
+      }
      
-      this.data=this.save();
+      
       console.log(this.data);
       this.submitted = true;
+      setTimeout(() => {this.submitted=false;}, 4000);
+
      // this._rotuer.navigate(["\rw"]);
       /*this._ClientService.createClient(client).subscribe((client)=>{
         console.log(client);

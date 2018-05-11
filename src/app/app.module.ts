@@ -74,7 +74,10 @@ import { CreateTypePanneComponent } from './Component/Type-Panne/create-type-pan
       path:"CreateClient",
       component:ClientComponent
     },
-   { path:"ListeClient",
+   { path:"ListeClient/:hidden",
+    component:ListeClientComponent
+  },
+  { path:"ListeClient",
     component:ListeClientComponent
   },
   {

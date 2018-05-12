@@ -18,6 +18,7 @@ article:Article;
   ngOnInit() {
     this.getArticles();
     this.hidden=true;
+    console.log(this.article);
     /*this._Articleservice.getArticles().subscribe((Articles)=>{
       console.log(Articles);
       this.articles=Articles;
@@ -36,6 +37,7 @@ article:Article;
     this.article=article;
     setTimeout(()=>{this.hidden=false},100);
     setTimeout(()=>{this.hidden=true},2000);
+    console.log(this.article)
     },(error)=>{
       console.log(error);
     });

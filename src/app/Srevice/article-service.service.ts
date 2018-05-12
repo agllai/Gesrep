@@ -56,7 +56,7 @@ deleteArticle(idArticle:number){
 }
 getArticle(idArticle:number)
 {
-  return this._httpClient.get<Article>(this.baseurl+"/Article/"+idArticle,httpOptions).map((article:Article)=>this.article).catch(this.handleError);
+  return this._httpClient.get<Article>(this.baseurl+"/Article/"+idArticle,httpOptions).map((article:Article)=>{this.article=article;console.log(article)}).catch(this.handleError);
 }
 setter(article:Article)
 {

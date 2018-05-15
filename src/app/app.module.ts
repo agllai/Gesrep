@@ -33,7 +33,7 @@ import { CreateTypePanneComponent } from './Component/Type-Panne/create-type-pan
 import { Ng2SearchPipeModule } from 'ng2-search-filter'; //importing the module
 import { OrderModule ,OrderPipe } from 'ngx-order-pipe'; //importing the module
 import { NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
-import {NgbModule, NgbPaginationConfig} from '@ng-bootstrap/ng-bootstrap';
+
 import { ListOperatorComponent } from './Component/Operator/list-operator/list-operator.component';
 @NgModule({
   declarations: [
@@ -67,7 +67,7 @@ import { ListOperatorComponent } from './Component/Operator/list-operator/list-o
     Ng2SearchPipeModule, //including into imports
     OrderModule, // importing the sorting package here
     NgxPaginationModule,
-    NgbModule,
+  
   //  NgbModule.forRoot(),
     RouterModule.forRoot([
       {path:"rw",
@@ -118,7 +118,7 @@ import { ListOperatorComponent } from './Component/Operator/list-operator/list-o
     ])
     
   ],
-  providers: [ResponceWrapperService,ClientService,ArticleService,PaymentService, ],
+  providers: [ResponceWrapperService,ClientService,ArticleService,PaymentService ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   
   bootstrap: [AppComponent]

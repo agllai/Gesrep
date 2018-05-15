@@ -16,7 +16,7 @@ import { EventEmitter } from 'events';
 export class ListArticleComponent implements OnInit {
 
 articles:Article[];
-hidden:Boolean;
+hidd:Boolean;
 article:Article;
 p: number = 1;
 size:number=1;
@@ -31,13 +31,14 @@ Nbpage1:number[];
 
   ngOnInit() {
     this.getArticles();
-    this.hidden=true;
+    this.hidd=true;
     console.log(this.article);
+    this.p=1;
     this.IPP=5;
     //this.countarticle();
    // this.nbpage;
-    this.p=1;
-    console.log(this.size / this.IPP);
+    
+   // console.log(this.size / this.IPP);
     /*this._Articleservice.getArticles().subscribe((Articles)=>{
       console.log(Articles);
       this.articles=Articles;
@@ -57,18 +58,21 @@ Nbpage1:number[];
 
   }
   deleteArticle(article:Article){
+    
     this._Articleservice.deleteArticle(article.idArticle).subscribe((data)=>{
        // console.log("data:",data);
     this.getArticles();                                                                                               
     this._router.navigate(["../listArticle"]);
     this.article=article;
-    setTimeout(()=>{this.hidden=false},100);
-    setTimeout(()=>{this.hidden=true},2000);
-    console.log(this.article)
+    alert("you deleted article with serial Number:"+this.article.serialNumber);
+    
+    setTimeout(()=>{this.hidd=false},100);
+    setTimeout(()=>{this.hidd=true},2000);
+    console.log(this.article);
     },(error)=>{
       console.log(error);
     });
-    
+  
     
   }
   updateArticle(article:Article){

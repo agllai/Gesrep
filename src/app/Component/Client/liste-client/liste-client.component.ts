@@ -14,12 +14,36 @@ export class ListeClientComponent implements OnInit {
   clients:Client[];
   hidden:boolean;
   client:Client;
+  p: number = 1;
+size:number=1;
+IPP:number=5;
+NbPage:number;
+Nbpage1:number[];
+ key:string="idClient";
+  reverse: boolean = false;
+  filter:string;
   constructor(private _Clientservice:ClientService,private _router:Router,private route:ActivatedRoute) { }
 
   ngOnInit() {
     this.getClients();
     this.hidden=true;
+    this.IPP=5;
+   
+    this.p=1;
   //this.route.params.subscribe((params:Params)=>this.hidden=params.hidden,(error)=>console.error(error));
+  }
+ 
+  sort(key){
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
+  modifynbPage(nbpage:number){
+    this.IPP=nbpage;
+  }
+  newClient(){
+    this.client=new Client();
+this._Clientservice.setter(this.client);
+this._router.navigate(['../CreateClient'],{relativeTo : this.route});
   }
   deleteClient(client:Client){
     this._Clientservice.deleteClient(client.idClient).subscribe((data)=>{

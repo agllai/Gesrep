@@ -1,15 +1,21 @@
 
 <div id="container">
     <div class="row">
-<div class="">
-    <app-topmenu></app-topmenu>
-    <div></div>
-    <div class="col-sm-4 col-lg-2" style="padding-top: 50px">
-    <app-side-menu></app-side-menu>
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <app-topmenu></app-topmenu>
+        </div>
     </div>
-    <div id="page-wrapper" class="col-sm-8 col-lg-10 col-xs-8 right-col" style="padding-top: 75px">
-      <div id="content">
-  <router-outlet data-toggle="#navcol-1"></router-outlet>
-  </div></div></div>
-</div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-1 col-md-8 col-md-offset-0">
+            <div class="col-sm-2 col-lg-2 col-xs-3 " style="padding-top: 50px;align-self: left;">
+                <app-side-menu></app-side-menu>
+            </div>
+            <div id="page-wrapper" class="col-sm-8 col-lg-10 col-xs-9 fixed-right" style="padding-top: 45px">
+                <div id="content">
+                    <router-outlet data-toggle="#navcol-1"></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+   
 </div>

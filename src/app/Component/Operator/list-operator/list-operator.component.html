@@ -1,3 +1,107 @@
-<p>
-  list-operator works!
-</p>
+
+  
+  <div class="container">
+    <div class="row">
+      <col-xs-12 class="col-lg-12 col-sm-12">
+    
+    
+    
+    
+    
+    </col-xs-12>
+    </div>
+    <div class="row">
+      <nav class="navbar">
+        <input class="form-control" type="text" name="search" [(ngModel)]="filter">      
+      </nav>
+      </div>
+ 
+      <table class="table " style="width: 100%;justify-self: center; ">
+       <thead>
+          
+               <tr>
+            
+              
+                  
+                 <th style=" column-width: 6%;width:6%" (click)="sort('serialNumber')">serial Number 
+                 <span class="glyphicon sort-icon" *ngIf="key =='serialNumber'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+              
+              <th  style=" column-width: 6%;width:6%"(click)="sort('marque')">marque 
+                 <span class="glyphicon sort-icon" *ngIf="key =='marque'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+              
+              <th style=" column-width: 6%;width:6%" (click)="sort('model')">model 
+                 <span class="glyphicon sort-icon" *ngIf="key =='model'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+              
+              <th style=" column-width: 6%;width:6%" (click)="sort('boutique')">boutique 
+                 <span class="glyphicon sort-icon" *ngIf="key =='boutique'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+              
+              <th style=" column-width: 6%;width:6%" (click)="sort('operateur')"> operateur 
+                 <span class="glyphicon sort-icon" *ngIf="key =='operateur'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span> 
+    
+               </th>
+              
+              
+                 <th style=" column-width: 6%;width:6%" (click)="sort('livraison')"> livraison 
+                 <span class="glyphicon sort-icon" *ngIf="key =='livraison'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span> 
+                </th>
+                
+                <th style=" column-width: 6%;width:6%"(click)="sort('dateRecuperation')">  date Récupération 
+                 <span class="glyphicon sort-icon" *ngIf="key =='dateRecuperation'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span> 
+                  </th>
+              
+             
+                 <th style=" column-width: 6%;width:6%" (click)="sort('commentaire')">  commentaire 
+                 <span class="glyphicon sort-icon" *ngIf="key =='commentaire'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span> 
+                  </th>
+              
+              
+                 <th style=" column-width: 6%;width:6%"  (click)="sort('designation')"> designation 
+                 <span class="glyphicon sort-icon" *ngIf="key =='designation'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span> 
+  
+               </th>
+                 <th style=" column-width: 10%;width:10%" (click)="sort('codeSecurite')"> code de Securite 
+                 <span class="glyphicon sort-icon" *ngIf="key =='codeSecurite'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span> 
+                  </th>
+                 
+                
+                 <th> <div class="justify-content-sm-right">Actions </div>
+                
+                </th>
+    
+             
+              
+            </tr>  
+          </thead>
+        <tbody>
+          <tr *ngFor="let article of articles |orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
+           
+            
+            <td>{{article.serialNumber}}</td>
+            <td>{{article.marque}}</td>
+                  <td>{{article.model}}</td>
+                  <td>{{article.boutique}}</td>
+                  <td>{{article.operateur}}</td>
+                  <td>{{article.livraison}}</td>
+                  <td>{{article.dateRecuperation}}</td>
+                  <td>{{article.commentaire}}</td>
+                  <td>{{article.designation}}</td>
+                  <td>{{article.codeSecurite}}</td>
+                  <td><button class="btn btn-danger" (click)="deleteArticle(article)">Delete</button>
+                      <button class="btn btn-primary" (click)="updateArticle(article)">Edit</button>
+                      <button class="btn btn-primary" (click)="Livrai(article)">livrai</button>          
+                    </td>
+          </tr>
+        </tbody>
+            
+          
+        
+        
+      </table>
+      <pagination-controls (pageChange)="p = $event"> 
+            
+        </pagination-controls>
+    </div>

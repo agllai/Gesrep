@@ -30,8 +30,11 @@ import { CreatePersonnelComponent } from './Component/Personnel/create-personnel
 import { ListPersonnelComponent } from './Component/Personnel/list-personnel/list-personnel.component';
 import { ListPaymentComponent } from './Component/Payment/list-payment/list-payment.component';
 import { CreateTypePanneComponent } from './Component/Type-Panne/create-type-panne/create-type-panne.component';
-
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter'; //importing the module
+import { OrderModule ,OrderPipe } from 'ngx-order-pipe'; //importing the module
+import { NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import {NgbModule, NgbPaginationConfig} from '@ng-bootstrap/ng-bootstrap';
+import { ListOperatorComponent } from './Component/Operator/list-operator/list-operator.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +54,8 @@ import { CreateTypePanneComponent } from './Component/Type-Panne/create-type-pan
     CreatePersonnelComponent,
     ListPersonnelComponent,
     ListPaymentComponent,
-    CreateTypePanneComponent
+    CreateTypePanneComponent,
+    ListOperatorComponent
   ],
   imports: [
     BrowserModule,
@@ -60,8 +64,11 @@ import { CreateTypePanneComponent } from './Component/Type-Panne/create-type-pan
     ReactiveFormsModule,
     HttpClientModule,
     InterceptorModule,
-    
-    
+    Ng2SearchPipeModule, //including into imports
+    OrderModule, // importing the sorting package here
+    NgxPaginationModule,
+    NgbModule,
+  //  NgbModule.forRoot(),
     RouterModule.forRoot([
       {path:"rw",
       component:ResponceWrapperComponent
@@ -103,11 +110,15 @@ import { CreateTypePanneComponent } from './Component/Type-Panne/create-type-pan
   {
     path:"ListPiece",
     component:ListPieceComponent
+  },
+  {
+    path:"listOperator",
+    component:ListOperatorComponent
   }
     ])
     
   ],
-  providers: [ResponceWrapperService,ClientService,ArticleService,PaymentService],
+  providers: [ResponceWrapperService,ClientService,ArticleService,PaymentService, ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   
   bootstrap: [AppComponent]

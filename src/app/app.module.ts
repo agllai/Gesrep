@@ -33,8 +33,11 @@ import { CreateTypePanneComponent } from './Component/Type-Panne/create-type-pan
 import { Ng2SearchPipeModule } from 'ng2-search-filter'; //importing the module
 import { OrderModule ,OrderPipe } from 'ngx-order-pipe'; //importing the module
 import { NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
-
+//import { NgbModule ,NgbTypeaheadModule ,NgbTypeaheadConfig } from '@ng-bootstrap/ng-bootstrap';
 import { ListOperatorComponent } from './Component/Operator/list-operator/list-operator.component';
+import { ComponentAutocomplete } from './autocomplete/componentautocomplete.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { autocompletePiPe } from './autocomplete.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +58,9 @@ import { ListOperatorComponent } from './Component/Operator/list-operator/list-o
     ListPersonnelComponent,
     ListPaymentComponent,
     CreateTypePanneComponent,
-    ListOperatorComponent
+    ListOperatorComponent,
+    ComponentAutocomplete,
+    autocompletePiPe
   ],
   imports: [
     BrowserModule,
@@ -67,8 +72,8 @@ import { ListOperatorComponent } from './Component/Operator/list-operator/list-o
     Ng2SearchPipeModule, //including into imports
     OrderModule, // importing the sorting package here
     NgxPaginationModule,
-  
-  //  NgbModule.forRoot(),
+    MatAutocompleteModule,
+    //NgbModule.forRoot(),
     RouterModule.forRoot([
       {path:"rw",
       component:ResponceWrapperComponent
@@ -114,11 +119,15 @@ import { ListOperatorComponent } from './Component/Operator/list-operator/list-o
   {
     path:"listOperator",
     component:ListOperatorComponent
+  },
+  {
+    path:"autocomplete",
+    component:ComponentAutocomplete
   }
     ])
     
   ],
-  providers: [ResponceWrapperService,ClientService,ArticleService,PaymentService ],
+  providers: [ResponceWrapperService,ClientService,ArticleService,PaymentService,],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   
   bootstrap: [AppComponent]

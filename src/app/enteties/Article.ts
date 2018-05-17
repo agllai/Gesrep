@@ -4,8 +4,8 @@ import { Demande_Reparation } from './Demande_Reparation';
 export class Article{
     idArticle:number;
     serialNumber:String;
-	marque:String;
-	model:String ;
+	marque:string;
+	model:string ;
 	boutique:Boutique;
 	operateur:Operateur;
 	reparation:Demande_Reparation;

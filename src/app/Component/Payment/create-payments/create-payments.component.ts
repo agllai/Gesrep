@@ -16,7 +16,8 @@ export class CreatePaymentsComponent implements OnInit {
   payment: Encaissement=new Encaissement();
 private data:any;
 private submitted:boolean = false;
-article:Article;
+article:Article=new Article();
+
   constructor(private _PaymentService:PaymentService , private _ArticleService:ArticleService,private _rotuer:Router) { }
 
   ngOnInit() {
@@ -32,18 +33,14 @@ article:Article;
     this.payment=new Encaissement();
   }
   private save(payment:Encaissement){
-    return this._PaymentService.createPayment(payment);
+    return this._PaymentService.createPayment(payment)
     
-    /*.subscribe((payment:Encaissement)=>this.payment=payment,
-    (error:ErrorHandler)=>console.log(error));*/
-        //console.log(this.client);
+    .subscribe((payment:Encaissement)=>this.payment=payment,
+    (error:ErrorHandler)=>console.log(error));
+        
   }
   processForm(payment:Encaissement,article:Article)
   {
-    //  this.reswrap.client=this.client;
-      //this.reswrap.article=this.article;
-      
-
     //this.article=this._ArticleService.gerArticle(this.article.idArticle);
    // console.log("testing article existence");
     /*if (this.article.marque===undefined){
@@ -69,19 +66,20 @@ article:Article;
           console.log("marque undefined");
           this._ArticleService.getArticle(this.article.idArticle).subscribe((article1:Article)=>{
             console.log(article1,"article");
-            this.payment.article=this._ArticleService.getter();
+            this.article=this._ArticleService.getter();
             console.log(this.payment);
           },
           (error:ErrorHandler)=>{console.log("error",error);})
-        }else{
+          
+        }
           this.payment.article=this.article;
-            }
+           
           this.data=this.save(this.payment);
           console.log(this.data,"saving result");
          
           
           console.log(this._PaymentService.getter(),"payment service object");
-       this.data=this._PaymentService.createPayment(payment);
+      // this.data=this._PaymentService.createPayment(payment);
          
          this._rotuer.navigate(['../ListPayment']);
        
@@ -110,9 +108,5 @@ article:Article;
        setTimeout(() => {this.submitted=false;}, 4000);
 
 
-
-
-      //
-  }
   
-}
+}}

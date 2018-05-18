@@ -30,9 +30,8 @@ export class PaymentService {
 
   createPayment(payment: Encaissement) {
     return this._httpClient
-      .post(this.baseurl+'/Encaissement', JSON.stringify(payment), httpOptions)
-      .toPromise()
-      .then(res => {res as Encaissement;this.data=res;this.payment=res as Encaissement;console.log(this.payment)})
+      .post<Encaissement>(this.baseurl+'/Encaissement', JSON.stringify(payment), httpOptions)
+      .map((res:Encaissement) => {res as Encaissement;this.payment=res as Encaissement;console.log(this.payment);return res})
       .catch(this.handleError);}
 private handleError(error: any) {
 console.log('Error', error); // for demo purposes only

@@ -1,3 +1,193 @@
-<p>
-  create-tache-reparation works!
-</p>
+<div class="container col-md-4 responsive panel-group" style="padding-top: 0px">
+  
+  <form (ngSubmit)="add(f)" #f="ngForm">
+  <div class="panel panel-success">
+   <div class="panel-head ">
+      <div class="form group inline-form">
+          <label for="tacheReparartion" ><h3> tache Reparation</h3></label></div>
+           <div class="panel-body">
+          <div id="tacheReparartion">
+        
+
+        <div class="form group">
+          <label for="Model">Composant</label>
+          <div class="row">
+            <div class="col-lg-12 col-xs-12 col-sm-12">
+          <input id="composant" for="dropdown-menu" type="text" required="true"  name="composant.nomComposant" class="form-control dropdown-toggle"  data-toggle="dropdown" [(ngModel)]="composant.nomComposant" #compot="ngModel">
+          <ul class="dropdown-menu scrollmenu pre-scrollable list-group" id="dropdown-menu" style="margin-left:15px; max-height: 265px; overflow:scroll">
+            
+             
+                <li *ngFor="let compo of composants | autocomplete : composant.nomComposant:'nomComposant':2 "  [ngClass]="isactive('compo')">
+                  <a (click)="choose(compo)" (focus)="changeClass(compo)"> {{compo.nomComposant}}
+                   </a>
+                </li>
+          </ul>
+
+          </div>
+                    <span class="help-block" *ngIf="!compot.valid && compot.touched" > please enter a valid composant</span>
+
+        </div>
+        </div>
+        <div class="form group">
+          <label for="Panne">Panne</label>
+          <input id="Panne" type="text" name="tacheReparation.Panne" class="form-control" [(ngModel)]="tacheReparation.Panne" >
+        </div>
+        <div class="form group">
+          <label for="Description">Description</label>
+          <input id="Description" type="text" name="tacheReparation.Description" class="form-control" [(ngModel)]="tacheReparation.Description" >
+        </div>
+        </div>
+    </div>
+    
+    <input type="submit" [disabled]="!f.valid" class="btn btn-success" value="add">
+    </div></div>
+  </form>
+
+<div class="panel panel-success">
+
+  <table class="table table-responsive table-bordered" style="width: 100%;justify-self: center; ">
+
+    <div class="panel-heading">
+    <thead>
+       
+            <tr>
+              <th style=" column-width: 6%;width:6%"> Panne
+             </th>
+           
+           <th  style=" column-width: 6%;width:6%">composant
+           </th>
+           
+           <th style=" column-width: 6%;width:6%">Description
+           </th>
+           <th style=" column-width: 6%;width:6%">Etat
+          </th>
+
+         </tr>  
+       </thead></div>
+       <div class="panel-body">
+     <tbody >
+       <tr *ngFor="let tacheRep of listTacheRep ">
+        
+         
+          <td style=" column-width: 6%;width:6%">{{tacheRep.Panne}}</td>
+          <td style=" column-width: 6%;width:6%">{{tacheRep.Composant.nomComposant}}</td>
+          <td style=" column-width: 6%;width:6%">{{tacheRep.Description}}</td>
+          <td style=" column-width: 6%;width:6%">{{tacheRep.etat.Nom}}</td>      
+       </tr>
+     </tbody>
+         </div>
+       
+     
+     
+   </table>
+   <button class="btn btn-success" (click)="save()">Save</button>
+</div>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+<!-- Modal -->
+
+  <div id="myModal" class="modal fade box-raduis" role="dialog" >   
+  <div class="modal-dialog " style="vertical-align: center;">
+
+    <!-- Modal content-->
+    <div class="modal-content panel-success">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="panel-heading ">
+        <label for="tacheReparartion"><h5 class="modal-title panel-title">Tache Reparation</h5></label></div>
+    
+      </div>
+      
+      <div class="modal-body">
+          <form (ngSubmit)="add(f)" #f="ngForm">
+              <div class="panel box-raduis">
+                <div class="form group inline-form">
+               
+                  
+                      
+                       <div class="panel-body">
+                      <div id="tacheReparartion">
+                    
+            
+                    <div class="form group">
+                      <label for="Model">Composant</label>
+                      <div class="row">
+                        <div class="col-lg-12 col-xs-12 col-sm-12">
+                      <input id="composant" for="dropdown-menu" type="text" required="true"  name="composant.nomComposant" class="form-control dropdown-toggle"  data-toggle="dropdown" [(ngModel)]="composant.nomComposant" #compot="ngModel">
+                      <ul class="dropdown-menu scrollmenu pre-scrollable list-group" id="dropdown-menu" style="margin-left:15px; max-height: 265px; overflow:scroll">
+                        
+                         
+                            <li *ngFor="let compo of composants | autocomplete : composant.nomComposant:'nomComposant':2 "  [ngClass]="isactive('compo')">
+                              <a (click)="choose(compo)" (focus)="changeClass(compo)"> {{compo.nomComposant}}
+                               </a>
+                            </li>
+                      </ul>
+            
+                      </div>
+                                <span class="help-block" *ngIf="!compot.valid && compot.touched" > please enter a valid composant</span>
+            
+                    </div>
+                    </div>
+                    <div class="form group">
+                      <label for="Panne">Panne</label>
+                      <input id="Panne" type="text" name="tacheReparation.Panne" class="form-control" [(ngModel)]="tacheReparation.Panne" >
+                    </div>
+                    <div class="form group">
+                      <label for="Description">Description</label>
+                      <input id="Description" type="text" name="tacheReparation.Description" class="form-control" [(ngModel)]="tacheReparation.Description" >
+                    </div>
+                    </div>
+                </div>
+                
+                <input type="submit" [disabled]="!f.valid" class="btn btn-success" value="add">
+                </div>
+                </div>
+              </form>
+            <div class="row "><div class="col-lg-12 col-sm-12 col-xs-12">
+            <div class="panel box-raduis">
+            
+              <table class="table table-responsive table-bordered" style="width: 200%;justify-self: center;justify-items: center ">
+                <div class="panel-heading">
+                <thead>
+                   
+                        <tr>
+                          <th style=" column-width: 10%;width:10%"> Panne
+                         </th>
+                       
+                       <th  style=" column-width: 10%;width:10%">composant
+                       </th>
+                       
+                       <th style=" column-width: 10%;width:10%">Description
+                       </th>
+                       <th style=" column-width: 10%;width:10%">Etat
+                      </th>
+            
+                     </tr>  
+                   </thead></div>
+                   <div class="panel-body">
+                 <tbody >
+                   <tr *ngFor="let tacheRep of listTacheRep ">
+                    
+                     
+                      <td style=" column-width: 10% ; width:10%">{{tacheRep.Panne}}</td>
+                      <td style=" column-width: 10% ; width:10%">{{tacheRep.Composant.nomComposant}}</td>
+                      <td style=" column-width: 10% ; width:10%">{{tacheRep.Description}}</td>
+                      <td style=" column-width: 10% ; width:10%">{{tacheRep.etat.Nom}}</td>      
+                   </tr>
+                 </tbody>
+                     </div>
+                   
+                 
+                 
+               </table>
+               <button class="btn btn-success" (click)="save()">Save</button>
+            </div></div> </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>

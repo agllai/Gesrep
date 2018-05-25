@@ -1,3 +1,32 @@
-<p>
-  list-tache-reparation works!
-</p>
+<table class="table " style="width: 100%;justify-self: center; ">
+  <thead>
+     
+          <tr>
+            <th style=" column-width: 6%;width:6%"> Panne
+           </th>
+         
+         <th  style=" column-width: 6%;width:6%">composant
+         </th>
+         
+         <th style=" column-width: 6%;width:6%">Description
+         </th>
+         <th style=" column-width: 6%;width:6%">Etat
+        </th>
+
+       </tr>  
+     </thead>
+   <tbody >
+     <tr *ngFor="let tacheRep of listTacheRep ">
+      
+       
+        <td>{{tacheRep.Panne}}</td>
+        <td>{{tacheRep.Composant.nomComposant}}</td>
+        <td>{{tacheRep.Description}}</td>
+        <td>{{tacheRep.etat.Nom}}</td>      
+     </tr>
+   </tbody>
+       
+     
+   
+   
+ </table>

@@ -13,12 +13,23 @@ export class ListPaymentComponent implements OnInit {
   public payments:Encaissement[]=[];
   public payment:Encaissement;
   hidden:boolean;
+  p: number = 1;
+size:number=1;
+IPP:number=5;
+ key:string="idEncaissement";
+  reverse: boolean = false;
+  filter:string;
+  sort(key){
+    this.key = key;
+    this.reverse = !this.reverse;}
   constructor(private _Paymentservice:PaymentService,private _router:Router, private route:ActivatedRoute) { }
 
   ngOnInit() {
     this.getPayments();
     this.hidden=true;
     console.log(this.payment);
+    this.p=1;
+    this.IPP=5;
     /*
     this._Paymentservice.getPayments().subscribe((payments:Encaissement[])=>{
       console.log(payments);
@@ -60,4 +71,11 @@ export class ListPaymentComponent implements OnInit {
     
     })
   }
+  newPayment():void{
+    
+    this.payment=new Encaissement();
+    this._Paymentservice.setter(this.payment);
+    //this._Articleservice.sethidden(true);
+    this._router.navigate(['../MakePAyment'],{relativeTo : this.route});
+  } 
 }

@@ -34,10 +34,15 @@ export class ArticleService {
   createArticle(article: Article) {
     return this._httpClient
       .post<Article>(this.baseurl+'/Article', JSON.stringify(article), httpOptions)
-      .map((article:Article)=> {this.article=article}).catch(this.handleError);}
+      .map((article:Article)=> {this.article=article}).catch(this.handleError);
+    }
+
+
 private handleError(error:Error) {
 console.log('Error', error);
-return Observable.throw(error||"SERVER ERROR"); }
+return Observable.throw(error||"SERVER ERROR"); 
+}
+
 getArticles(){
  this.response= this._http.get(this.baseurl+'/Article',this.options).map((response:Response)=> response.json()).catch( this.handleError);
 
@@ -54,28 +59,35 @@ updateArticle(article: Article) {
 deleteArticle(idArticle:number){
   return this._http.delete(this.baseurl+'/Article/'+idArticle,this.options);
 }
+
 getArticle(idArticle:number)
 {
   return this._httpClient.get<Article>(this.baseurl+"/Article/"+idArticle,httpOptions).map((article:Article)=>{this.article=article;console.log(article) ; return article}).catch(this.handleError);
 }
+
 setter(article:Article)
 {
 this.article =article;
 }
+
 setterArticles(articles:Article[]):void
 {
 this.articles=articles;
 }
+
 getter(){
 return this.article;
 }
+
 getterArticles()
 {
 return this.articles;
 }
+
 gethidden(){
   return this.hidden;
 }
+
 sethidden(hidden:boolean):boolean{
   return this.hidden;
 

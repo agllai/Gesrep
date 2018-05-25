@@ -1,0 +1,14 @@
+ul.navigation>li>a{
+    cursor:pointer;
+}
+
+/*
+input[aria-expanded=true]{
+    width:500%;
+height:500%;
+padding:30% 20% 30% 20%;
+background-attachment: fixed;
+backface-visibility: hidden;
+scrollbar-base-color: blue;
+background-color: rgba(155,125,216, 0.6);
+}*/

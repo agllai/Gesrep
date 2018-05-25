@@ -35,9 +35,9 @@ export class PieceService {
     return this._http.post<Piece>(this.baseurl+'/Piece', JSON.stringify(piece), httpOptions)
     .map((piece:Piece)=> this.piece,catchError((error:ErrorHandler)=> this.handleError(error)));
   }
-private handleError(error: any): Promise<any>{
+private handleError(error: any){
 console.log('Error', error); // for demo purposes only
-return Promise.reject(error.message || error);}
+return Observable.throw(error.message || error);}
 public getPiece(): Observable<Piece[]>{
  this.response= this._http.get<Piece[]>(this.baseurl+'/Piece',httpOptions).pipe(map((pieces:Piece[])=> this.pieces),catchError((error:ErrorHandler)=> this.handleError(error)));
 

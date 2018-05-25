@@ -111,10 +111,10 @@ Nbpage1:number[];
   sort(key){
     this.key = key;
     this.reverse = !this.reverse;
-  }
+  }/*
   modifynbPage(nbpage:number){
     this.IPP=nbpage;
-  }
+  }*/
  /*
 
   countarticle(){

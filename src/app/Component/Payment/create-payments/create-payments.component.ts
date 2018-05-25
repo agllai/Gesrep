@@ -11,24 +11,42 @@ import { ErrorHandler } from '@angular/router/src/router';
   templateUrl: './create-payments.component.html',
   styleUrls: ['./create-payments.component.css']
 })
-export class CreatePaymentsComponent implements OnInit {
+export class CreatePaymentsComponent implements OnInit  {
 
   payment: Encaissement=new Encaissement();
 private data:any;
 private submitted:boolean = false;
-article:Article=new Article();
-
+hidden:boolean;
+listPayment:Encaissement[]=[];
+ article:Article=new Article();
+ key:string="moyenPaiment";
+ active:any;
+public payments:Encaissement[]=[];
+idArticle:number;
   constructor(private _PaymentService:PaymentService , private _ArticleService:ArticleService,private _rotuer:Router) { }
 
   ngOnInit() {
+    this._PaymentService.getPayments().subscribe((payments:Encaissement[])=>{
+      console.log(payments);
+      this.payments=payments;
+      console.log(this._PaymentService.getterPayments())
+    },
+    (error:ErrorHandler)=>{console.log(error);
+    
+    })
+    this.listPayment=this.payments;
     this.payment=this._PaymentService.getter();
-    if(this.payment.article.idArticle===undefined){ 
+    this.article=this.payment.article;
+    
+    if(this.article.idArticle===undefined){ 
     this.article=this._ArticleService.getter();
     }else{
       this.article=this.payment.article;
     }
+    
+   
   }
-  newArticle():void{
+  newPayment():void{
     
     this.payment=new Encaissement();
   }
@@ -105,8 +123,29 @@ article:Article=new Article();
        
        console.log(this.data);
        this.submitted = true;
-       setTimeout(() => {this.submitted=false;}, 4000);
-
+       setTimeout(() => {this.submitted=false;}, 4000); 
+}
+onClick(payment:Encaissement){
+ this.payment.moyenPaiment=payment.moyenPaiment;
+}
 
   
-}}
+choose(payment:Encaissement){
+  this.payment.moyenPaiment=payment.moyenPaiment;
+  console.log(this.payment,payment);
+}
+changeClass(payment:Encaissement){
+  this.active=payment;
+}
+isactive(payment:Encaissement):String{
+  if(payment!==this.active){  
+  return "";
+}
+  else{
+    return "active";
+  }
+}
+
+
+
+}

@@ -38,6 +38,12 @@ import { ListOperatorComponent } from './Component/Operator/list-operator/list-o
 import { ComponentAutocomplete } from './autocomplete/componentautocomplete.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { autocompletePiPe } from './autocomplete.pipe';
+import { CreateTacheReparationComponent } from './Component/TacheReparation/create-tache-reparation/create-tache-reparation.component';
+import { ListTacheReparationComponent } from './Component/TacheReparation/list-tache-reparation/list-tache-reparation.component';
+import { ComposantService } from './Srevice/composant.service';
+import { EtatService } from './Srevice/etat.service';
+import { PieceService } from './Srevice/piece.service';
+import { TacheReparationService } from './Srevice/tache-reparation.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +66,10 @@ import { autocompletePiPe } from './autocomplete.pipe';
     CreateTypePanneComponent,
     ListOperatorComponent,
     ComponentAutocomplete,
-    autocompletePiPe
+    autocompletePiPe,
+    CreateTacheReparationComponent,
+    ListTacheReparationComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -123,11 +132,15 @@ import { autocompletePiPe } from './autocomplete.pipe';
   {
     path:"autocomplete",
     component:ComponentAutocomplete
+  },
+  {
+    path:"\CreateTacheReparations",
+    component:CreateTacheReparationComponent
   }
     ])
     
   ],
-  providers: [ResponceWrapperService,ClientService,ArticleService,PaymentService,],
+  providers: [ResponceWrapperService,ClientService,ArticleService,PaymentService,ComposantService,TacheReparationService, EtatService,PieceService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   
   bootstrap: [AppComponent]

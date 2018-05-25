@@ -1,19 +1,19 @@
 import { Etat } from "./Etat";
 import { Article } from "./Article";
-import { Demande_Reparation } from "./Demande_Reparation";
+import { DemandeReparation } from "./Demande_Reparation";
 import { Personnel } from "./Personnel";
 import { Composant } from "./Composant";
 import { Encaissement } from "./Enciassement";
 
-export class Tache_Reparation{
-Id_Tache_Réparation:number;
+export class TacheReparation{
+IdTacheReparation:number;
 	 
 etat:Etat ;
 	 
 article:Article;
 	 
 
-demande_deparation:Demande_Reparation;
+demande_deparation:DemandeReparation;
 	 
 Reparateur: Personnel[] ;
 Createur:Personnel ;

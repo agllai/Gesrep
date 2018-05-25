@@ -1,9 +1,9 @@
 import { Piece } from "./Piece";
 
 export class Composant{
-Id_Composant;
+IdComposant;
 piece :Piece;
-Nom_Composant:String;
+nomComposant:String;
 tarif:number;
-tarif_minimal:number;
+tarifMinimal:number;
 }

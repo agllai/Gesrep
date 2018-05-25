@@ -31,21 +31,10 @@ listArticle:Article[]=[];
  articles:Article[]=[];
  key:string="model";
  active:any;
- reactiveArticles: Observable<Article[]>;
- tdArticles: Article[];
 
- articleModelCtrl: FormControl;
- tdDisabled = false;
 //@ViewChild('instance') instance: NgbTypeahead;
   constructor(private _ArticleService:ArticleService ,private _rotuer:Router) { 
-    this.tdArticles = this.articles;
-    this.articleModelCtrl = new FormControl();
-    this.reactiveArticles = this.articleModelCtrl.valueChanges
-      .pipe(
-        startWith(this.articleModelCtrl.value),
-        map(val => this.displayFn(val)),
-        map(name => this.filterStates(name))
-      );
+   
   }
 
   ngOnInit() {
@@ -123,7 +112,8 @@ listArticle:Article[]=[];
   }
   isactive(article1:Article):String{
     if(article1!==this.active){  
-    return "";}
+    return "";
+  }
     else{
       return "active";
     }
@@ -131,18 +121,6 @@ listArticle:Article[]=[];
 
 
 
-  changelist(){
-this.listArticle=this._filter(this.articles,this.article.model);
-  }
+ 
   
-  filterStates(val: string) {
-    return val ? this._filter(this.articles, val) : this.articles;
-  }
-  private _filter(articles: Article[], val: string) {
-    const filterValue = val.toLowerCase();
-    return articles.filter(article => article.model.toLowerCase().startsWith(filterValue));
-  }
-  displayFn(value: any): string {
-    return value && typeof value === 'object' ? value.name : value;
-  }
 }

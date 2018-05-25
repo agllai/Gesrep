@@ -1,6 +1,7 @@
 import {Boutique} from '../enteties/Boutique';
 import {Operateur} from '../enteties/Operateur';
-import { Demande_Reparation } from './Demande_Reparation';
+import { DemandeReparation } from './Demande_Reparation';
+import { Piece } from './Piece';
 export class Article{
     idArticle:number;
     serialNumber:String;
@@ -8,11 +9,12 @@ export class Article{
 	model:string ;
 	boutique:Boutique;
 	operateur:Operateur;
-	reparation:Demande_Reparation;
+	reparation:DemandeReparation;
 	livraison:Boolean;
 	dateRecuperation:Date;
 	commentaire:String;
 	designation:String;
 	codeSecurite:String;
+	piece:Piece;
 	constructor(){}
 }

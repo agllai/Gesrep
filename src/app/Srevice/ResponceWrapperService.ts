@@ -13,8 +13,8 @@ import { Article } from '../enteties/Article';
 import { Client } from '../enteties/Client';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { Encaissement } from '../enteties/Enciassement';
-import { Tache_Reparation } from '../enteties/Tache_Reparation';
-import { Demande_Reparation } from '../enteties/Demande_Reparation';
+//import { Tache_Reparation } from '../enteties/Tache_Reparation';
+//import { Demande_Reparation } from '../enteties/Demande_Reparation';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -31,8 +31,8 @@ export class ResponceWrapperService {
 private client:Client=new Client();
 private article:Article=new Article();
   private enciassement:Encaissement=new Encaissement();
-  private tache_Reparatation:Tache_Reparation[];
-private demande_reparation:Demande_Reparation=new Demande_Reparation();
+  //private tache_Reparatation:Tache_Reparation[];
+//private demande_reparation:Demande_Reparation=new Demande_Reparation();
   private ResWrap = new ResponceWrapper();
   data:any;
   constructor(private _http:HttpClient) { }

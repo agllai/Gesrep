@@ -1,5 +1,5 @@
-export class Type_Panne{
-    Id_Type_Panne:number;
+export class TypePanne{
+    IdTypePanne:number;
 	 Designation :String;
 	 Code:String;
 	 Nom_Type_Panne:String;

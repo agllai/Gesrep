@@ -1,5 +1,5 @@
 export class Etat{
-    Id_Etat:number;
+    IdEtat:number;
     Designation:String;
     Code:String;
     Nom:String;

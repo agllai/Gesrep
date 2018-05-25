@@ -1,5 +1,152 @@
 /* You can add global styles to this file, and also import other style files */
 /*@import '~bootstrap/dist/css/bootstrap.min.css';*/
-td{
+/*td,th{
 padding: 10px;
+width: auto;
+position: relative;
+}*/
+ul>li>a{
+    cursor:pointer;
+}/*
+input{
+    border: 1px solid rgb(235, 63, 63);
+    outline-style: outset;
+    outline-color: yellow;
+    outline-width: 2px;
+    outline-offset: 0px;
+    border-radius: 5px;
+    
 }
+input[type="text"]:active{
+    border: 1px solid rgb(235, 63, 63);
+    outline-style: outset;
+    outline-color: yellow;
+    border-radius: 5px;
+}
+input[type="text"]:focus{
+    border: 1px solid rgb(235, 63, 63);
+    outline-style: outset;
+    outline-color: yellow;
+    border-radius: 5px;
+}
+input[type="text"]:hover{
+    border: 1px solid rgb(235, 63, 63);
+    outline-style: outset;
+    outline-color: yellow;
+    border-radius: 5px;
+}
+input[type="text"]:-ms-keyboard-active {
+    border: 1px solid rgb(235, 63, 63);
+    outline-style: outset;
+    outline-color: yellow;
+    border-radius: 5px;
+}
+input[type="text"]:-moz-focusring{
+    border: 1px solid rgb(235, 63, 63);
+    outline-style: outset;
+    outline-color: yellow;
+    border-radius: 5px;
+}*/
+/*
+input[type~="text"].ng-touched{
+    border: 1px solid rgb(235, 63, 63);
+    outline-style: outset;
+    outline-color: yellow;
+    border-radius: 5px;
+}*/
+.box-raduis::backdrop{
+    box-shadow: 3px 3px grey;
+    border-radius:15px;
+
+}
+input[type~="text"].ng-untouched.ng-dirty:focus:active{
+    border: 1px solid rgb(235, 63, 63);
+    outline-style: outset;
+    outline-color: yellow;
+    border-radius: 5px;
+}
+input.ng-invalid.ng-touched{
+    border:1px solid red;
+}
+input.ng-invalid.ng-touched:hover{
+    border:1px solid red;
+}
+input.ng-invalid.ng-touched:active{
+    border:1px solid red;
+    box-shadow: 1px red;
+}
+input.ng-invalid.ng-touched:focus{
+    border:1px solid red;
+}
+
+.panel-success{
+    background-color: #ffffff;
+  margin: 0px 0% 0px 0%;
+ 
+   align-self: center;
+
+   border-radius:15px;
+  /*  padding-right:20%;
+    width: 160%;*/
+
+}
+.panel, .panel:hover, .panel:focus, .panel:active{
+   /* border-radius:15px;*/
+    background-color: #eaecec;
+    
+   margin-left: 0px;
+   margin-top:20px;
+    
+    padding:0px 20px  20px 20px;
+   
+    box-shadow: 3px 3px grey;
+  
+}
+.panel{
+    border-radius:15px;
+    box-shadow: 3px 3px grey;
+}
+
+/*
+.panel:hover{
+    box-shadow: 5px 5px rgb(56, 23, 201);
+}*/
+
+.ng-valid:not(form).ng-touched.ng-dirty, .ng-valid:not(form).required.ng-touched.ng-dirty  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form).ng-dirty.ng-touched.ng-dirty  {
+    border-left: 5px solid #a94442; /* red */
+  }
+ .form-control:focus{
+    border: 1px solid rgba(201, 179, 170, 0.932);
+    outline-style: outset;
+    outline-color: yellow;
+    border-radius: 5px;
+    outline-width: 3px;
+ }/*
+ div:active,div:focus,div:hover,div:active>div,div:focus>div,div:hover>div {
+    width:100%;
+    height:500%;
+    padding:10% 10% 10% 10%;
+    background-attachment: fixed;
+    backface-visibility: hidden;
+    scrollbar-base-color: blue;
+    background-color: rgba(155,125,216, 0.6);
+    overflow: initial;
+    block-overflow: inherit;
+    
+    }
+    div:active>.panel,div:focus>.panel
+    {
+        width: 40%;
+        height: 40%;
+        
+    }*/
+    input[type=text]{
+        color: brown;
+        caret-color: brown;
+       /* background-color: deepskyblue;*/
+    }
+   

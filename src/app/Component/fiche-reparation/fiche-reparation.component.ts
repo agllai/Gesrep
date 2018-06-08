@@ -43,6 +43,7 @@ export class FicheReparationComponent implements OnInit {
    this.ListtacheReparation=this.tacheReparationService.getterTacheReparations();
    this.payment=this.paymentService.getter();
   // this.ficheReparation=this.demandeReparationService.getter();
+  this.ficheReparation.date_heure=new Date();
   this.ArticleService.articleobserbale.subscribe(
     (article:Article)=>{
       this.article=article;

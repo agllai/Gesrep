@@ -17,6 +17,8 @@ import { ErrorHandler } from '@angular/router/src/router';
 import { startWith} from 'rxjs/operators';
 import { Piece } from '../../../enteties/Piece';
 import { PieceService } from '../../../Srevice/piece.service';
+import { Operateur } from '../../../enteties/Operateur';
+import { OperateurService } from '../../../Srevice/operateur.service';
 @Component({
   selector: 'app-create-article',
   templateUrl: './create-article.component.html',
@@ -34,9 +36,16 @@ listArticle:Article[]=[];
  listPiece:Piece[]=[];
  key:string="model";
  active:any;
+ operateur:Operateur=new Operateur();
+ operateurs:Operateur[]=[];
 
 //@ViewChild('instance') instance: NgbTypeahead;
-  constructor(private _ArticleService:ArticleService ,private _rotuer:Router, private _PieceService:PieceService) { 
+  constructor(
+    private _ArticleService:ArticleService ,
+    private _rotuer:Router,
+    private _PieceService:PieceService,
+    private _OperateurService:OperateurService
+    ) { 
    
   }
 
@@ -56,9 +65,16 @@ listArticle:Article[]=[];
     this.listPiece=pieces;
     
   },
-  (error:ErrorHandler)=>{console.log(error);})
+  (error:ErrorHandler)=>{console.log(error);});
 
+  this._OperateurService.getOperateurs().subscribe((operateurs:Operateur[])=>{
+    this.operateurs=operateurs;
+    console.log(this.operateurs,operateurs);
+  },
+  (error:ErrorHandler)=>{console.log(error);}
+  );
  
+
 this._ArticleService.articleobserbale.subscribe(
   (article:Article)=>{
     this.article=article;

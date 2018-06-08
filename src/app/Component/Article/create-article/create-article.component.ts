@@ -51,6 +51,7 @@ listArticle:Article[]=[];
 
   ngOnInit() {
     this.article=this._ArticleService.getter();
+   // this.operateur=this.article.operateur;
     this._ArticleService.getArticles().subscribe((articles:Article[])=>{
       console.log(articles);
       this.articles=articles;
@@ -84,6 +85,7 @@ this._ArticleService.articleobserbale.subscribe(
     console.log(error);
   }
 );
+this.operateur=this.article.operateur;
 }
   newArticle():void{
     
@@ -142,7 +144,7 @@ this._ArticleService.articleobserbale.subscribe(
   }*/
 
     
-  choose(piece:Piece){
+  chooseModel(piece:Piece){
     this.article.model=piece.model;
     this.article.marque=piece.marque;
    this.article.piece=piece;
@@ -154,9 +156,15 @@ this._ArticleService.articleobserbale.subscribe(
   // this.article.piece=piece;
     console.log(this.article,piece);
   }
-  changeClass(piece:Piece){
-    this.active=piece;
+  chooseOperateur(operateur){
+    this.article.operateur=operateur;
+    this.operateur=operateur;
+    console.log(this.article,operateur);
   }
+  changeClass(obj:any){
+    this.active=obj;
+  }
+ 
   isactive(piece:Piece):String{
     if(piece!==this.active){  
     return "";

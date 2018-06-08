@@ -46,6 +46,8 @@ import { PieceService } from './Srevice/piece.service';
 import { TacheReparationService } from './Srevice/tache-reparation.service';
 import { FicheReparationComponent } from './Component/fiche-reparation/fiche-reparation.component';
 import { Article } from './enteties/Article';
+import { OperateurService } from './Srevice/operateur.service';
+import { DemandeReaparationService } from './Srevice/demande-reaparation.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -162,7 +164,18 @@ import { Article } from './enteties/Article';
    ])
     
   ],
-  providers: [ResponceWrapperService,ClientService,ArticleService,PaymentService,ComposantService,TacheReparationService, EtatService,PieceService],
+  providers: [
+    ResponceWrapperService,
+    ClientService,
+    ArticleService,
+    PaymentService,
+    ComposantService,
+    TacheReparationService,
+    EtatService,
+    PieceService,
+    OperateurService,
+    DemandeReaparationService
+    ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   
   bootstrap: [AppComponent]

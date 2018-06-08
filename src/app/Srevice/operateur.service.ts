@@ -32,7 +32,7 @@ export class OperateurService {
     console.log('Error', error); // for demo purposes only
     return Observable.throw(error.message || error);}
     getOperateurs(){
-     return this._httpClient.get<Operateur[]>(this.baseurl+'/Encaissement',httpOptions)
+     return this._httpClient.get<Operateur[]>(this.baseurl+'/Operator',httpOptions)
      .map((operateurs:Operateur[])=> {this.operateurs=operateurs;return operateurs} )
      .catch((error:ErrorHandler)=> this.handleError(error));
     }

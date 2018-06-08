@@ -58,15 +58,11 @@
         <div class="form group">
           <label for="amount-paid">amount paid  </label>
           <input id="amount-paid" type="number" name="montantPaye" class="form-control" [(ngModel)]="payment.montantPaye" >
-        </div>
+        </div>    
         <div class="form group">
-          <label for="discount">discount</label>
-          <input id="discount" type="number" name="reduction" class="form-control" [(ngModel)]="payment.reduction" >
-        </div>
-        <div class="form group">
-          <label for="commentaire">amount remains</label>
-          <input id="commentaire" type="number" name="resteAPaye" class="form-control" [(ngModel)]="payment.resteAPaye" >
-        </div>
+          <label for="TVA">TVA</label>
+           <input id="TVA" type="number" name="tva" class="form-control" [(ngModel)]="payment.tva" >
+      </div>  
         <div class="form group">
           <label for="codeSecurite">total Price</label>
           <input id="codeSecurite" type="number" name="tarif" class="form-control" [(ngModel)]="payment.tarif" >
@@ -79,14 +75,19 @@
             <label for="TotalTTC">TotalTTC</label>
              <input id="TotalTTC" type="number" name="totalTTC" class="form-control" [(ngModel)]="payment.totalTTC"  >
         </div>
+        
         <div class="form group">
-            <label for="TVA">TVA</label>
-             <input id="TVA" type="number" name="tva" class="form-control" [(ngModel)]="payment.tva" >
+          <label for="discount">discount</label>
+          <input id="discount" type="number" name="reduction" class="form-control" [(ngModel)]="payment.reduction" >
         </div>
         <div class="form group">
+          <label for="commentaire">amount remains</label>
+          <input id="commentaire" type="number" name="resteAPaye" class="form-control" [(ngModel)]="payment.resteAPaye" >
+        </div>
+      <!--  <div class="form group">
             <label for="article-id">Article ID</label>
              <input id="article-id" type="text" name="idArticle" class="form-control" [(ngModel)]="article.idArticle" >
-        </div>
+        </div>-->
         <!--<div class="form group">
             <label for="designation">Designation</label>
              <input id="designation" type="text" name="Designation" class="form-control" [(ngModel)]="payment.DemandeReparation" >

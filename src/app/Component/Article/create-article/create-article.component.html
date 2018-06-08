@@ -1,4 +1,4 @@
-<div class="container col-md-4 responsive" style="padding-top: 0px">
+<div class="container col-md-4 responsive" style="align:center;">
     
     <form (ngSubmit)="processForm(article)"  >
         <div class="form group">
@@ -6,19 +6,40 @@
           <div id="article">
             <div class="form group" >
               <label for="Marque">Marque</label>
-              <input id="Marque" type="text" name="marque" class="form-control" [(ngModel)]="article.marque" >
+              <div class="row" >
+                <div class="col-lg-12 col-xs-12 col-sm-12">
+                  <div class="dropdown">
+                    <input id="Marque" for="dropdown-menu-marque" type="search" name="marque" data-toggle="dropdown" data-target="dropdown-menu-marque" class="form-control dropdown-toggle " [(ngModel)]="article.marque" aria-haspopup="true" aria-expanded="false">
+              
+              <ul id="dropdown-menu-marque" class=" dropdown-menu scrollmenu pre-scrollable list-group" role="menu" style=" max-height: 265px; overflow:scroll" role="menu" >
+                
+                 
+                    <li *ngFor="let piece of listPiece | autocomplete : article.marque:'marque':3 "  [ngClass]="isactive('listArticle')" >
+                      <a (click)="chooseMarque(piece)" (focus)="changeClass(piece)"> {{piece.marque}}
+                    
+                       </a>
+                    </li>
+                 
+                </ul>
+              
+              </div>
+                
+              </div>
+            </div>
             </div>
 
           <div class="form group" >
             <label for="Model">Model</label>
             <div class="row">
               <div class="col-lg-12 col-xs-12 col-sm-12">
-            <input id="Model" for="dropdown-menu" type="text" name="model" class="form-control dropdown-toggle"  data-toggle="dropdown" [(ngModel)]="article.model">
-            <ul class="dropdown-menu scrollmenu pre-scrollable list-group" id="dropdown-menu" style="margin-left:15px; max-height: 265px; overflow:scroll">
+                <div class="dropdown">
+            <input id="Model" for="dropdown-menu-model" type="search" name="model" class="form-control dropdown-toggle "  data-toggle="dropdown" data-target="dropdown-menu-model" [(ngModel)]="article.model" aria-haspopup="true" aria-expanded="false">
+            
+            <ul class=" dropdown-menu scrollmenu pre-scrollable list-group" id="dropdown-menu-model" style=" max-height: 265px; overflow:scroll" role="menu" >
               
                
-                  <li *ngFor="let article1 of listArticle | autocomplete : article.model:'model':3 "  [ngClass]="isactive('listArticle')">
-                    <a (click)="choose(article1)" (focus)="changeClass(article1)"> {{article1.model}}
+                  <li *ngFor="let piece of listPiece | autocomplete : article.marque:'marque':3 | autocomplete : article.model:'model':3 "  [ngClass]="isactive('listArticle')">
+                    <a (click)="choose(piece)" (focus)="changeClass(piece)"> {{piece.marque}} | {{piece.model}}
                   
                      </a>
                   </li>
@@ -52,10 +73,10 @@
                 <li><a href="#">CSS</a></li>
                 <li><a href="#">JavaScript</a></li>-->
               </ul>
-
+              
               
             </div>
-          </div>
+          </div></div>
           </div>
 
 
@@ -94,11 +115,11 @@
       <input type="submit" class="btn btn-success" value="save">
       
     </form>
-  
+  <!--
     <div [hidden]="!submitted">
       <div class="btn-group ">
         <h4>You submitted successfully!  </h4>
       </div>
-    </div>
+    </div>-->
   </div>
  

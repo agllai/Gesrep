@@ -1,37 +1,38 @@
 import { Injectable } from '@angular/core';
 import { Http , Response , Headers , RequestOptions} from '@angular/http';
 import { ErrorHandler } from '@angular/router/src/router';
-import{Observable}   from 'rxjs/Observable';
-//import 'rxjs/add/operator/map';
+import {Observable} from 'rxjs/Observable';
+// import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import { Encaissement } from '../enteties/Enciassement';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
+import { Subject } from 'rxjs/Subject';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
-    observe: "body"
+    observe: 'body'
   })
 };
 @Injectable()
 export class PaymentService {
-  private baseurl:string = 'http://localhost:8080/Gesrep';
-  private headers = new Headers({'Content-Type':'application/json'});
+  private baseurl: string = 'http://localhost:8080/Gesrep';
+  private headers = new Headers({'Content-Type': 'application/json'});
 
   private options = new RequestOptions({headers:this.headers});
-  
-  private payment:Encaissement = new Encaissement();
-  private payments:Encaissement[];
-  private response:any;
-  private data:any;
-  private hidden:boolean=true;
+  private payment: Encaissement = new Encaissement();
+  private payments: Encaissement[];
+  private response: any;
+  private data: any;
+  private hidden: boolean= true;
+  Paymentobserbale=new Subject();
   constructor(private _http:Http , private _httpClient:HttpClient) { }
 
   createPayment(payment: Encaissement) {
     return this._httpClient
       .post<Encaissement>(this.baseurl+'/Encaissement', JSON.stringify(payment), httpOptions)
-      .map((res:Encaissement) => {res as Encaissement;this.payment=res as Encaissement;console.log(this.payment);return res})
+      .map((res:Encaissement) => {res as Encaissement;this.payment=res as Encaissement;console.log(this.payment);return res; })
       .catch(this.handleError);}
 private handleError(error: any) {
 console.log('Error', error); // for demo purposes only
@@ -53,9 +54,9 @@ updatePayment(payment: Encaissement) {
 deletePayment(idEncaissement:number){
   return this._http.delete(this.baseurl+'/Encaissement/'+idEncaissement,this.options);
 }
-getArticle(idEncaissement:number)
+getArticle(idEncaissement:number):any
 {
-  return this._httpClient.get<Encaissement>(this.baseurl+"/Encaissement/"+idEncaissement,httpOptions).map((payment:Encaissement)=>{this.payment=payment;console.log(payment)}).catch(this.handleError);
+  return this._httpClient.get<Encaissement>(this.baseurl+'/Encaissement/'+idEncaissement,httpOptions).map((payment:Encaissement)=>{this.payment=payment;console.log(payment);}).catch(this.handleError);
 }
 setter(Payment:Encaissement)
 {

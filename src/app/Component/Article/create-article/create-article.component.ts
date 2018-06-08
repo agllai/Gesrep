@@ -15,6 +15,8 @@ import {debounceTime, distinctUntilChanged, filter, map, merge} from 'rxjs/opera
 import { ErrorHandler } from '@angular/router/src/router';
 //import { ResultTemplateContext } from '@ng-bootstrap/ng-bootstrap/typeahead/typeahead-window';
 import { startWith} from 'rxjs/operators';
+import { Piece } from '../../../enteties/Piece';
+import { PieceService } from '../../../Srevice/piece.service';
 @Component({
   selector: 'app-create-article',
   templateUrl: './create-article.component.html',
@@ -29,11 +31,12 @@ data1:number;
 hidden:boolean;
 listArticle:Article[]=[];
  articles:Article[]=[];
+ listPiece:Piece[]=[];
  key:string="model";
  active:any;
 
 //@ViewChild('instance') instance: NgbTypeahead;
-  constructor(private _ArticleService:ArticleService ,private _rotuer:Router) { 
+  constructor(private _ArticleService:ArticleService ,private _rotuer:Router, private _PieceService:PieceService) { 
    
   }
 
@@ -47,7 +50,25 @@ listArticle:Article[]=[];
     (error:ErrorHandler)=>{console.log(error);})
   
     this.listArticle=this.articles;
+  
+  this._PieceService.getPiece().subscribe((pieces:Piece[])=>{
+    console.log(pieces,"pieces");
+    this.listPiece=pieces;
+    
+  },
+  (error:ErrorHandler)=>{console.log(error);})
+
+ 
+this._ArticleService.articleobserbale.subscribe(
+  (article:Article)=>{
+    this.article=article;
+    console.log(this.article,article);
+  },
+  (error:Error)=>{
+    console.log(error);
   }
+);
+}
   newArticle():void{
     
     this.article=new Article();
@@ -73,6 +94,7 @@ listArticle:Article[]=[];
        this.article.livraison=false;
       this.data=this._ArticleService.createArticle(this.article).subscribe((article:Article)=>{
         console.log(article);
+        this.article=article;
         this._rotuer.navigate(['../listArticle']);
       },(error)=>{
         console.log(error);
@@ -82,6 +104,7 @@ listArticle:Article[]=[];
         console.log(this.article);
           this.data=this._ArticleService.updateArticle(this.article).subscribe((article:Article)=>{
             console.log(article);
+            this.article=article;
             this._rotuer.navigate(['../listArticle']);
           },(error)=>{
             console.log(error);
@@ -94,24 +117,32 @@ listArticle:Article[]=[];
       this.submitted = true;
       setTimeout(() => {this.submitted=false;}, 4000);
 
-      
-  }
-  onClick(article){
-    this.article.model=article.model;
-    this.article.marque=article.marque;
-    this.article.operateur=article.operateur;
-  }
+      this._ArticleService.articleobserbale.next(this.article)
+  }/*
+  onClick(piece:Piece){
+    this.article.model=piece.model;
+    this.article.marque=piece.marque;
+   this.article.piece=piece;
+  }*/
 
     
-  choose(article:Article){
-    this.article=article;
-    console.log(this.article,article);
+  choose(piece:Piece){
+    this.article.model=piece.model;
+    this.article.marque=piece.marque;
+   this.article.piece=piece;
+    console.log(this.article,piece);
   }
-  changeClass(article1:Article){
-    this.active=article1;
+    
+  chooseMarque(piece:Piece){
+    this.article.marque=piece.marque;
+  // this.article.piece=piece;
+    console.log(this.article,piece);
   }
-  isactive(article1:Article):String{
-    if(article1!==this.active){  
+  changeClass(piece:Piece){
+    this.active=piece;
+  }
+  isactive(piece:Piece):String{
+    if(piece!==this.active){  
     return "";
   }
     else{

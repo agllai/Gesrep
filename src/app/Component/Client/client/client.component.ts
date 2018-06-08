@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Client } from '../../../enteties/Client';
 import { ClientService } from '../../../Srevice/ClientService';
 import { Router } from '@angular/router';
-
+import { Subject } from 'rxjs/Subject';
 @Component({
   selector: 'app-client',
   templateUrl: './client.component.html',
@@ -22,7 +22,13 @@ export class ClientComponent implements OnInit {
     ngOnInit() {
       this.client=this._ClientService.getter();
       this.client.typeClient="citizen";
-      
+      this._ClientService.CLientobserbale.next(this.client);
+      this._ClientService.CLientobserbale.subscribe(
+       (client:Client)=>{
+         this.client=client;
+         console.log(this.client,client);
+       }
+      )     
     }
     newClient():void{
       this.submitted = false;
@@ -61,7 +67,7 @@ export class ClientComponent implements OnInit {
         console.log("updated");
       }
      
-      
+      this._ClientService.CLientobserbale.next(this.client);
       console.log(this.data);
       this.submitted = true;
       setTimeout(() => {this.submitted=false;}, 4000);

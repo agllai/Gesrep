@@ -29,7 +29,7 @@
     "interface-over-type-literal": true,
     "label-position": true,
     "max-line-length": [
-      true,
+      false,
       140
     ],
     "member-access": false,
@@ -61,27 +61,27 @@
     "no-empty-interface": true,
     "no-eval": true,
     "no-inferrable-types": [
-      true,
+      false,
       "ignore-params"
     ],
     "no-misused-new": true,
     "no-non-null-assertion": true,
-    "no-shadowed-variable": true,
-    "no-string-literal": false,
+    "no-shadowed-variable": false,
+    "no-string-literal": true,
     "no-string-throw": true,
     "no-switch-case-fall-through": true,
-    "no-trailing-whitespace": true,
-    "no-unnecessary-initializer": true,
-    "no-unused-expression": true,
+    "no-trailing-whitespace": false,
+    "no-unnecessary-initializer": false,
+    "no-unused-expression": false,
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
     "one-line": [
-      true,
+      false,
       "check-open-brace",
       "check-catch",
       "check-else",
-      "check-whitespace"
+   //   "check-whitespace"
     ],
     "prefer-const": true,
     "quotemark": [
@@ -112,8 +112,8 @@
     "whitespace": [
       true,
       "check-branch",
-      "check-decl",
-      "check-operator",
+     // "check-decl",
+     // "check-operator",
       "check-separator",
       "check-type"
     ],

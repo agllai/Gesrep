@@ -1,6 +1,6 @@
 export class Etat{
     IdEtat:number;
-    Designation:String;
-    Code:String;
-    Nom:String;
+    Designation:string;
+    Code:string;
+    Nom:string;
 }   

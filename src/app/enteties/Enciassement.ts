@@ -12,7 +12,7 @@ export class Encaissement{
 	montantPaye:number;
 	demandeReparation : DemandeReparation;
 	totalHT:number;
-	article:Article;
+	//article:Article;
 	totalTTC:number;
 	tva:number;
 	resteAPaye:number;

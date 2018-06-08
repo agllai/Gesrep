@@ -44,6 +44,8 @@ import { ComposantService } from './Srevice/composant.service';
 import { EtatService } from './Srevice/etat.service';
 import { PieceService } from './Srevice/piece.service';
 import { TacheReparationService } from './Srevice/tache-reparation.service';
+import { FicheReparationComponent } from './Component/fiche-reparation/fiche-reparation.component';
+import { Article } from './enteties/Article';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +71,7 @@ import { TacheReparationService } from './Srevice/tache-reparation.service';
     autocompletePiPe,
     CreateTacheReparationComponent,
     ListTacheReparationComponent,
-
+    FicheReparationComponent,
   ],
   imports: [
     BrowserModule,
@@ -134,10 +136,30 @@ import { TacheReparationService } from './Srevice/tache-reparation.service';
     component:ComponentAutocomplete
   },
   {
-    path:"\CreateTacheReparations",
+    path:"CreateTacheReparations",
     component:CreateTacheReparationComponent
-  }
-    ])
+  },
+  {
+    path:"FicheReparation",
+    component:FicheReparationComponent
+  ,children:[
+  {
+     path :"Article",
+    component:CreateArticleComponent
+   },
+   {
+     path:"Client",
+     component:ClientComponent
+   },
+   {
+    path:"Payment",
+    component:CreatePaymentsComponent
+  },
+  {
+    path:"tacheReparation",
+    component:CreateTacheReparationComponent
+  }]}
+   ])
     
   ],
   providers: [ResponceWrapperService,ClientService,ArticleService,PaymentService,ComposantService,TacheReparationService, EtatService,PieceService],

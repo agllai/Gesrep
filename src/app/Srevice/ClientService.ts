@@ -15,6 +15,7 @@ import { ErrorHandler } from '@angular/router/src/router';
 import { HttpHeaderResponse, HttpHeaders ,HttpClient} from '@angular/common/http';
 import { tap, catchError } from 'rxjs/operators';
 import { promise } from 'protractor';
+import { Subject } from 'rxjs/Subject';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
@@ -32,6 +33,7 @@ data:any;
   private clients:Client[];
   private response:any;
   private method:string="add";
+  CLientobserbale=new Subject();
   constructor(private _http:Http,private _httpClient:HttpClient ) { }
   /*createClient(client:Client){
     return this._http.post(this.baseurl+'/client',JSON.stringify(client)  ,this.options).map((response:Response)=> response.json(),error=>this.errorHandler(error));
@@ -73,7 +75,7 @@ setterClients(clients:Client[]):void
 {
   this.clients=clients;
 }
-getter(){
+getter():Client{
   return this.client;
 }
 getterClients()

@@ -149,4 +149,4 @@ input.ng-invalid.ng-touched:focus{
         caret-color: brown;
        /* background-color: deepskyblue;*/
     }
-   
+    .show {display:block;}

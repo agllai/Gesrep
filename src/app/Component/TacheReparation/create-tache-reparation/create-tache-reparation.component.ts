@@ -10,7 +10,7 @@ import { PieceService } from '../../../Srevice/piece.service';
 import { Etat } from '../../../enteties/Etat';
 import { EtatService } from '../../../Srevice/etat.service';
 import { NgForm, NgModel } from '@angular/forms';
-
+import { Subject } from 'rxjs/Subject';
 @Component({
   selector: 'app-create-tache-reparation',
   templateUrl: './create-tache-reparation.component.html',
@@ -57,13 +57,20 @@ article:Article=new Article();
     
     console.log(this.etat,"etrtttat 2");
     this.tacheReparation.etat=this.etat;
-    this.tacheReparation1.etat=this.etat;
+    //this.tacheReparation1.etat=this.etat;
     this.listTacheRep=[];
   //  this.tacheReparation1.etat=this.etat;
    // this.composant2.nomComposant="ecran";
    // this.composant2.tarif=21;
    // this.composant2.tarifMinimal=18;
    // this.composantService.createComposant(this.composant2).subscribe((composant:Composant)=>console.log(composant),(error:Error)=>console.log(error));
+  this.tacheReparationService.TacheRepobserbale.subscribe(
+    (tacheRep:TacheReparation[])=>
+    {this.listTacheRep=tacheRep;
+      console.log(this.listTacheRep,tacheRep);
+    },
+    (error)=>console.log(error)
+    )
   }
 
   save(){
@@ -73,25 +80,29 @@ article:Article=new Article();
 
     )
     this.listTacheRep=[];  
+    this.tacheReparationService.TacheRepobserbale.next(this.listTacheRep);
   }
   add(form:NgForm){
-  
+    //this.tacheReparation.etat=this.etat;
     //this.tacheReparation1= form.value;
     //console.log(form,form.value);
     //this.tacheReparation1.etat=this.etat;
     //console.log("tache Reparation1 before pushing",this.tacheReparation1, this.etat);
     this.listTacheRep.push(this.tacheReparation);
+    //this.listTacheRep.forEach((tacheRep)=>tacheRep.etat=this.etat);
     //this.addtacheReparation.emit(this.listTacheRep);
         console.log(this.listTacheRep,this.tacheReparation,this.tacheReparation1);
     this.tacheReparation=new TacheReparation();
-    this.tacheReparation.etat=this.etat;
+   // this.tacheReparation.etat=this.etat;
     //this.tacheReparation.Composant=new Composant();
    // this.tacheReparation.etat=this.etat;
     console.log("listtacheRep",this.listTacheRep,"tacheRep",this.tacheReparation,"tacheRep1",this.tacheReparation1);
   //form.reset();
-  
+  //this.composant=new Composant();
+  //this.tacheReparation.etat=this.etat;
+  console.log(this.tacheReparation.etat);
 
-
+  this.tacheReparationService.TacheRepobserbale.next(this.listTacheRep);
   }
   delete(tacheReparation){
    const index:number= this.listTacheRep.indexOf(tacheReparation);

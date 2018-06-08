@@ -12,7 +12,7 @@ import { ErrorHandler } from '@angular/router/src/router';
 export class ListPaymentComponent implements OnInit {
   public payments:Encaissement[]=[];
   public payment:Encaissement;
-  hidden:boolean;
+  //hidden:boolean;
   p: number = 1;
 size:number=1;
 IPP:number=5;
@@ -26,7 +26,7 @@ IPP:number=5;
 
   ngOnInit() {
     this.getPayments();
-    this.hidden=true;
+    //this.hidden=true;
     console.log(this.payment);
     this.p=1;
     this.IPP=5;
@@ -46,8 +46,8 @@ IPP:number=5;
     this.getPayments();                                                                                               
     this._router.navigate(["../ListPayment"]);
     this.payment=payment;
-    setTimeout(()=>{this.hidden=false},100);
-    setTimeout(()=>{this.hidden=true},2000);
+    //setTimeout(()=>{this.hidden=false},100);
+    //setTimeout(()=>{this.hidden=true},2000);
     console.log(this.payment)
     },(error)=>{
       console.log(error);

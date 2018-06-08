@@ -24,7 +24,7 @@
          <thead>
           <th>Payment Id</th>
           <!--<th>Demande Reparation Id</th> -->
-          <th>article id</th>
+        <!--  <th>article id</th>-->
          <!-- <th>Boutique code</th> -->
           <th>Montant Paye</th>
           <th>MoyenPaiment</th>
@@ -40,7 +40,7 @@
           <tr *ngFor="let payment of payments|orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: IPP, currentPage: p }; let i = index">
             <td>{{payment.idEncaissement}}</td>
             <!--  <td>{{payment.DemandeReparation.Rid }}</td>-->
-              <td>{{payment.article.idArticle}}</td>
+            <!--  <td>{{payment.article.idArticle}}</td>-->
              <!-- <td>{{payment.Boutique.Code}}</td>-->
               <td>{{payment.montantPaye}}</td>
               <td>{{payment.moyenPaiment}}</td>

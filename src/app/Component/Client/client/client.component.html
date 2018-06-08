@@ -1,5 +1,8 @@
 <div class="container col-md-4 responsive" style="padding-top: 0px">
+  <div class="row">
+    <div class="col-ms-12 col-xs-12 col-md-12 col-lg-12 col-offset-1">
 
+    
     <form (ngSubmit)="processForm(client)"  >
       <div class="form group">
         <label for="client"><h3>Client</h3> </label>
@@ -34,10 +37,13 @@
       </div>
           <input type="submit" class="btn btn-success" value="save">
     
-</form>
+  </form>
 
-<div [hidden]="!submitted">
-	<div class="btn-group ">
-		<h4>You submitted successfully!</h4>
-	</div>
-</div></div>
+  <div [hidden]="!submitted">
+	  <div class="btn-group ">
+		  <h4>You submitted successfully!</h4>
+	  </div>
+  </div>
+</div>
+</div>
+</div>

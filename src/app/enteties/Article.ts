@@ -12,9 +12,9 @@ export class Article{
 	reparation:DemandeReparation;
 	livraison:Boolean;
 	dateRecuperation:Date;
-	commentaire:String;
-	designation:String;
-	codeSecurite:String;
+	commentaire:string;
+	designation:string;
+	codeSecurite:string;
 	piece:Piece;
 	constructor(){}
 }

@@ -4,6 +4,7 @@ import { RequestOptions, Http } from '@angular/http';
 import { Article } from '../enteties/Article';
 import {Observable} from 'Rxjs/Observable';
 import { TacheReparation} from '../enteties/TacheReparation';
+import { Subject } from 'rxjs/Subject';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
@@ -22,6 +23,7 @@ export class TacheReparationService {
   public response:any;
   public data:any;
   public listTacheReparation:TacheReparation[]=[];
+  TacheRepobserbale=new Subject();
   constructor(private _http:Http, private _httpClient:HttpClient) { }
   
   

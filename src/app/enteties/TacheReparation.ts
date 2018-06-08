@@ -10,19 +10,19 @@ IdTacheReparation:number;
 	 
 etat:Etat ;
 	 
-article:Article;
+//article:Article;
 	 
 
 demande_deparation:DemandeReparation;
 	 
-Reparateur: Personnel[] ;
-Createur:Personnel ;
- Panne:String;
+//Reparateur: Personnel[] ;
+//Createur:Personnel ;
+ Panne:string;
 
 Composant:Composant;
-Description:String;
+Description:string;
 
-Encaissement :Encaissement;
+//Encaissement :Encaissement;
 
 
 

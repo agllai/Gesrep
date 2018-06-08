@@ -1,0 +1,134 @@
+#tachRep-list{
+    width: 100%;
+}
+.tachRep-list{
+    width: 100%;
+}
+.item-List{
+    float: left;
+    background-attachment: fixed;
+    background-position: relative;
+    background-color:silver;
+    width: 45%;
+    max-width:100% ;
+
+    border: 5px;
+    border-radius: 5px;
+    border-color: thistle;
+    box-shadow: 3px 3px grey;
+    margin: 10px;
+    padding: 10px;
+   
+}
+.List-item{
+   
+    width: 100%;
+    border-right:2px solid black ;
+    outline-width: 0px;
+    background-color:rgba(117, 96, 96, 0.384) ;
+ margin-left:-150px; 
+
+ border-radius: 5px;
+}
+.itemList:active,.itemList:focus,.itemList:hover {
+
+    outline-color: aqua;
+    outline-width: 2px;
+    outline-style: double;
+}
+.column{
+    white-space: pre-wrap; 
+    width: 75px; 
+    overflow: unset;
+    text-overflow: ellipsis; 
+   padding: 3px;
+   margin: 3px;
+  
+ 
+}
+
+.item-list-body{
+   
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+    padding-top:0px;
+    padding-bottom: 0px;
+    margin: 2px 5px;
+    padding: 2px 5px;  
+    border-radius: 3px;
+    box-shadow: 3px 3px 1px 1px  rgb(109, 107, 107);
+  
+}
+.item-list-footer{
+    
+    width: 80px;
+    align-self: center;
+    align-items: left;  
+    border-radius: 0px;
+   
+    box-shadow: 3px 3px 1px 1px  rgb(109, 107, 107);
+  
+}
+.item-list-btn{
+float: right;
+
+}
+
+.item-list-head{
+    height: 40px;
+    width: 100%;
+    align-self: center;
+    background-color:rgba(146, 143, 143, 0.897) ;
+    background-attachment: fixed;
+    border: 1px solid black;
+    border-radius: 5px 5px 0px 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    border-radius: 3px;
+    box-shadow: 3px 3px 1px 1px  rgb(109, 107, 107);
+  
+}
+.dropdown-menu{
+    width: max-content;
+}
+.dropdown-item{
+    float:none;
+    width: max-content;
+ 
+
+}
+ul>li>a{
+    
+    padding-left: 5px -20px;
+}
+li>a:hover{
+    background-color: silver;
+    width: 130px;
+  
+}
+#tachRep-list{
+    width: 100%;
+}
+#tachRep-list,#tacheRep-list:hover, #tacheRep-list:active ,#tacheRep-list:focus {
+    width: 85%;
+ 
+   
+}
+.tachRep-list{
+    width: 100%;
+    
+}
+#tachRep-list{
+    width: 100%;
+    overflow:hidden;
+}
+.table
+{
+    overflow:hidden;
+}
+tr{
+    overflow:hidden;
+}
+td{
+    overflow:hidden;
+}

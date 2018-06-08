@@ -1,8 +1,8 @@
 export class Piece{
     idPiece:number;
-	model:String ;
-	marque:String;
+	model:string ;
+	marque:string;
 	tarif:number;
-	typeMatriel:String;
+	typeMatriel:string;
 	constructor(){}
 }

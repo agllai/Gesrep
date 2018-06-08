@@ -1,0 +1,180 @@
+<div class="container" style="width:100%;"> 
+    <div class="row"> 
+        <!-- dividing the main section of the page into  2 sub-Sections -->
+        <div class="col-lg-6 col-xs-6 col-sm-6"> 
+            <!-- list of the objects section -->
+            <div class="List-item">
+                <!-- list head -->
+                <div class="list-head">
+
+                    <h3> Fiche Reparation  </h3>
+
+                </div>
+                <!-- list body -->
+                <div class="list-body">
+                    <!-- start of client section -->
+                    <div class="item-List">
+                        <div class="item-list-head">
+
+                            <h4> Client</h4>
+                        </div>
+                        <div class="item-list-body">
+                            <div class="column"><strong>Nom :</strong></div> {{client.nom}}    
+                            <div class="column"><strong>Email :</strong></div> {{client.mail}}
+                            <div class="column"><strong>Numero de telphone: </strong></div> {{client.numtel}}
+                            <div class="column"><strong>Adresse :</strong></div> {{client.adresse}}
+                            <div class="column"><strong>Type :</strong></div> {{client.typeClient}}
+                            
+                        </div>
+                        <div class="btn-group show"> 
+                            <div class="dropdown show item-list-btn" >
+                                <button type="button" class="btn btn-success dropdown-toggle" id="client" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        options <span class="caret"></span>
+                                </button>
+                                
+                                <ul class="dropdown-menu button-group " aria-labelledby="client" >
+                                  <li>  <a class="dropdown-item" (click)="CreateClient()">Create Client</a></li>
+                                   <li> <a class="dropdown-item" (click)="UpdateClient()">Edit Client</a></li>
+                                   <li> <a class="dropdown-item" (click)="ResetClient()">reset</a></li>
+                                </ul>
+                            </div>
+                        </div>    
+                    </div>
+                    <!-- end of the client section -->
+                    <!-- start of the article section  -->
+                    <div class="item-List">
+                        <div class="item-list-head">
+    
+                            <h4> Article</h4>
+                        </div>
+                        <div class="item-list-body">
+                            <div class="column"><strong>Marque :</strong></div> {{article.marque}}    
+                            <div class="column"><strong>Model :</strong></div> {{article.model}}
+                            <div class="column" style="padding-bottom: -25px; margin-bottom: -25px;" ><strong>Date Recuperation: </strong></div> {{article.dateRecuperation}}
+                            <div class="column"><strong>Operateur:</strong></div> {{article.operateur}}
+                            <div class="column"><strong>Livraison:</strong></div> {{article.livraison}}
+                            <div class="column"><strong>Designation:</strong></div> {{article.designation}}
+                            <div class="column"><strong>Commentaire:</strong></div> {{article.commentaire}}
+                            <div class="column"><strong>CodeSecurite:</strong></div> {{article.codeSecurite}}
+                            
+                        </div>
+                            
+                                  
+                        <div class="item-list-footer"> 
+                            <div class="dropdown show " >
+                                    <button type="button" class="btn btn-success dropdown-toggle" style="float: right;" id="Article" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            options <span class="caret"></span>
+                                    </button>
+                                    
+                                    <ul class="dropdown-menu button-group " aria-labelledby="Article" >
+                                      <li>  <a class="dropdown-item" (click)="CreateArticle()">Create Article</a></li>
+                                       <li> <a class="dropdown-item" (click)="UpdateArticle()">Edit Article</a></li>
+                                       <li> <a class="dropdown-item" (click)="ResetArticle()">reset</a></li>
+                                    </ul>
+                                </div>
+                        </div>    
+                    </div>
+                    <!-- end of the Article section-->
+
+                    <!-- start tache Reparation section-->
+                    <div class="item-List tacheRep-list" id="tacheRep-list" style="width: 100%;">
+                        <div class="item-list-head">
+        
+                            <h4> Tache Reparation</h4>
+                        </div>
+                        <div class="item-list-body">
+                            <table class="table table-responsive table-bordered" style="width: 200%;justify-self: center;justify-items: center ">
+                                <div class="panel-heading">
+                                    <thead>
+                                               
+                                        <tr>
+                                            <th style=" column-width: 10%;width:10%"> Panne
+                                            </th>
+                                                   
+                                            <th  style=" column-width: 10%;width:10%">composant
+                                            </th>
+                                                   
+                                            <th style=" column-width: 10%;width:10%">Description
+                                            </th>
+                                            <th style=" column-width: 10%;width:10%">Etat
+                                            </th>
+                                        
+                                        </tr>  
+                                    </thead>
+                                </div>
+                                <div class="panel-body">
+                                    <tbody >
+                                        <tr *ngFor="let tacheRep of ListtacheReparation ">
+                                            <td style=" column-width: 25% ; width:25%">{{tacheRep.Panne}}</td>
+                                            <td style=" column-width: 25% ; width:25%">{{tacheRep.Composant.nomComposant}}</td>
+                                            <td style=" column-width: 25% ; width:25%">{{tacheRep.Description}}</td>
+                                            <td style=" column-width: 25% ; width:25%">{{tacheRep.etat.Code}}</td>      
+                                        </tr>
+                                    </tbody>
+                                </div>         
+                            </table>
+                            
+                        </div>        
+                        <div class="item-list-footer">
+                            <div class="dropdown show item-list-btn">
+                                    <button type="button" class="btn btn-success dropdown-toggle" id="TacheReparations" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            options <span class="caret"></span>
+                                    </button>
+                                    
+                                    <ul class="dropdown-menu button-group " aria-labelledby="TacheReparations" >
+                                      <li>  <a class="dropdown-item" (click)="CreateTacheReparations()">Create Tache Reparation</a></li>
+                                       <li> <a class="dropdown-item" (click)="UpdateTacheReparations()">Edit Tache Reparation</a></li>
+                                       <li> <a class="dropdown-item" (click)="ResetTacheReparations()">Reset</a></li>
+                                    </ul>
+                            </div>
+                        </div>    
+                        
+                    </div>
+                    <!-- end of tache Reparation section -->
+                    <!-- start of the payment section -->
+                    <div class="item-List">
+                            <div class="item-list-head">
+        
+                                <h4> Payment</h4>
+                            </div>
+                            <div class="item-list-body">
+                                <div class="column"><strong>Livraison:</strong></div> {{payment.moyenPaiment}}
+                                <div class="column"><strong>Marque :</strong></div> {{payment.tarif}}    
+                                <div class="column"><strong>Model :</strong></div> {{payment.totalHT}}
+                                <div class="column" style="padding-bottom: -25px; margin-bottom: -25px;" ><strong>Date Recuperation: </strong></div> {{article.dateRecuperation}}
+                                <div class="column"><strong>Operateur:</strong></div> {{payment.totalTTC}}
+                                <div class="column"><strong>Livraison:</strong></div> {{payment.reduction}}
+                               <!-- <div class="column"><strong>Designation:</strong></div> {{payment.montantPaye}}-->
+                                <div class="column"><strong>Commentaire:</strong></div> {{payment.montantAvance}}
+                                <div class="column"><strong>CodeSecurite:</strong></div> {{payment.montantPaye}}
+                                
+                            </div>
+                                
+                                      
+                            <div class="item-list-footer"> 
+                                <div class="dropdown show item-list-btn" style="float: right;">
+                                    <button type="button" class="btn btn-success dropdown-toggle" id="Payment" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        options <span class="caret"></span>
+                                    </button>
+                                        
+                                    <ul class="dropdown-menu button-group " aria-labelledby="Payment" >
+                                        <li>  <a class="dropdown-item" (click)="CreatePayment()">Create Payment</a></li>
+                                        <li> <a class="dropdown-item" (click)="UpdatePayment()">Edit Payment</a></li>
+                                        <li> <a class="dropdown-item" (click)="ResetPayment()">Reset</a></li>
+                                    </ul>
+                                </div>
+                                
+                            </div>    
+                        </div>
+                        <!--end of the payment section -->
+                </div>
+            </div>    
+        </div> 
+        <!-- editing and actions section -->
+        <div class="col-lg-6 col-xs-12 col-sm-6 " >
+            <div style="width: 200%; padding:0px;margin-left:-100px;margin-right: -200px;">
+                <router-outlet ></router-outlet>
+            </div>
+        </div>
+    </div> 
+</div>

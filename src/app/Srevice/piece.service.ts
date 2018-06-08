@@ -29,17 +29,17 @@ export class PieceService {
   private piece:Piece = new Piece();
   private pieces:Piece[]=[];
   private response:any;
-  constructor(private _http:HttpClient) { }
+  constructor(private _httpClient:HttpClient,_http:Http) { }
   createPiece(piece: Piece) : Observable<Piece>{
     console.log(piece);
-    return this._http.post<Piece>(this.baseurl+'/Piece', JSON.stringify(piece), httpOptions)
+    return this._httpClient.post<Piece>(this.baseurl+'/Piece', JSON.stringify(piece), httpOptions)
     .map((piece:Piece)=> this.piece,catchError((error:ErrorHandler)=> this.handleError(error)));
   }
 private handleError(error: any){
 console.log('Error', error); // for demo purposes only
 return Observable.throw(error.message || error);}
 public getPiece(): Observable<Piece[]>{
- this.response= this._http.get<Piece[]>(this.baseurl+'/Piece',httpOptions).pipe(map((pieces:Piece[])=> this.pieces),catchError((error:ErrorHandler)=> this.handleError(error)));
+ this.response= this._httpClient.get<Piece[]>(this.baseurl+'/Piece',httpOptions).map((pieces:Piece[])=> {this.pieces=pieces ; return pieces;}),catchError((error:ErrorHandler)=> this.handleError(error));
 
  return this.response;
 

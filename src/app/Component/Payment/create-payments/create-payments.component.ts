@@ -6,6 +6,10 @@ import { Article } from '../../../enteties/Article';
 import { ArticleService } from '../../../Srevice/article-service.service';
 import { ErrorHandler } from '@angular/router/src/router';
 import { Subject } from 'rxjs/Subject';
+import {Observable} from 'rxjs/Observable';
+import { Observer } from 'rxjs/Observer';
+
+
 @Component({
   selector: 'app-create-payments',
   templateUrl: './create-payments.component.html',
@@ -23,6 +27,7 @@ listPayment:Encaissement[]=[];
  active:any;
 public payments:Encaissement[]=[];
 //idArticle:number;
+discounttype:string="%";
   constructor(private _PaymentService:PaymentService , private _ArticleService:ArticleService,private _rotuer:Router) { }
 
   ngOnInit() {
@@ -50,7 +55,21 @@ public payments:Encaissement[]=[];
        this.payment=payment;
        console.log(this.payment,payment)
      }
-   )
+   );/*
+   const obser=Observable.create((observer: Observer<Encaissement>)=>{
+    this.payment.totalHT=this.payment.tarif;
+
+if (this.payment.tva!==undefined){
+  this.payment.totalTTC=this.payment.totalHT*(1+(this.payment.tva/100));
+ if(this.discounttype="%"){
+  this.payment.totalTTC=this.payment.totalTTC/(1+(this.payment.reduction/100));  
+}else{
+  this.payment.totalTTC=this.payment.totalTTC-this.payment.reduction;
+}
+}
+observer.next(this.payment);
+   });
+   obser.subscribe((payment:Encaissement)=>this.payment=payment);*/
   }
   newPayment():void{
     
@@ -152,7 +171,20 @@ isactive(payment:Encaissement):String{
     return "active";
   }
 }
+changePaymentTarif(event:any){
 
+this.payment.totalHT=this.payment.tarif;
+/*
+if (this.payment.tva!==undefined){
+  this.payment.totalTTC=this.payment.totalHT*(1+(this.payment.tva/100));
+ if(this.discounttype="%"){
+  this.payment.totalTTC=this.payment.totalTTC/(1+(this.payment.reduction/100));  
+}else{
+  this.payment.totalTTC=this.payment.totalTTC-this.payment.reduction;
+}
+}*/
+
+}
 
 
 }

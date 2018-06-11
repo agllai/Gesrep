@@ -5,6 +5,9 @@ padding: 10px;
 width: auto;
 position: relative;
 }*/
+.container{
+    padding-top: 30px;
+}
 ul>li>a{
     cursor:pointer;
 }/*
@@ -59,15 +62,17 @@ input[type~="text"].ng-touched{
     border-radius:15px;
 
 }
-input[type~="text"].ng-untouched.ng-dirty:focus:active{
+/*
+input[type~="text"].ng-untouched.ng-dirty.ng-invalid:focus, input[type~="text"].ng-untouched.ng-dirty:active{
     border: 1px solid rgb(235, 63, 63);
     outline-style: outset;
     outline-color: yellow;
     border-radius: 5px;
-}
-input.ng-invalid.ng-touched{
+}*/
+
+input.ng-invalid.ng-untouched.pristine{
     border:1px solid red;
-}
+}/*
 input.ng-invalid.ng-touched:hover{
     border:1px solid red;
 }
@@ -77,8 +82,21 @@ input.ng-invalid.ng-touched:active{
 }
 input.ng-invalid.ng-touched:focus{
     border:1px solid red;
-}
-
+}*/
+.ng-valid:not(form).ng-touched.ng-dirty, .ng-valid:not(form).required.ng-touched.ng-dirty  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form).ng-dirty.ng-touched  {
+    border-left: 5px solid #a94442; /* red */
+  }
+ .form-control:focus{
+    border: 1px solid rgba(201, 179, 170, 0.932);
+    outline-style: outset;
+    outline-color: yellow;
+    border-radius: 5px;
+    outline-width: 3px;
+ }
 .panel-success{
     background-color: #ffffff;
   margin: 0px 0% 0px 0%;
@@ -112,20 +130,7 @@ input.ng-invalid.ng-touched:focus{
     box-shadow: 5px 5px rgb(56, 23, 201);
 }*/
 
-.ng-valid:not(form).ng-touched.ng-dirty, .ng-valid:not(form).required.ng-touched.ng-dirty  {
-    border-left: 5px solid #42A948; /* green */
-  }
-  
-  .ng-invalid:not(form).ng-dirty.ng-touched.ng-dirty  {
-    border-left: 5px solid #a94442; /* red */
-  }
- .form-control:focus{
-    border: 1px solid rgba(201, 179, 170, 0.932);
-    outline-style: outset;
-    outline-color: yellow;
-    border-radius: 5px;
-    outline-width: 3px;
- }/*
+/*
  div:active,div:focus,div:hover,div:active>div,div:focus>div,div:hover>div {
     width:100%;
     height:500%;

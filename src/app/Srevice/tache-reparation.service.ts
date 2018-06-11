@@ -23,7 +23,7 @@ export class TacheReparationService {
   public response:any;
   public data:any;
   public listTacheReparation:TacheReparation[]=[];
-  TacheRepobserbale=new Subject();
+  TacheRepobserbale=new Subject<TacheReparation[]>();
   constructor(private _http:Http, private _httpClient:HttpClient) { }
   
   

@@ -134,7 +134,7 @@
                     </div>
                     <div class="form group">
                       <label for="Panne">Panne</label>
-                      <input id="Panne" type="text" name="tacheReparation.Panne" class="form-control" [(ngModel)]="tacheReparation.Panne" >
+                      <input id="Panne" type="text" required="true" name="tacheReparation.Panne" class="form-control" [(ngModel)]="tacheReparation.Panne" >
                     </div>
                     <div class="form group">
                       <label for="Description">Description</label>
@@ -178,7 +178,7 @@
                           <td style=" column-width: 10% ; width:10%">{{tacheRep.Panne}}</td>
                           <td style=" column-width: 10% ; width:10%">{{tacheRep.Composant.nomComposant}}</td>
                           <td style=" column-width: 10% ; width:10%">{{tacheRep.Description}}</td>
-                          <td style=" column-width: 10% ; width:10%">{{tacheRep.etat.Code}}</td>      
+                          <td style=" column-width: 10% ; width:10%"> {{tacheRep.etat|json}}</td>      
                         </tr>
                       </tbody>
                     </div>

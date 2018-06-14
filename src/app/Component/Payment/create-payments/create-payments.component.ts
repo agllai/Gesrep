@@ -174,17 +174,37 @@ isactive(payment:Encaissement):String{
 changePaymentTarif(event:any){
 
 this.payment.totalHT=this.payment.tarif;
-/*
+this.payment.totalTTC=this.payment.tarif;
 if (this.payment.tva!==undefined){
   this.payment.totalTTC=this.payment.totalHT*(1+(this.payment.tva/100));
- if(this.discounttype="%"){
+}
+  if(this.discounttype="%"){
   this.payment.totalTTC=this.payment.totalTTC/(1+(this.payment.reduction/100));  
 }else{
   this.payment.totalTTC=this.payment.totalTTC-this.payment.reduction;
 }
-}*/
+
 
 }
+changePaymentTotal(event:any){
 
+  this.payment.tarif=this.payment.totalHT;
+  this.payment.totalTTC=this.payment.tarif;
+  if (this.payment.tva!==undefined){
+    this.payment.totalTTC=this.payment.totalHT*(1+(this.payment.tva/100));
+  }
+   if(this.discounttype="%"){
+    this.payment.totalTTC=this.payment.totalTTC/(1+(this.payment.reduction/100));  
+  }else{
+    this.payment.totalTTC=this.payment.totalTTC-this.payment.reduction;
+  }
+  
+  
+  }
+  changePaymentTVA(event:any){
+    this.payment.totalTTC=this.payment.totalHT*(1+(this.payment.tva/100));
+    this.payment.totalTTC=this.payment.totalTTC/(1+(this.payment.reduction/100));
+  }
+  
 
 }

@@ -5,15 +5,18 @@
             <h3 class="panel-title">Creer Encaissement</h3>
         </div>
         <div class="panel-body">
-            <form>
+            <form (ngSubmit)="processForm()"> 
              
                 <div class="form-group c10" style="display: inline-block;">
                     <label class="control-label column" for="moyenPayment" >Method Encaissement</label>
                    <!-- <input id="moyenPayment" type="text" name="moyenPayment" class="form-control column1" [(ngModel)]="payment.moyenPaiment">-->
                     <select id="moyenPayment" name="moyenPAyment" class="form-control column1" required  [(ngModel)]="payment.moyenPaiment">
               
-                      <option  *ngFor="let pay of payments" [value]="pay.moyenPaiment"  (select)="choose(pay)">{{pay.moyenPaiment}}</option>
-                      </select>
+ 
+                        <option  value="espèce" selected="selected" >Espèce</option>
+                        <option  value="chèque"  >Chèque</option>
+                        <option  value="visa"  >Visa</option>
+                    </select>
                     <!--
                     <div class="row">
 
@@ -36,42 +39,59 @@
             
                 <div class="form-group c10" style="display: inline-block;">
                     <label class="control-label column" for="tarif" >total</label>
-                    <input id="tarif" type="number" name="tarif" class="form-control column1" [(ngModel)]="payment.tarif"  (keydown)="changePaymentTarif($event)">
+                    <input id="tarif" type="number" name="tarif" class="form-control column1" [(ngModel)]="payment.tarif"  (keyup)="changePaymentTarif($event)">
                 </div>
                 <div class="form-group">
                     <label class="control-label column" for="TotalHT"> total HT</label>
-                     <input id="TotalHT" type="number" name="totalHT" class="form-control column1" [(ngModel)]="payment.tarif" >
+                     <input id="TotalHT" type="number" name="totalHT" class="form-control column1" [(ngModel)]="payment.totalHT" (keyup)="changePaymentTotal($event)">
                 </div> 
                 
                 <div class="form-group">
                   <label class="control-label column" for="TVA">TVA</label>
-                   <input id="TVA" type="number" name="tva" class="form-control column1" [(ngModel)]="payment.tva" >
+                   <input id="TVA" type="number" name="tva" class="form-control column1" [(ngModel)]="payment.tva" (keyup)="changePaymentTVA($event)">
                 </div> 
                 <div class="form-group">
                     <label class="control-label column" for="TotalTTC">TotalTTC</label>
                      <input id="TotalTTC" type="number" name="totalTTC" class="form-control column1" [(ngModel)]="payment.totalTTC"  >
                 </div>
                
-                <div class="form-group">
+                <div class="form-group" >
                     <label class="control-label column"
                     for="discount">Reduction</label>
+                      <input id="discount" 
+                      
+                      type="number" 
+                      name="reduction" class="form-control column1" 
+                      [(ngModel)]="payment.reduction"  >
                      
-                      <div class="column1" style="display: inline-block;">
-                          
-                        <div style="width: 81%;  border-top-right-radius: 0px;border-bottom-right-radius: 0px;" >
-                          <input id="discount" 
-                          style="  border-top-right-radius: 0px;float:left; margin-left: 10px;padding-left:0px; border-bottom-right-radius: 0px;"
-                          type="number" 
-                          name="reduction" class="form-control " 
-                          [(ngModel)]="payment.reduction" >
-                        </div>
-                        <div  style="width:19%; margin-left:0px;float: left; border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
-                          <select name="discounttype" class="form-control"[(ngModel)]="discounttype" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
-                            <option value="%">%</option>
-                            <option value="£">£</option> 
-                          </select>  
-                        </div>
-                    </div>
+                    
+                    
+                    <!--  <div class="column1" style="display: inline-block; ">
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12" style="margin-right: 0px; margin-left:0px;">
+                                <div class="col-lg-9 col-xs-9 col-sm-9 col-md-9" style="margin-right: 0px; margin-left:0px;">
+                                  
+                                    <input id="discount" 
+                                      style="  border-top-right-radius: 0px; margin-left: 10px;padding-left:0px; border-bottom-right-radius: 0px; margin-right:0px;"
+                                      type="number" 
+                                      name="reduction" class="form-control " 
+                                      [(ngModel)]="payment.reduction" >
+                                  
+                                </div>
+                                
+                                <div class="col-lg-3 col-xs-3 col-sm-3 col-md-3" style=" margin-left:0px; margin-left: 0px;">
+                                    <select name="discounttype" class="form-control"[(ngModel)]="discounttype" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;margin-left:0px;">
+                                      <option value="%">%</option>
+                                      <option value="£">£</option> 
+                                    </select>  
+                                </div>  
+                              </div>
+                            </div>
+                          </div>
+                       
+                       
+                    </div> -->
                   
                 </div>
                 <div class="form-group">
@@ -92,11 +112,11 @@
             </form>
             
         </div>
-        <!--
+        
         <div [hidden]="!submitted">
           <div class="btn-group ">
             <h4>You submitted successfully!  </h4>
           </div>
-        </div>-->
+        </div>
     </div>
 </div>

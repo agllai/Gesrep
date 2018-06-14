@@ -1,30 +1,4 @@
-.panel{
-    margin:10px;
-    padding:10px;
-    width:70%;
-    align-items: center;
-    align-self: center;
 
-}
-
-.panel-heading{
-    background-color: silver;
-    align-items: center;
-    border-radius: 10px;
-    text-overflow: ellipsis; 
-
-}
-.panel-title{
-    align-self: center;
-    padding-left:40%;
-}
-.panel-body{
-    background-color: rgba(231, 231, 231, 0.89);
-    overflow: unset;
-    border-radius: 5px;
-    margin-top: 10px;
-    padding: 5px;
-  }
 label.control-label{
     float: left;
     max-width: 30%;
@@ -52,19 +26,57 @@ label.control-label{
   }
 
   .column2{
-    width: 80%;
+    width: 800%;
     max-width:80%;
     margin-left:20px;
-    overflow: inherit;
+    margin-bottom: 15px;
   
   }
   
   
 
-.panel-body{
-  background-color: rgba(231, 231, 231, 0.89);
-  overflow: unset;
-  border-radius: 5px;
-  margin-top: 10px;
-  padding: 5px;
+  .panel{
+    margin:10px;
+    padding:10px;
+    width:70%;
+    align-items: center;
+    align-self: center;
+
 }
+
+.panel-heading{
+    background-color: #c4ebddba;
+    align-items: center;
+    border-radius: 10px;
+    text-overflow: ellipsis; 
+    height: 50px;
+    padding-bottom: 10px;
+    padding-top: 0px;
+    padding-left: 0%;
+    box-shadow: 3px 3px grey;
+}
+.panel-title{
+    overflow: initial;
+    align-self: center;
+    padding-right:20%;
+    padding-bottom: 0px;
+    padding-top: 15px;
+    
+    margin-top: 0px;
+}
+
+
+  .panel-body{
+    background-color: rgba(211, 211, 211, 0.801);
+    overflow: unset;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 5px;
+    box-shadow: 3px 3px grey;
+  }
+  .panel-heading>nav>a>h3{
+      display: inline-block;
+      white-space: normal; 
+      width: fit-content;
+  }
+  

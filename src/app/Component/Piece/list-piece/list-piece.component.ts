@@ -13,6 +13,17 @@ import { PieceService } from '../../../Srevice/piece.service';
 })
 export class ListPieceComponent implements OnInit {
  public pieces:Piece[]=[];
+ piece:Piece=new Piece();
+ p: number = 1;
+ size:number=1;
+ IPP:number=5;
+  key:string="idEncaissement";
+   reverse: boolean = false;
+   filter:string;
+   sort(key){
+     this.key = key;
+     this.reverse = !this.reverse;}
+  
   constructor(private _Pieceservice:PieceService,private _rotuer:Router) { }
 
   ngOnInit() {
@@ -24,5 +35,8 @@ export class ListPieceComponent implements OnInit {
     (error:ErrorHandler)=>{console.log(error);
     
     })
+  }
+  newPiece(){
+
   }
 }

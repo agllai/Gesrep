@@ -166,6 +166,10 @@ import { ComponentngTypeaheadComponent } from './componentng-typeahead/component
 ]},{
   path:'new',
   component:ComponentngTypeaheadComponent
+},
+{
+  path:'listPiece',
+  component:ListPieceComponent
 }
    ])
     

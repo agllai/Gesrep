@@ -115,7 +115,7 @@ input.ng-invalid.ng-touched:focus{
    margin-left: 0px;
    margin-top:20px;
     
-    padding:0px 20px  20px 20px;
+    padding:20px ;
    
     box-shadow: 3px 3px grey;
   
@@ -155,3 +155,67 @@ input.ng-invalid.ng-touched:focus{
        /* background-color: deepskyblue;*/
     }
     .show {display:block;}
+    /*
+    .label{
+        font-size: 16px;
+       
+        width: 30%;
+        float:left;
+    }
+    .form-control{
+        width:70%;
+     
+            
+    }*/
+    header>nav>a{
+        margin-bottom: 20px;
+    }
+    input{
+        padding-left:20px;
+        margin-left:20px;
+      }
+      
+     
+     
+    .c1{
+        width: 10%;
+    }
+    .c2{
+        width: 20%;
+    }
+    .c3{
+        width: 30%;
+    }
+    .c4{
+        width: 40%;
+    }
+    .c5{
+        width: 50%;
+    }
+    .c6{
+        width: 60%;
+    }
+    .c7{
+        width: 70%;
+    }
+    .c8{
+        width: 80%;
+    }
+    .c9{
+        width: 90%;
+    }
+    .c10{
+        width: 100%;
+    }
+/**/    
+.panel-heading{
+    background-color: silver;
+    align-items: center;
+    border-radius: 10px;
+    text-overflow: ellipsis; 
+
+}
+.panel-title{
+    align-self: center;
+    padding-left:40%;
+}

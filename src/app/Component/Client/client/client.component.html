@@ -1,42 +1,52 @@
-<div class="container col-md-4 responsive" style="padding-top: 0px">
+<div class="container  responsive" style="padding-top: 0px">
   <div class="row">
-    <div class="col-ms-12 col-xs-12 col-md-12 col-lg-12 col-offset-1">
+    <div class="col-ms-12 col-xs-12 col-md-12 col-lg-12 ">
 
-    
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        
+            <nav class="navbar " >
+              <a routerLink="../CreateClient" class="navbar-brand " ><h3 class="panel-title">Creer Client</h3></a>
+            </nav>
+         
+      </div>
+    <div class="panel-body">
     <form (ngSubmit)="processForm(client)" [formGroup]="clientForm">
       <div class="form-group">
-        <label for="client"><h3>Client</h3> </label>
+       
+       
         <div id="client">
           <div  class="form-group">
-            <label for="numtel">numero de telephone</label>
-            <input id="numtel" 
-            type="text"
-             name="numtel" 
-             autofocus="autofocus" 
-             class="form-control" 
-             [(ngModel)]="client.numtel" 
-             formControlName="numtel">
+            <label class="control-label column" for="numtel">numero de telephone</label>
+            <input id="numtel"  type="text" name="numtel"  autofocus="autofocus"  class="form-control column1" [(ngModel)]="client.numtel"  formControlName="numtel" > 
+            <span class="help-block alert alert-danger" *ngIf="!numtel.valid && numtel.touched" > s'il vous plais saisire un telephone valide</span>
           </div>
           <div class="form-group">
-            <label for="typeClient">type Client</label>
-            <select id="typeClient" name="typeClient" class="form-control" [(ngModel)]="client.typeClient">
+            <label class="control-label column" for="typeClient">type Client</label>
+            <select id="typeClient" name="typeClient" class="form-control column1" required  [(ngModel)]="client.typeClient">
               <option value="company" selected="selected">company</option>
               <option value="citizen"  >citizen</option>
        
             </select>
-        
+            <span class="help-block alert alert-danger" *ngIf="!typeClient.valid && typeClient.touched" > s'il vous plais choisir un type de client </span>
+
           </div>
           <div class="form-group">
-            <label for="nom">nom</label>
-            <input id="nom" formControlName="nom" type="text" name="nom" class="form-control" [(ngModel)]="client.nom" >
+            <label class="control-label  column" for="nom">nom</label>
+            <input id="nom" formControlName="nom" type="text" name="nom" class="form-control column1"  [(ngModel)]="client.nom" >
+            <span class="help-block alert alert-danger" *ngIf="(!nom.valid) && nom.touched" > s'il vous plais saisire un nom valide de client </span>
           </div>
           <div class="form-group">
-            <label for="email">email</label>
-            <input id="email" type="email"formControlName="email"  email name="mail" class="form-control" [(ngModel)]="client.mail" >
+            <label class="control-label column" for="email">email</label>
+            <input id="email" type="email"formControlName="email"  email name="mail" class="form-control  column1" [(ngModel)]="client.mail" >
+            <span class="help-block alert alert-danger" *ngIf="!email.valid && email.touched" > s'il vous plais saisire un email valide de client </span>
+
           </div>
           <div class="form-group">
-            <label for="adresse">adresse</label>
-            <input id="adresse" type="text" name="adresse" formControlName="adresse" class="form-control" [(ngModel)]="client.adresse" >
+            <label class="control-label column" for="adresse">adresse</label>
+            <input id="adresse" type="text" name="adresse" formControlName="adresse" class="form-control  column1" [(ngModel)]="client.adresse" >
+            <span class="help-block alert alert-danger" *ngIf="!adresse.valid && adresse.touched" > s'il vous plais saisire une adresse valide de client </span>
+
           </div>
       
         </div>
@@ -44,12 +54,14 @@
           <input type="submit" class="btn btn-success" value="save">
     
   </form>
-
+</div>
+</div>
   <div [hidden]="!submitted">
 	  <div class="btn-group ">
 		  <h4>You submitted successfully!</h4>
 	  </div>
   </div>
+
 </div>
 </div>
 </div>

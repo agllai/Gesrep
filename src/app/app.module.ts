@@ -48,6 +48,7 @@ import { FicheReparationComponent } from './Component/fiche-reparation/fiche-rep
 import { Article } from './enteties/Article';
 import { OperateurService } from './Srevice/operateur.service';
 import { DemandeReaparationService } from './Srevice/demande-reaparation.service';
+import { ComponentngTypeaheadComponent } from './componentng-typeahead/componentng-typeahead.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +75,7 @@ import { DemandeReaparationService } from './Srevice/demande-reaparation.service
     CreateTacheReparationComponent,
     ListTacheReparationComponent,
     FicheReparationComponent,
+    ComponentngTypeaheadComponent
   ],
   imports: [
     BrowserModule,
@@ -160,7 +162,11 @@ import { DemandeReaparationService } from './Srevice/demande-reaparation.service
   {
     path:"tacheReparation",
     component:CreateTacheReparationComponent
-  }]}
+  }
+]},{
+  path:'new',
+  component:ComponentngTypeaheadComponent
+}
    ])
     
   ],

@@ -3,6 +3,8 @@ import { Client } from '../../../enteties/Client';
 import { ClientService } from '../../../Srevice/ClientService';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
+import { NgForm, NgModel } from '@angular/forms';
+
 import { FormGroup, FormControl, FormControlDirective, Validators } from '@angular/forms';
 @Component({
   selector: 'app-client',
@@ -14,28 +16,34 @@ export class ClientComponent implements OnInit {
   client:Client=new Client();
   submitted = false;
   data:any;
-  adresse:String;
+  //adresse:String;
   method:String;
   clientForm:FormGroup;
+  numtel=new FormControl(
+    this.client.numtel,
+    [Validators.maxLength(13),
+      Validators.minLength(8),
+      Validators.required,
+      Validators.pattern("(9|7|5|4|2){1}[0-9]{7}")
+    ]);
+ email=new FormControl(this.client.mail,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+[.][a-z]{2,4}"));
+  nom= new FormControl(this.client.nom,[ Validators.required,Validators.minLength(4),Validators.maxLength(20),Validators.pattern("[a-zA-Z]+")]);
+  adresse= new FormControl(this.client.adresse,[Validators.minLength(15),Validators.maxLength(50),Validators.pattern("^[0-9.]+[a-zA-Z]+")]);
+   typeClient= new FormControl(this.client.typeClient,Validators.required) ;
+
     constructor(private _ClientService:ClientService,private _rotuer:Router) { 
       
     }
   
     ngOnInit() {
       this.clientForm=new FormGroup({
-        'numtel':new FormControl(
-          this.client.numtel,
-          [Validators.maxLength(13),
-            Validators.minLength(8),
-            Validators.required,
-            Validators.pattern("(9|7|5|4|2){1}[0-9]{7}")
-          ]),
+        'numtel':this.numtel,
        // 'email':new FormControl(this.client.mail,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}")),
-       'email':new FormControl(this.client.mail,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+[.][a-z]{2,4}")),
+       'email':this.email,
        
-        'nom':new FormControl(this.client.nom,[ Validators.required,Validators.minLength(4),Validators.maxLength(20),Validators.pattern("[a-zA-Z]+")]),
-        'adresse': new FormControl(this.client.adresse,[Validators.minLength(15),Validators.maxLength(50),Validators.pattern("^[0-9.]+[a-zA-Z]+")]),
-         'typeClient': new FormControl(this.client.typeClient,Validators.required) 
+        'nom':this.nom,
+        'adresse': this.adresse,
+         'typeClient': this.typeClient
       });
       this.client=this._ClientService.getter();
       this.client.typeClient="citizen";

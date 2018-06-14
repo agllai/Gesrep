@@ -1,140 +1,102 @@
-<div class="container col-md-4 responsive" style="padding-top: 0px">
 
-  <form (ngSubmit)="processForm()"  >
-      <div class="form group">
-          <label for="payment"><h3> Payment </h3></label>
-          <div id="payment">
-
-           
-    
-        <div class="form group">
-          <label for="PaymentMethod">Payment method</label>
-         <!-- <input id="PaymentMethod" type="text" name="moyenPaiment" class="form-control" [(ngModel)]="payment.moyenPaiment">-->
-          <div class="row">
-            <div class="col-lg-12 col-xs-12 col-sm-12">
-                <input id="PaymentMethod" for="dropdown-menu" type="text" name="moyenPaiment" class="form-control dropdown-toggle" data-toggle="dropdown" [(ngModel)]="payment.moyenPaiment">
-                  <ul class="dropdown-menu scrollmenu pre-scrollable list-group" id="dropdown-menu" style="margin-left:15px; max-height: 265px; overflow:scroll">
-            
+<div class="container">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">Creer Encaissement</h3>
+        </div>
+        <div class="panel-body">
+            <form>
              
-                    <li *ngFor="let pay of payments | autocomplete : payment.moyenPaiment:'moyenPaiment':2"  [ngClass]="isactive('pay')">
-                    <a (click)="choose(pay)" (focus)="changeClass(pay)"> {{pay.moyenPaiment}}
-                
-                    </a>
-                    </li>
-                  <!--  <li><a href="#">CSS</a></li>
-                <li><a href="#">JavaScript</a></li>
-                <li><a href="#">HTML</a></li>
-                <li><a href="#">CSS</a></li>
-                <li><a href="#">JavaScript</a></li>
-                <li><a href="#">HTML</a></li>
-                <li><a href="#">CSS</a></li>
-                <li><a href="#">JavaScript</a></li>
-                <li><a href="#">HTML</a></li>
-                <li><a href="#">CSS</a></li>
-                <li><a href="#">JavaScript</a></li>
-                <li><a href="#">HTML</a></li>
-                <li><a href="#">CSS</a></li>
-                <li><a href="#">JavaScript</a></li>
-                <li><a href="#">HTML</a></li>
-                <li><a href="#">CSS</a></li>
-                <li><a href="#">JavaScript</a></li>
-                <li><a href="#">HTML</a></li>
-                <li><a href="#">CSS</a></li>
-                <li><a href="#">JavaScript</a></li>
-                <li><a href="#">HTML</a></li>
-                <li><a href="#">CSS</a></li>
-                <li><a href="#">JavaScript</a></li>
-                <li><a href="#">HTML</a></li>
-                <li><a href="#">CSS</a></li>
-                <li><a href="#">JavaScript</a></li>
-                <li><a href="#">HTML</a></li>
-                <li><a href="#">CSS</a></li>
-                <li><a href="#">JavaScript</a></li>-->
+                <div class="form-group c10" style="display: inline-block;">
+                    <label class="control-label column" for="moyenPayment" >Method Encaissement</label>
+                   <!-- <input id="moyenPayment" type="text" name="moyenPayment" class="form-control column1" [(ngModel)]="payment.moyenPaiment">-->
+                    <select id="moyenPayment" name="moyenPAyment" class="form-control column1" required  [(ngModel)]="payment.moyenPaiment">
               
-                </ul>
-            </div>
-          </div>
-        </div>
-        <div class="form group">
-          <label for="tarif" >total Price</label>
-          <input id="tarif" type="number" name="tarif" class="form-control" [(ngModel)]="payment.tarif"  (keydown)="changePaymentTarif($event)">
-        </div>
-       
-        <div class="form group">
-            <label for="TotalHT"> total HT</label>
-             <input id="TotalHT" type="number" name="totalHT" class="form-control" [(ngModel)]="payment.tarif" >
-        </div> 
-        
-        <div class="form group">
-          <label for="TVA">TVA</label>
-           <input id="TVA" type="number" name="tva" class="form-control" [(ngModel)]="payment.tva" >
-        </div> 
-        <div class="form group">
-            <label for="TotalTTC">TotalTTC</label>
-             <input id="TotalTTC" type="number" name="totalTTC" class="form-control" [(ngModel)]="payment.totalTTC"  >
-        </div>
-       
-        <div class="form group">
-            <label for="discount">discount</label>
-            <div class="row">  
-                <div class="col-lg-12 col-sm-12 col-xs-12">
+                      <option  *ngFor="let pay of payments" [value]="pay.moyenPaiment"  (select)="choose(pay)">{{pay.moyenPaiment}}</option>
+                      </select>
+                    <!--
+                    <div class="row">
+
+                      <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         choisire Methode Payment<span class="caret"></span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-left:20%;">
+                            <input id="moyenPayment" type="text" name="moyenPayment" class="form-control column1" [(ngModel)]="payment.moyenPaiment">
+                            
+                            <div *ngFor="let pay of payments | autocomplete : payment.moyenPaiment:'moyenPaiment':2"  [ngClass]="isactive('pay')">
+                              <a (click)="choose(pay)" (focus)="changeClass(pay)"> {{pay.moyenPaiment}}</a>
+                            </div>
+                      
+                        </div>
+                      </div>
+                    </div>-->
+                  </div>
+              
+            
+                <div class="form-group c10" style="display: inline-block;">
+                    <label class="control-label column" for="tarif" >total</label>
+                    <input id="tarif" type="number" name="tarif" class="form-control column1" [(ngModel)]="payment.tarif"  (keydown)="changePaymentTarif($event)">
+                </div>
+                <div class="form-group">
+                    <label class="control-label column" for="TotalHT"> total HT</label>
+                     <input id="TotalHT" type="number" name="totalHT" class="form-control column1" [(ngModel)]="payment.tarif" >
+                </div> 
+                
+                <div class="form-group">
+                  <label class="control-label column" for="TVA">TVA</label>
+                   <input id="TVA" type="number" name="tva" class="form-control column1" [(ngModel)]="payment.tva" >
+                </div> 
+                <div class="form-group">
+                    <label class="control-label column" for="TotalTTC">TotalTTC</label>
+                     <input id="TotalTTC" type="number" name="totalTTC" class="form-control column1" [(ngModel)]="payment.totalTTC"  >
+                </div>
+               
+                <div class="form-group">
+                    <label class="control-label column"
+                    for="discount">Reduction</label>
+                     
+                      <div class="column1" style="display: inline-block;">
+                          
+                        <div style="width: 81%;  border-top-right-radius: 0px;border-bottom-right-radius: 0px;" >
+                          <input id="discount" 
+                          style="  border-top-right-radius: 0px;float:left; margin-left: 10px;padding-left:0px; border-bottom-right-radius: 0px;"
+                          type="number" 
+                          name="reduction" class="form-control " 
+                          [(ngModel)]="payment.reduction" >
+                        </div>
+                        <div  style="width:19%; margin-left:0px;float: left; border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
+                          <select name="discounttype" class="form-control"[(ngModel)]="discounttype" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
+                            <option value="%">%</option>
+                            <option value="£">£</option> 
+                          </select>  
+                        </div>
+                    </div>
                   
-                <div style="width: 81%;float: left;  border-top-right-radius: 0px;border-bottom-right-radius: 0px;" >
-                  <input id="discount" 
-                  style="  border-top-right-radius: 0px;border-bottom-right-radius: 0px;"
-                  type="number" 
-                  name="reduction" class="form-control" 
-                  [(ngModel)]="payment.reduction" >
                 </div>
-                <div  style="width:19%; float: left; border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
-                  <select name="discounttype" class="form-control"[(ngModel)]="discounttype" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
-                    <option value="%">%</option>
-                    <option value="£">£</option> 
-                  </select>  
+                <div class="form-group">
+                  <label class="control-label column" for="amount-paid ">Montant Payé  </label>
+                  
+                  <input id="amount-paid" type="number" name="montantPaye" class="form-control column1" [(ngModel)]="payment.montantPaye" >
+                  
+                  
+                </div>    
+               
+                
+                <div class="form-group">
+                  <label class="column control-label" for="commentaire">Reste A Payé</label>
+                  <input id="commentaire" type="number" name="resteAPaye" class="form-control column1" [(ngModel)]="payment.resteAPaye" >
                 </div>
-            </div>
+              <input type="submit" class="btn btn-success" value="save">
+            
+            </form>
+            
+        </div>
+        <!--
+        <div [hidden]="!submitted">
+          <div class="btn-group ">
+            <h4>You submitted successfully!  </h4>
           </div>
-        </div>
-        <div class="form group">
-          <label for="amount-paid">amount paid  </label>
-          
-          <input id="amount-paid" type="number" name="montantPaye" class="form-control" [(ngModel)]="payment.montantPaye" >
-          
-          
-        </div>    
-       
-        
-        <div class="form group">
-          <label for="commentaire">amount remains</label>
-          <input id="commentaire" type="number" name="resteAPaye" class="form-control" [(ngModel)]="payment.resteAPaye" >
-        </div>
-      <!--  <div class="form group">
-            <label for="article-id">Article ID</label>
-             <input id="article-id" type="text" name="idArticle" class="form-control" [(ngModel)]="article.idArticle" >
         </div>-->
-        <!--<div class="form group">
-            <label for="designation">Designation</label>
-             <input id="designation" type="text" name="Designation" class="form-control" [(ngModel)]="payment.DemandeReparation" >
-        </div>
-        <div class="form group">
-            <label for="designation">Designation</label>
-             <input id="designation" type="text" name="Designation" class="form-control" [(ngModel)]="payment.Boutique" >
-        </div>-->
-</div>
-
-
-
-
-
-
-
-      </div>
-     <input type="submit" class="btn btn-success" value="save">
-    
-  </form>
-  <div [hidden]="!submitted">
-    <div class="btn-group ">
-      <h4>You submitted successfully!  </h4>
     </div>
-  </div>
 </div>

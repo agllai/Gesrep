@@ -1,14 +1,14 @@
 import { Component, OnInit,ViewChild, TemplateRef } from '@angular/core';
 import { Article } from '../../../enteties/Article';
 import { ArticleService } from '../../../Srevice/article-service.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ADDRCONFIG } from 'dns';
 //import {NgbTypeaheadConfig} from '@ng-bootstrap/ng-bootstrap';
 //import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
-import {FormControl, NgModel} from '@angular/forms';
+import {FormControl, NgModel, FormGroup, Validators} from '@angular/forms';
 //import {NgbTypeahead, NgbTypeaheadModule} from '@ng-bootstrap/ng-bootstrap';
 import {Observable, Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, map, merge} from 'rxjs/operators';
@@ -37,19 +37,42 @@ listArticle:Article[]=[];
  key:string="model";
  active:any;
  operateur:Operateur=new Operateur();
+ //operateur:string;
  operateurs:Operateur[]=[];
-
+ ArticleForm:FormGroup;
 //@ViewChild('instance') instance: NgbTypeahead;
   constructor(
     private _ArticleService:ArticleService ,
     private _rotuer:Router,
     private _PieceService:PieceService,
-    private _OperateurService:OperateurService
+    private _OperateurService:OperateurService,
+    private route:ActivatedRoute
     ) { 
    
   }
 
   ngOnInit() {
+
+
+/*
+    this.ArticleForm=new FormGroup({
+      'marque':new FormControl(
+        this.article.marque
+        ),
+     // 'email':new FormControl(this.client.mail,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}")),
+     'model':new FormControl(this.article.model,[Validators.pattern("^[0-9.]+[a-zA-Z]+"),Validators.required]),
+     
+      'serialNumber':new FormControl(this.article.serialNumber,[ Validators.required,Validators.minLength(6),Validators.maxLength(30),Validators.pattern("^[0-9.]+[a-zA-Z]+")]),
+      'operateur': new FormControl(this.article.operateur.code,[Validators.minLength(2),Validators.maxLength(20),Validators.required]),
+       'commentaire': new FormControl(this.article.commentaire,Validators.pattern("^[0-9.]+[a-zA-Z]+")), 
+       'codeSecurite': new FormControl(this.article.codeSecurite,Validators.pattern("^[0-9.]+[a-zA-Z]+")), 
+       'designation': new FormControl(this.article.codeSecurite,Validators.pattern("^[0-9.]+[a-zA-Z]+")), 
+
+
+    });
+*/
+
+
     this.article=this._ArticleService.getter();
    // this.operateur=this.article.operateur;
     this._ArticleService.getArticles().subscribe((articles:Article[])=>{
@@ -85,7 +108,7 @@ this._ArticleService.articleobserbale.subscribe(
     console.log(error);
   }
 );
-this.operateur=this.article.operateur;
+//this.operateur=this.article.operateur;
 }
   newArticle():void{
     
@@ -108,6 +131,8 @@ this.operateur=this.article.operateur;
       //this.article=this._ArticleService.getter();
      // this.article.idArticle=this._ArticleService.getter().idArticle;
      // console.log(this.article);
+     this.article.operateur=this.operateur;
+        //this.article.model=this.article.piece.model;
      if(this.article.idArticle===undefined){
        this.article.livraison=false;
       this.data=this._ArticleService.createArticle(this.article).subscribe((article:Article)=>{
@@ -153,7 +178,7 @@ this.operateur=this.article.operateur;
     
   chooseMarque(piece:Piece){
     this.article.marque=piece.marque;
-  // this.article.piece=piece;
+   this.article.piece=piece;
     console.log(this.article,piece);
   }
   chooseOperateur(operateur){

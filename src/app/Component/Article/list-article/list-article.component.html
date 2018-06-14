@@ -41,7 +41,7 @@
          <thead>
             
                  <tr>
-                   <th style=" column-width: 6%;width:6%" (click)="sort('serialNumber')">serial Number 
+                   <th style=" column-width: 6%;width:6%" (click)="sort('serialNumber')">Numero De Série
                    <span class="glyphicon sort-icon" *ngIf="key =='serialNumber'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                 </th>
                 
@@ -53,9 +53,9 @@
                    <span class="glyphicon sort-icon" *ngIf="key =='model'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                 </th>
                 
-                <th style=" column-width: 6%;width:6%" (click)="sort('boutique')">boutique 
+             <!--   <th style=" column-width: 6%;width:6%" (click)="sort('boutique')">boutique 
                    <span class="glyphicon sort-icon" *ngIf="key =='boutique'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-                </th>
+                </th>-->
                 
                 <th style=" column-width: 6%;width:6%" (click)="sort('operateur')"> operateur 
                    <span class="glyphicon sort-icon" *ngIf="key =='operateur'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span> 
@@ -67,9 +67,9 @@
                    <span class="glyphicon sort-icon" *ngIf="key =='livraison'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span> 
                   </th>
                   
-                  <th style=" column-width: 6%;width:6%"(click)="sort('dateRecuperation')">  date Récupération 
+                 <!-- <th style=" column-width: 6%;width:6%"(click)="sort('dateRecuperation')">  date Récupération 
                    <span class="glyphicon sort-icon" *ngIf="key =='dateRecuperation'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span> 
-                    </th>
+                    </th>-->
                 
                
                    <th style=" column-width: 6%;width:6%" (click)="sort('commentaire')">  commentaire 
@@ -101,10 +101,10 @@
               <td>{{article.serialNumber}}</td>
               <td>{{article.marque}}</td>
                     <td>{{article.model}}</td>
-                    <td>{{article.boutique}}</td>
+                  <!--  <td>{{article.boutique}}</td>-->
                     <td>{{article.operateur.code}}</td>
                     <td>{{article.livraison}}</td>
-                    <td>{{article.dateRecuperation}}</td>
+               <!--     <td>{{article.dateRecuperation}}</td>-->
                     <td>{{article.commentaire}}</td>
                     <td>{{article.designation}}</td>
                     <td>{{article.codeSecurite}}</td>

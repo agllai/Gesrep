@@ -26,6 +26,8 @@ export class FicheReparationComponent implements OnInit {
  Composant:Composant=new Composant();
  payment:Encaissement=new Encaissement();
  ficheReparation:DemandeReparation=new DemandeReparation();
+
+
   constructor(
     private ArticleService :ArticleService,
     private ClientService : ClientService,
@@ -38,6 +40,7 @@ export class FicheReparationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+   
    this.client= this.ClientService.getter();
    this.article=this.ArticleService.getter();
    this.ListtacheReparation=this.tacheReparationService.getterTacheReparations();

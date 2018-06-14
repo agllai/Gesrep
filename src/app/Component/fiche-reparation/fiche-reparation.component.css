@@ -1,4 +1,20 @@
-#tachRep-list{
+.column{
+    white-space: pre-wrap; 
+    width: 40%; 
+    max-width: 40%;
+    overflow: unset;
+    text-overflow: ellipsis; 
+   padding: 3px;
+   margin: 3px;
+  
+ 
+}
+.panel,.panel-body{
+    padding-right: 10px;
+    margin-right: 0px;
+}
+ /**/
+ #tachRep-list{
     width: 100%;
 }
 .tachRep-list{
@@ -35,10 +51,12 @@
     outline-color: aqua;
     outline-width: 2px;
     outline-style: double;
-}
-.column{
+} 
+
+.column1{
     white-space: pre-wrap; 
-    width: 75px; 
+    width: 75%; 
+    max-width: 75%;
     overflow: unset;
     text-overflow: ellipsis; 
    padding: 3px;
@@ -46,6 +64,7 @@
   
  
 }
+
 
 .item-list-body{
    

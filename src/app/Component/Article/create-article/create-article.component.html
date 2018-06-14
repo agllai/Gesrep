@@ -1,114 +1,92 @@
-<div class="container col-md-4 responsive" style="align-self:center;">
-    
-    <form (ngSubmit)="processForm(article)"  >
-        <div class="form group">
-          <label for="article"><h3> Article</h3></label>
-          <div id="article">
-            <div class="form group" >
-              <label for="Marque">Marque</label>
-              <div class="row" >
-                <div class="col-lg-12 col-xs-12 col-sm-12">
-                  <div class="dropdown">
-                    <input id="Marque" for="dropdown-menu-marque" type="search" name="marque" data-toggle="dropdown" data-target="dropdown-menu-marque" class="form-control dropdown-toggle " [(ngModel)]="article.marque" aria-haspopup="true" aria-expanded="false">
-              
-              <ul id="dropdown-menu-marque" class=" dropdown-menu scrollmenu pre-scrollable list-group" role="menu" style=" max-height: 265px; overflow:scroll" role="menu" >
-                
-                 
-                    <li *ngFor="let piece of listPiece | autocomplete : article.marque:'marque':3 "  [ngClass]="isactive('piece')" >
-                      <a (click)="chooseMarque(piece)" (focus)="changeClass(piece)"> {{piece.marque}}
-                    
-                       </a>
-                    </li>
-                 
-                </ul>
-              
-              </div>
-                
-              </div>
-            </div>
-            </div>
+<div class="container  responsive" style="padding-top: 0px">
+  <div class="row">
+    <div class="col-ms-12 col-xs-12 col-md-12 col-lg-12 ">
 
-          <div class="form group" >
-            <label for="Model">Model</label>
-            <div class="row">
-              <div class="col-lg-12 col-xs-12 col-sm-12">
-                <div class="dropdown">
-            <input id="Model" for="dropdown-menu-model" type="search" name="model" class="form-control dropdown-toggle "  data-toggle="dropdown" data-target="dropdown-menu-model" [(ngModel)]="article.model" aria-haspopup="true" aria-expanded="false">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        
+            <nav class="navbar " >
+              <a routerLink="../CreateClient" class="navbar-brand " ><h3 class="panel-title">Creer Article</h3></a>
+            </nav>
+         
+      </div>
+    <div class="panel-body">
+    <form (ngSubmit)="processForm()" >
+      <div class="form-group">
+       
+       
+        <div id="Article">
+          <div  class="form-group">
+            <label class="control-label column" for="marque">Marque</label>
+         <!--   <input id="marque"  type="text" name="marque"  autofocus="autofocus"  class="form-control column1" [(ngModel)]="article.marque"  > -->
+            <select id="Marque" name="marque"  
+            name="marque" 
+          class="form-control column1" 
+          required  [(ngModel)]="article.marque">
+          
+          <option  *ngFor="let piece of listPiece " [value]="piece.marque" selected  (select)="chooseMarque(piece)">{{piece.marque}}</option>
+
+           
             
-            <ul class=" dropdown-menu scrollmenu pre-scrollable list-group" id="dropdown-menu-model" style=" max-height: 265px; overflow:scroll" role="menu" >
-              
-               
-                  <li *ngFor="let piece of listPiece | autocomplete : article.marque:'marque':3 | autocomplete : article.model:'model':3 "  [ngClass]="isactive('piece')">
-                    <a (click)="chooseModel(piece)" (focus)="changeClass(piece)"> {{piece.marque}} | {{piece.model}}
-                  
-                     </a>
-                  </li>
-                
-              </ul>
-              
-              
-            </div>
-          </div></div>
+         </select>
           </div>
+          <div class="form-group">
+            <label class="control-label column" for="model">Model</label>
+            <select id="model" name="model" class="form-control column1" required  [(ngModel)]="article.model">
+              
+            <option  *ngFor="let piece of listPiece " [value]="piece.model"  (select)="chooseModel(piece)">{{piece.model}}</option>
+            </select>
+          
 
-
-
-
-
-
-
-
-          <div class="form group">
-            <label for="serialNumber">Numero de serie</label>
-            <input id="serialNumber" type="text" name="serialNumber" class="form-control" [(ngModel)]="article.serialNumber" >
           </div>
-          <!-- operateur search -->
-          <div class="form group">
-            <label for="operator">Operateur</label>
-            <!--  <input id="operator" type="text" name="operateur" class="form-control" [(ngModel)]="article.operateur.code" >-->
-            <div class="row" >
-              <div class="col-lg-12 col-xs-12 col-sm-12">
-                <div class="dropdown">
-                  <input id="Marque" for="dropdown-menu-marque" type="search" name="operateur" data-toggle="dropdown" data-target="dropdown-menu-marque" class="form-control dropdown-toggle " [(ngModel)]="operateur.code" aria-haspopup="true" aria-expanded="false">
+          <div class="form-group">
+            <label class="control-label  column" for="operateur">Operateur</label>
+           <!-- <input id="operateur" formControlName="nom" type="text" name="operateur" class="form-control column1"  [(ngModel)]="article.operateur" >-->
+            <select id="model" name="model" class="form-control column1" required  [(ngModel)]="operateur.code">
+              
+              <option  value="ooredoo"  >ooredoo</option>
+              <option  value="Telecome"  >Telecome</option>
+              <option  value="orange"  >orange</option>
+              
+              </select>
             
-                  <ul id="dropdown-menu-marque" class=" dropdown-menu scrollmenu pre-scrollable list-group" role="menu" style=" max-height: 265px; overflow:scroll" role="menu" >
-                    <li *ngFor="let operateur of operateurs | autocomplete : operateur.code:'code':2 "  [ngClass]="isactive('listArticle')" >
-                      <a (click)="chooseOperateur(operateur)" (focus)="changeClass(operateur)"> {{operateur.code}}
-                      </a>
-                    </li>               
-                  </ul>
-                </div>
-              
-              </div>
-            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label column" for="serialNumber">Numero de Série</label>
+            <input id="serialNumber" type="text"   name="serialNumber" class="form-control  column1" [(ngModel)]="article.serialNumber" >
 
           </div>
-          <div class="form group">
-            <label for="commentaire">Commentaire</label>
-            <input id="commentaire" type="textarea" name="commentaire" class="form-control" [(ngModel)]="article.commentaire" >
+          <div class="form-group">
+            <label class="control-label column" for="codeSecurite">Code De Securité</label>
+            <input id="codeSecurite" type="text"   name="codeSecurite" class="form-control  column1" [(ngModel)]="article.codeSecurite" >
+
           </div>
-          <div class="form group">
-            <label for="codeSecurite">Code de securite</label>
-            <input id="codeSecurite" type="text" name="codeSecurite" class="form-control" [(ngModel)]="article.codeSecurite" >
+          <div class="form-group">
+            <label class="control-label column" for="designation">Designation</label>
+            <input id="designation" type="text"   name="designation" class="form-control  column1" [(ngModel)]="article.designation" >
+
           </div>
-          <div class="form group">
-              <label for="designation">Designation</label>
-               <input id="designation" type="text" name="designation" class="form-control" [(ngModel)]="article.designation" >
-          </div>
-         <!-- <div class="form group" [hidden]="hidden">
-              <label for="livraison">Livraison</label>
-               <input id="livraison" type="text" name="livraison" class="form-control" [(ngModel)]="article.livraison" >
-          </div>-->
+
+        
+          <div class="form-group">
+              <label class="control-label column" for="commentaire">Commentaire</label>
+              <input id="commentaire" type="textarea" name="commentaire" 
+               class="form-control column1" 
+              [(ngModel)]="article.commentaire" >
+            </div>
         </div>
       </div>
-      <input type="submit" class="btn btn-success" value="save">
-      
-    </form>
-  <!--
-    <div [hidden]="!submitted">
-      <div class="btn-group ">
-        <h4>You submitted successfully!  </h4>
-      </div>
-    </div>-->
+          <input type="submit" class="btn btn-success" value="save">
+    
+  </form>
+</div>
+</div>
+  <div [hidden]="!submitted">
+	  <div class="btn-group ">
+		  <h4>You submitted successfully!</h4>
+	  </div>
   </div>
- 
+
+</div>
+</div>
+</div>

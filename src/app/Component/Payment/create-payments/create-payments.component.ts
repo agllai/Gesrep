@@ -8,6 +8,7 @@ import { ErrorHandler } from '@angular/router/src/router';
 import { Subject } from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -28,9 +29,29 @@ listPayment:Encaissement[]=[];
 public payments:Encaissement[]=[];
 //idArticle:number;
 discounttype:string="%";
+PaymentForm:FormGroup;
+moyenPayment=new FormControl(this.payment.moyenPaiment,Validators.required);
+total=new FormControl(this.payment.tarif,[Validators.pattern("[0-9]{1,5}"),Validators.required]);
+totalHT= new FormControl(this.payment.totalHT,[ Validators.required,Validators.minLength(1),Validators.maxLength(5),Validators.pattern("[0-9]+")]);
+totalTTC= new FormControl(this.payment.totalTTC,[Validators.minLength(1),Validators.maxLength(6),Validators.pattern("[0-9]+")]);
+ TVA= new FormControl(this.payment.tva,Validators.required) ;
+ reduction= new FormControl(this.payment.reduction,[Validators.required,Validators.maxLength(2),Validators.pattern("[0-9]{1,2}")]) ;
+ montantPaye= new FormControl(this.payment.montantPaye,[Validators.required,Validators.maxLength(2),Validators.pattern("[0-9]{1,2}")]) ;
+
   constructor(private _PaymentService:PaymentService , private _ArticleService:ArticleService,private _rotuer:Router) { }
 
   ngOnInit() {
+    this.PaymentForm=new FormGroup({
+      'moyenPayment':this.moyenPayment,
+     // 'email':new FormControl(this.client.mail,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}")),
+     'total':this.total,
+     
+      'totalHT':this.totalHT,
+      'totalTTC': this.totalTTC,
+       'TVA': this.TVA,
+       'reduction': this.reduction,
+       'montantPaye': this.montantPaye
+    });
     this.hidden=false;
     this._PaymentService.getPayments().subscribe((payments:Encaissement[])=>{
       console.log(payments);
@@ -206,5 +227,7 @@ changePaymentTotal(event:any){
     this.payment.totalTTC=this.payment.totalTTC/(1+(this.payment.reduction/100));
   }
   
-
+  changeMontantPaye(event:any){
+    this.payment.resteAPaye=this.payment.totalTTC-this.payment.montantPaye;
+  }
 }

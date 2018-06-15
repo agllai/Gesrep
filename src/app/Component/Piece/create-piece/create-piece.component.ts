@@ -26,7 +26,13 @@ export class CreatePieceComponent implements OnInit {
      
     }
     private save():any{
-      return this._PieceService.createPiece(this.piece);
+      return this._PieceService.createPiece(this.piece).subscribe(
+        (piece:Piece)=>{
+          console.log(piece);this._rotuer.navigate(["../listPiece"]);
+        }
+      ),(error:any)=>{
+        console.log(error);
+      }
      
     }
     processForm(piece:Piece)

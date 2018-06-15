@@ -37,6 +37,8 @@ export class ListPieceComponent implements OnInit {
     })
   }
   newPiece(){
-
+    this.piece=new Piece();
+    this._Pieceservice.setter(this.piece);
+    this._rotuer.navigate(["../CreatePiece"]);
   }
 }

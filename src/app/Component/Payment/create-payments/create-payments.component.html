@@ -5,18 +5,20 @@
             <h3 class="panel-title">Creer Encaissement</h3>
         </div>
         <div class="panel-body">
-            <form (ngSubmit)="processForm()"> 
+            <form (ngSubmit)="processForm()" #Enc="ngForm"> 
              
                 <div class="form-group c10" style="display: inline-block;">
                     <label class="control-label column" for="moyenPayment" >Method Encaissement</label>
                    <!-- <input id="moyenPayment" type="text" name="moyenPayment" class="form-control column1" [(ngModel)]="payment.moyenPaiment">-->
-                    <select id="moyenPayment" name="moyenPAyment" class="form-control column1" required  [(ngModel)]="payment.moyenPaiment">
+                    <select id="moyenPayment" name="moyenPAyment" class="form-control column1" required  [(ngModel)]="payment.moyenPaiment" #moyenPaymen="ngModel">
               
  
                         <option  value="espèce" selected="selected" >Espèce</option>
                         <option  value="chèque"  >Chèque</option>
                         <option  value="visa"  >Visa</option>
                     </select>
+                    <span class="help-block alert alert-danger" *ngIf="(!moyenPaymen.valid) && moyenPaymen.touched" > s'il vous plais slectionner un Moyen D'encaissement valide </span>
+
                     <!--
                     <div class="row">
 
@@ -39,20 +41,28 @@
             
                 <div class="form-group c10" style="display: inline-block;">
                     <label class="control-label column" for="tarif" >total</label>
-                    <input id="tarif" type="number" name="tarif" class="form-control column1" [(ngModel)]="payment.tarif"  (keyup)="changePaymentTarif($event)">
+                    <input id="tarif" type="number" name="tarif" class="form-control column1" required minlength="1" maxlength="5"   [(ngModel)]="payment.tarif" #tarif="ngModel" (keyup)="changePaymentTarif($event)">
+                    <span class="help-block alert alert-danger" *ngIf="(!tarif.valid) && tarif.touched" > s'il vous plais saisir tarif d'encaissement valide </span>
+ 
                 </div>
                 <div class="form-group">
                     <label class="control-label column" for="TotalHT"> total HT</label>
-                     <input id="TotalHT" type="number" name="totalHT" class="form-control column1" [(ngModel)]="payment.totalHT" (keyup)="changePaymentTotal($event)">
-                </div> 
+                     <input id="TotalHT" type="number" name="totalHT" class="form-control column1" [(ngModel)]="payment.totalHT" #TotalHT="ngModel"  minlength="1" maxlength="5" (keyup)="changePaymentTotal($event)">
+                     <span class="help-block alert alert-danger" *ngIf="(!TotalHT.valid) && TotalHT.touched" > s'il vous plais saisir un TotalHT D'encaissement valide </span>
+
+                  </div> 
                 
                 <div class="form-group">
                   <label class="control-label column" for="TVA">TVA</label>
-                   <input id="TVA" type="number" name="tva" class="form-control column1" [(ngModel)]="payment.tva" (keyup)="changePaymentTVA($event)">
+                   <input id="TVA" type="number" name="tva" class="form-control column1" [(ngModel)]="payment.tva" required minlength="1" maxlength="2" required #TVA="ngModel" (keyup)="changePaymentTVA($event)">
+                   <span class="help-block alert alert-danger" *ngIf="(!TVA.valid) && TVA.touched" > s'il vous plais un TVA valide </span>
+
                 </div> 
                 <div class="form-group">
                     <label class="control-label column" for="TotalTTC">TotalTTC</label>
-                     <input id="TotalTTC" type="number" name="totalTTC" class="form-control column1" [(ngModel)]="payment.totalTTC"  >
+                     <input id="TotalTTC" type="number" name="totalTTC" class="form-control column1" required minlength="1" maxlength="6" [(ngModel)]="payment.totalTTC" #TotalTTC="ngModel" >
+                     <span class="help-block alert alert-danger" *ngIf="(!TotalTTC.valid) && TotalTTC.touched" > s'il vous plais saisir un TotalTTC valide </span>
+
                 </div>
                
                 <div class="form-group" >
@@ -62,8 +72,10 @@
                       
                       type="number" 
                       name="reduction" class="form-control column1" 
-                      [(ngModel)]="payment.reduction"  >
-                     
+                      required minlength="1" maxlength="2" required
+                      [(ngModel)]="payment.reduction" #reduction="ngModel"  >
+                      <span class="help-block alert alert-danger" *ngIf="(!reduction.valid) && reduction.touched" > s'il vous plais saisir une reduction valide </span>
+
                     
                     
                     <!--  <div class="column1" style="display: inline-block; ">
@@ -97,17 +109,31 @@
                 <div class="form-group">
                   <label class="control-label column" for="amount-paid ">Montant Payé  </label>
                   
-                  <input id="amount-paid" type="number" name="montantPaye" class="form-control column1" [(ngModel)]="payment.montantPaye" >
+                  <input id="amount-paid" 
+                  type="number" 
+                  name="montantPaye" 
+                  class="form-control column1" 
+                  required minlength="1" maxlength="6" required
+                  (keyup)="changeMontantPaye($event)"
+                  [(ngModel)]="payment.montantPaye" #montantpaye="ngModel">
                   
-                  
+                  <span class="help-block alert alert-danger" *ngIf="(!montantpaye.valid) && montantpaye.touched" > s'il vous plais saisir un montant valide </span>
+
                 </div>    
                
                 
                 <div class="form-group">
                   <label class="column control-label" for="commentaire">Reste A Payé</label>
-                  <input id="commentaire" type="number" name="resteAPaye" class="form-control column1" [(ngModel)]="payment.resteAPaye" >
+                  <input id="commentaire" 
+                  type="number" 
+                  name="resteAPaye" 
+                  class="form-control column1"
+                  required minlength="1" maxlength="6"
+                  [(ngModel)]="payment.resteAPaye" #resteApaye="ngModel" >
+                  <span class="help-block alert alert-danger" *ngIf="(!resteApaye.valid) && resteApaye.touched" > s'il vous plais saisir un Reste A Payé valide </span>
+
                 </div>
-              <input type="submit" class="btn btn-success" value="save">
+              <input type="submit" [disabled]="!Enc.valid" class="btn btn-success" value="save">
             
             </form>
             

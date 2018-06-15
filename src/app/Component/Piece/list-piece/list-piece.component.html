@@ -21,7 +21,7 @@
               </div>  
   <table class="table table-striped table-bordered table-hover table-responsive" id="dataTables-example">
          <thead>
-          <th>Piece Id</th>
+         <!-- <th>Piece Id</th>-->
           <th>Type Materiel</th>
           <th>Marque</th>
           <th>Model</th>
@@ -30,7 +30,7 @@
       </thead>
       <tbody>
           <tr *ngFor="let piece of pieces|orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: IPP, currentPage: p }; let i = index">
-            <td>{{piece.idPiece}}</td>
+           <!-- <td>{{piece.idPiece}}</td>-->
               <td>{{piece.typeMatriel}}</td>
               <td>{{piece.marque}}</td>
               <td>{{piece.model}}</td>

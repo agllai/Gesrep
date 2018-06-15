@@ -1,51 +1,88 @@
-<nav class="navbar navbar-default navbar-left navbar-fixed-side navbar-default  nav-stacked nav-pills  nav-justified " data-offset-top="205">
-    <div class="container"  role="navigation">
-        <div class="navbar-header "><h4 class="navbar-brand navbar-link">functions</h4>
-          <button data-toggle="collapse" data-target="#navcol-2" class="navbar-toggle collapsed">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-          </button>
-      </div>
-        <div class="sidebar-nav navbar-collapse collapse nav-pills nav-stacked nav-justified " aria-expanded="true" id="navcol-2">
-            <ul class="nav navbar-nav nav-tabs" id="side-menu">
-                
-                
-               <li role="presentation"
-               routerLinkActive="active"
-               [routerLinkActiveOptions]="{exact: true}">
-                    <a routerLink="./listArticle" > Article list</a>
-                </li>
-                <li role="presentation"
-                routerLinkActive="active"> 
-                    <a routerLink="./CreateArticle"> Create Article</a>                                                   
-                </li>
-                <li role="presentation" routerLinkActive="active">
-                    <a routerLink="./CreateClient" > Create Client</a>                                                     
-                </li>
-                <li routerLinkActive="active" role="presentation">
-                    <a routerLink="./ListeClient" >Clients List</a>                                                     
-                </li>
-                <li routerLinkActive="active" role="presentation">
-                    <a routerLink="./MakePayment" >MakePayment</a>                                                     
-                </li>
-               <li routerLinkActive="active" role="presentation">
-                    <a routerLink="./ListPayment" >List Payment</a>                                                     
-                </li>
-                <li routerLinkActive="active" role="presentation">
-                        <a routerLink="./Piece/ListPiece"  >List Piece</a>                                                     
-                </li>
-                <li routerLinkActive="active" role="presentation">
-                    <a routerLink="./CreatePiece" > Create Piece</a>                                                     
-                </li>
-                
-                
-                
-                
-            </ul>
+<nav id="sidebar">
+        <div class="navbar-header "><h4 class="navbar-brand navbar-link">Fonctions</h4>
+            <button data-toggle="collapse" data-target="#navcol-2" class="navbar-toggle collapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
         </div>
-        <!-- /.sidebar-collapse -->
-    </div>
-    <!-- /.navbar-static-side -->
+        <div class="sidebar-nav navbar-collapse collapse nav-pills nav-stacked nav-justified " aria-expanded="true" id="navcol-2">
+        <ul class="nav navbar-nav nav-tabs " id="side-menu">
+       
+                       
+            <li role="presentation"
+            routerLinkActive="active" >
+                <a href="#Article" data-toggle="collapse" aria-expanded="false">Article</a>
+                <ul class="collapse list-unstyled" id="Article">
+                    <li role="presentation"
+                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./CreateArticle" >Creer Article</a></li>
+                    <li role="presentation"
+                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./listArticle" >Consulter Article</a></li>
+                   
+                </ul>
+            </li>
+            <li role="presentation"
+            routerLinkActive="active"  >
+                
+                <a href="#Client" data-toggle="collapse" aria-expanded="false">Client</a>
+                <ul class="collapse list-unstyled" id="Client">
+                    <li  role="presentation"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./CreateClient">Créer Client</a></li>
+                    <li role="presentation"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./listClient"></a></li>
+                   
+                </ul>
+            </li>
+            <li role="presentation"
+            routerLinkActive="active" >
+                
+                    <a href="#TacheRparation" data-toggle="collapse" aria-expanded="false">Tache Reparation</a>
+                    <ul class="collapse list-unstyled" id="TacheRparation">
+                        <li role="presentation"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./listTacheReparation">Créer TAche Reparation</a></li>
+                        <li role="presentation"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./CreateTacheReparation">Consulter</a></li>
+                    </ul>
+            </li>
+            <li role="presentation"
+            routerLinkActive="active" style="margin-right: 100px;">
+                
+                <a href="#Encaissement" data-toggle="collapse" aria-expanded="false">Encaissement</a>
+                <ul class="collapse list-unstyled" id="Encaissement">
+                            <li role="presentation"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./MakePayment">Créer Encaissement</a></li>
+                            <li role="presentation"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./listPayment">Consulter Encaissements</a></li>
+                           
+                </ul>
+            </li>
+            <li role="presentation"
+            routerLinkActive="active" >
+                
+                <a href="#FicheReparation" data-toggle="collapse" aria-expanded="false">Fiche Reparation</a>
+                <ul class="collapse list-unstyled" id="FicheReparation">
+                                <li role="presentation"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./CreateFicheReparation">Creer Fiche Reparation</a></li>
+                                <li role="presentation"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./listFicheReparation">Consulter Fiche Reparation</a></li>
+                               
+                </ul>
+            </li>
+            <li role="presentation"
+            routerLinkActive="active" >
+                
+                <a href="#Piece" data-toggle="collapse" aria-expanded="false">Piece</a>
+                <ul class="collapse list-unstyled" id="Piece">
+                                    <li role="presentation"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./CreatePiece" >Créer Piece</a></li>
+                                    <li role="presentation"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./listPiece" >Consulter Pieces</a></li>
+                               
+                </ul>
+            </li>
+          
+        </ul>
+
+       </div>
     </nav>

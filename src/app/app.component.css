@@ -1,0 +1,26 @@
+#navbar{
+    float: left;
+}
+#main{
+float:left;
+margin-left:230px;
+width: 80%;
+}
+.content{
+    margin-top: 50px;
+}
+#sidenav.active >.sidenav{
+    margin-left: -230px;
+    width: 0px;
+    transition: ease-in-out 0.7em;
+}
+#sidenav.active>>>.sidenav{
+    margin-left: -230px;
+    width: 0px;
+    transition: ease-in-out 0.7em;
+}
+#main.active{
+    
+    margin-left:0px;
+    width: 100%;
+    }

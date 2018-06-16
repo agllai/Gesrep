@@ -1,7 +1,3 @@
-<div class="container  responsive" style="padding-top: 0px">
-  <div class="row">
-    <div class="col-ms-12 col-xs-12 col-md-12 col-lg-12 ">
-
     <div class="panel panel-success">
       <div class="panel-heading">
         
@@ -17,33 +13,33 @@
        
         <div id="client">
           <div  class="form-group">
-            <label class="control-label column" for="numtel">numero de telephone</label>
+            <label class="control-label column" for="numtel">Numero de télèphone</label>
             <input id="numtel"  type="text" name="numtel"  autofocus="autofocus"  class="form-control column1" [(ngModel)]="client.numtel"  formControlName="numtel" > 
             <span class="help-block alert alert-danger" *ngIf="!numtel.valid && numtel.touched" > s'il vous plais saisire un telephone valide</span>
-          </div>
+          </div><br>
           <div class="form-group">
             <label class="control-label column" for="typeClient">type Client</label>
             <select id="typeClient" name="typeClient" class="form-control column1" required  [(ngModel)]="client.typeClient">
-              <option value="company" selected="selected">company</option>
-              <option value="citizen"  >citizen</option>
+              <option value="company" selected="selected">Société</option>
+              <option value="citizen"  >Personnel</option>
        
             </select>
             <span class="help-block alert alert-danger" *ngIf="!typeClient.valid && typeClient.touched" > s'il vous plais choisir un type de client </span>
 
           </div>
           <div class="form-group">
-            <label class="control-label  column" for="nom">nom</label>
+            <label class="control-label  column" for="nom">Nom</label>
             <input id="nom" formControlName="nom" type="text" name="nom" class="form-control column1"  [(ngModel)]="client.nom" >
-            <span class="help-block alert alert-danger" *ngIf="(!nom.valid) && nom.touched" > s'il vous plais saisire un nom valide de client </span>
+            <span class="help-block alert alert-danger" *ngIf="(!nom.valid) && nom.touched" > s'il vous plais saisire un nom de client valide  </span>
           </div>
           <div class="form-group">
-            <label class="control-label column" for="email">email</label>
+            <label class="control-label column" for="email">Email</label>
             <input id="email" type="email"formControlName="email"  email name="mail" class="form-control  column1" [(ngModel)]="client.mail" >
-            <span class="help-block alert alert-danger" *ngIf="!email.valid && email.touched" > s'il vous plais saisire un email valide de client </span>
+            <span class="help-block alert alert-danger" *ngIf="!email.valid && email.touched" > s'il vous plais saisire un email de client valide  </span>
 
           </div>
           <div class="form-group">
-            <label class="control-label column" for="adresse">adresse</label>
+            <label class="control-label column" for="adresse">Adresse</label>
             <input id="adresse" type="text" name="adresse" formControlName="adresse" class="form-control  column1" [(ngModel)]="client.adresse" >
             <span class="help-block alert alert-danger" *ngIf="!adresse.valid && adresse.touched" > s'il vous plais saisire une adresse valide de client </span>
 
@@ -51,17 +47,14 @@
       
         </div>
       </div>
-          <input type="submit" class="btn btn-success" value="save">
+          <input type="submit" class="btn btn-success" value="Enregistrer">
     
   </form>
 </div>
 </div>
   <div [hidden]="!submitted">
 	  <div class="btn-group ">
-		  <h4>You submitted successfully!</h4>
+		  <h4>Vous avez Enregistrer Correctement!</h4>
 	  </div>
   </div>
 
-</div>
-</div>
-</div>

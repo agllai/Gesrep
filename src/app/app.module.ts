@@ -49,6 +49,7 @@ import { Article } from './enteties/Article';
 import { OperateurService } from './Srevice/operateur.service';
 import { DemandeReaparationService } from './Srevice/demande-reaparation.service';
 import { ComponentngTypeaheadComponent } from './componentng-typeahead/componentng-typeahead.component';
+import { UniquePipe } from './distinct.piepe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +76,8 @@ import { ComponentngTypeaheadComponent } from './componentng-typeahead/component
     CreateTacheReparationComponent,
     ListTacheReparationComponent,
     FicheReparationComponent,
-    ComponentngTypeaheadComponent
+    ComponentngTypeaheadComponent,
+    UniquePipe
   ],
   imports: [
     BrowserModule,
@@ -90,13 +92,10 @@ import { ComponentngTypeaheadComponent } from './componentng-typeahead/component
     MatAutocompleteModule,
     //NgbModule.forRoot(),
     RouterModule.forRoot([
-      {path:"rw",
-      component:ResponceWrapperComponent
-    },
-   /* {
+    {
       path:"",
-      component:AppComponent
-    },*/
+      component:CreateTacheReparationComponent
+    },
     {
       path:"CreateClient",
       component:ClientComponent

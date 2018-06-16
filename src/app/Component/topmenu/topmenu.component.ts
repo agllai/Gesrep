@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-topmenu',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./topmenu.component.css']
 })
 export class TopmenuComponent implements OnInit {
-
-  constructor() { }
+@Output() navbartoggle = new EventEmitter<Boolean>();
+  nav:Boolean=true;
+constructor() { }
 
   ngOnInit() {
   }
-
+navbar(){
+  this.nav=!this.nav;
+this.navbartoggle.emit(this.nav);
+}
 }

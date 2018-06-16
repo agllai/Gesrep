@@ -36,6 +36,7 @@ export class ClientComponent implements OnInit {
     }
   
     ngOnInit() {
+      this.submitted = false;
       this.clientForm=new FormGroup({
         'numtel':this.numtel,
        // 'email':new FormControl(this.client.mail,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}")),

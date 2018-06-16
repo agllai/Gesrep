@@ -42,9 +42,10 @@
     border-right:2px solid black ;
     outline-width: 0px;
     background-color:rgba(117, 96, 96, 0.384) ;
- margin-left:-150px; 
+ margin-left:0px; 
 
  border-radius: 5px;
+ height: 100%;
 }
 .itemList:active,.itemList:focus,.itemList:hover {
 

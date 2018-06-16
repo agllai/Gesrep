@@ -7,7 +7,7 @@
                 <!-- list head -->
                 <div class="list-head">
 
-                    <h3> Fiche Reparation  </h3>
+                    <h3> Fiche Réparation  </h3>
 
                 </div>
                 <!-- list body -->
@@ -23,7 +23,7 @@
                             <div class="column"><strong>Email :</strong></div> {{client.mail}}
                             <div class="column"><strong>Numero de telphone: </strong></div> {{client.numtel}}
                             <div class="column"><strong>Adresse :</strong></div> {{client.adresse}}
-                            <div class="column"><strong>Type :</strong></div> {{client.typeClient}}
+                            <div class="column"><strong>Type Client :</strong></div> {{client.typeClient}}
                             
                         </div>
                         <div class="btn-group show"> 
@@ -33,9 +33,9 @@
                                 </button>
                                 
                                 <ul class="dropdown-menu button-group " aria-labelledby="client" >
-                                  <li>  <a class="dropdown-item" (click)="CreateClient()">Create Client</a></li>
-                                   <li> <a class="dropdown-item" (click)="UpdateClient()">Edit Client</a></li>
-                                   <li> <a class="dropdown-item" (click)="ResetClient()">reset</a></li>
+                                  <li>  <a class="dropdown-item" (click)="CreateClient()">Créer Client</a></li>
+                                   <li> <a class="dropdown-item" (click)="UpdateClient()">Editer Client</a></li>
+                                   <li> <a class="dropdown-item" (click)="ResetClient()">réinitialiser</a></li>
                                 </ul>
                             </div>
                         </div>    
@@ -51,11 +51,11 @@
                             <div class="column"><strong>Marque :</strong></div> {{article.marque}}    
                             <div class="column"><strong>Model :</strong></div> {{article.model}}
                             <div class="column" style="padding-bottom: -25px; margin-bottom: -25px;" ><strong>Date Recuperation: </strong></div> {{article.dateRecuperation}}
-                            <div class="column"><strong>Operateur:</strong></div> {{article.operateur}}
+                            <div class="column"><strong>Opérateur:</strong></div> {{article.operateur}}
                             <div class="column"><strong>Livraison:</strong></div> {{article.livraison}}
-                            <div class="column"><strong>Designation:</strong></div> {{article.designation}}
+                            <div class="column"><strong>Désignation:</strong></div> {{article.designation}}
                             <div class="column"><strong>Commentaire:</strong></div> {{article.commentaire}}
-                            <div class="column"><strong>CodeSecurite:</strong></div> {{article.codeSecurite}}
+                            <div class="column"><strong>Code de Sécurite:</strong></div> {{article.codeSecurite}}
                             
                         </div>
                             
@@ -67,9 +67,9 @@
                                     </button>
                                     
                                     <ul class="dropdown-menu button-group " aria-labelledby="Article" >
-                                      <li>  <a class="dropdown-item" (click)="CreateArticle()">Create Article</a></li>
-                                       <li> <a class="dropdown-item" (click)="UpdateArticle()">Edit Article</a></li>
-                                       <li> <a class="dropdown-item" (click)="ResetArticle()">reset</a></li>
+                                      <li>  <a class="dropdown-item" (click)="CreateArticle()">Créer Article</a></li>
+                                       <li> <a class="dropdown-item" (click)="UpdateArticle()">Editer Article</a></li>
+                                       <li> <a class="dropdown-item" (click)="ResetArticle()">Réinitialiser</a></li>
                                     </ul>
                                 </div>
                         </div>    
@@ -80,7 +80,7 @@
                     <div class="item-List tacheRep-list" id="tacheRep-list" style="width: 100%;">
                         <div class="item-list-head">
         
-                            <h4> Tache Reparation</h4>
+                            <h4> Tache Réparation</h4>
                         </div>
                         <div class="item-list-body">
                             <table class="table table-responsive table-bordered" style="width: 200%;justify-self: center;justify-items: center ">
@@ -91,10 +91,10 @@
                                             <th style=" column-width: 10%;width:10%"> Panne
                                             </th>
                                                    
-                                            <th  style=" column-width: 10%;width:10%">composant
+                                            <th  style=" column-width: 10%;width:10%">Composant
                                             </th>
                                                    
-                                            <th style=" column-width: 10%;width:10%">Description
+                                            <th style=" column-width: 10%;width:10%">Déscription
                                             </th>
                                             <th style=" column-width: 10%;width:10%">Etat
                                             </th>
@@ -122,9 +122,9 @@
                                     </button>
                                     
                                     <ul class="dropdown-menu button-group " aria-labelledby="TacheReparations" >
-                                      <li>  <a class="dropdown-item" (click)="CreateTacheReparations()">Create Tache Reparation</a></li>
-                                       <li> <a class="dropdown-item" (click)="UpdateTacheReparations()">Edit Tache Reparation</a></li>
-                                       <li> <a class="dropdown-item" (click)="ResetTacheReparations()">Reset</a></li>
+                                      <li>  <a class="dropdown-item" (click)="CreateTacheReparations()">Créer Tache Réparation</a></li>
+                                       <li> <a class="dropdown-item" (click)="UpdateTacheReparations()">Editer Tache Réparation</a></li>
+                                       <li> <a class="dropdown-item" (click)="ResetTacheReparations()">Réinitialiser</a></li>
                                     </ul>
                             </div>
                         </div>    
@@ -135,18 +135,17 @@
                     <div class="item-List">
                             <div class="item-list-head">
         
-                                <h4> Payment</h4>
+                                <h4> Encaissement</h4>
                             </div>
                             <div class="item-list-body">
-                                <div class="column"><strong>Livraison:</strong></div> {{payment.moyenPaiment}}
-                                <div class="column"><strong>Marque :</strong></div> {{payment.tarif}}    
-                                <div class="column"><strong>Model :</strong></div> {{payment.totalHT}}
-                                <div class="column" style="padding-bottom: -25px; margin-bottom: -25px;" ><strong>Date Recuperation: </strong></div> {{article.dateRecuperation}}
-                                <div class="column"><strong>Operateur:</strong></div> {{payment.totalTTC}}
-                                <div class="column"><strong>Livraison:</strong></div> {{payment.reduction}}
+                                <div class="column"><strong>Méthode d'Encaissement:</strong></div> {{payment.moyenPaiment}}
+                                <div class="column"><strong>Tarif :</strong></div> {{payment.tarif}}    
+                                <div class="column"><strong>TotalHT :</strong></div> {{payment.totalHT}}
+                                <div class="column"><strong>TotalTTC:</strong></div> {{payment.totalTTC}}
+                                <div class="column"><strong>Réduction:</strong></div> {{payment.reduction}}
                                <!-- <div class="column"><strong>Designation:</strong></div> {{payment.montantPaye}}-->
-                                <div class="column"><strong>Commentaire:</strong></div> {{payment.montantAvance}}
-                                <div class="column"><strong>CodeSecurite:</strong></div> {{payment.montantPaye}}
+                                <div class="column"><strong>Montant d'Avance:</strong></div> {{payment.montantAvance}}
+                                <div class="column"><strong>Montant Payé:</strong></div> {{payment.montantPaye}}
                                 
                             </div>
                                 
@@ -158,9 +157,9 @@
                                     </button>
                                         
                                     <ul class="dropdown-menu button-group " aria-labelledby="Payment" >
-                                        <li>  <a class="dropdown-item" (click)="CreatePayment()">Create Payment</a></li>
-                                        <li> <a class="dropdown-item" (click)="UpdatePayment()">Edit Payment</a></li>
-                                        <li> <a class="dropdown-item" (click)="ResetPayment()">Reset</a></li>
+                                        <li>  <a class="dropdown-item" (click)="CreatePayment()">Créer Encaissement</a></li>
+                                        <li> <a class="dropdown-item" (click)="UpdatePayment()">Editer Encaissement</a></li>
+                                        <li> <a class="dropdown-item" (click)="ResetPayment()">Réinitialiser</a></li>
                                     </ul>
                                 </div>
                                 
@@ -171,8 +170,8 @@
             </div>    
         </div> 
         <!-- editing and actions section -->
-        <div class="col-lg-6 col-xs-6 col-sm-6 "  style="float:left; margin-right: -5%;">
-            <div style="width: 150%; padding:0px;margin-left:-100px;margin-right: -200px;">
+        <div class="col-lg-6 col-xs-6 col-sm-6 "  style="float:left;">
+            <div style="width: 100%; padding:0px;margin-right: -200px;">
                 <router-outlet ></router-outlet>
             </div>
         </div>

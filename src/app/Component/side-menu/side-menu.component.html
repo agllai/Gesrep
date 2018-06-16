@@ -1,4 +1,4 @@
-<nav id="sidebar">
+<nav id="navbar" class="sidenav">
         <div class="navbar-header "><h4 class="navbar-brand navbar-link">Fonctions</h4>
             <button data-toggle="collapse" data-target="#navcol-2" class="navbar-toggle collapsed">
                 <span class="sr-only">Toggle navigation</span>
@@ -16,7 +16,7 @@
                 <a href="#Article" data-toggle="collapse" aria-expanded="false">Article</a>
                 <ul class="collapse list-unstyled" id="Article">
                     <li role="presentation"
-                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./CreateArticle" >Creer Article</a></li>
+                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./CreateArticle" >Créer Article</a></li>
                     <li role="presentation"
                     routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./listArticle" >Consulter Article</a></li>
                    
@@ -28,21 +28,21 @@
                 <a href="#Client" data-toggle="collapse" aria-expanded="false">Client</a>
                 <ul class="collapse list-unstyled" id="Client">
                     <li  role="presentation"
-            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./CreateClient">Créer Client</a></li>
+                        routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./CreateClient">Créer Client</a></li>
                     <li role="presentation"
-            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./listClient"></a></li>
+                        routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./ListeClient"> Consulter </a></li>
                    
                 </ul>
             </li>
             <li role="presentation"
             routerLinkActive="active" >
                 
-                    <a href="#TacheRparation" data-toggle="collapse" aria-expanded="false">Tache Reparation</a>
+                    <a href="#TacheRparation" data-toggle="collapse" aria-expanded="false" >Tache Reparation</a>
                     <ul class="collapse list-unstyled" id="TacheRparation">
                         <li role="presentation"
-            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./listTacheReparation">Créer TAche Reparation</a></li>
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./CreateTacheReparations">Créer Tache Réparation</a></li>
                         <li role="presentation"
-            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./CreateTacheReparation">Consulter</a></li>
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./listTacheReparation">Consulter</a></li>
                     </ul>
             </li>
             <li role="presentation"
@@ -53,19 +53,19 @@
                             <li role="presentation"
             routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./MakePayment">Créer Encaissement</a></li>
                             <li role="presentation"
-            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./listPayment">Consulter Encaissements</a></li>
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./ListPayment">Consulter Encaissements</a></li>
                            
                 </ul>
             </li>
             <li role="presentation"
             routerLinkActive="active" >
                 
-                <a href="#FicheReparation" data-toggle="collapse" aria-expanded="false">Fiche Reparation</a>
+                <a href="#FicheReparation" data-toggle="collapse" aria-expanded="false">Fiche Réparation</a>
                 <ul class="collapse list-unstyled" id="FicheReparation">
                                 <li role="presentation"
-            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./CreateFicheReparation">Creer Fiche Reparation</a></li>
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./FicheReparation">Creer Fiche Réparation</a></li>
                                 <li role="presentation"
-            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./listFicheReparation">Consulter Fiche Reparation</a></li>
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="./listFicheReparation">Consulter Fiche Réparation</a></li>
                                
                 </ul>
             </li>
@@ -86,3 +86,8 @@
 
        </div>
     </nav>
+
+
+
+
+    

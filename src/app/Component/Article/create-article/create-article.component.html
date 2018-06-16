@@ -1,4 +1,4 @@
-<div class="container  responsive" style="padding-top: 0px">
+<div class="  responsive" style="padding-top: 0px">
   <div class="row">
     <div class="col-ms-12 col-xs-12 col-md-12 col-lg-12 ">
 
@@ -24,7 +24,7 @@
           class="form-control column1" 
           required  [(ngModel)]="article.marque">
           
-          <option  *ngFor="let piece of listPiece " [value]="piece.marque" selected  (select)="chooseMarque(piece)">{{piece.marque}}</option>
+          <option  *ngFor="let piece of listPiece| unique : 'marque' " [value]="piece.marque" selected  (select)="chooseMarque(piece)">{{piece.marque}}</option>
 
            
             
@@ -34,19 +34,19 @@
             <label class="control-label column" for="model">Model</label>
             <select id="model" name="model" class="form-control column1" required  [(ngModel)]="article.model">
               
-            <option  *ngFor="let piece of listPiece " [value]="piece.model"  (select)="chooseModel(piece)">{{piece.model}}</option>
+            <option  *ngFor="let piece of listPiece| unique : 'model' " [value]="piece.model"  (select)="chooseModel(piece)">{{piece.model}}</option>
             </select>
           
 
           </div>
           <div class="form-group">
-            <label class="control-label  column" for="operateur">Operateur</label>
+            <label class="control-label  column" for="operateur">Opérateur</label>
            <!-- <input id="operateur" formControlName="nom" type="text" name="operateur" class="form-control column1"  [(ngModel)]="article.operateur" >-->
             <select id="model" name="model" class="form-control column1" required  [(ngModel)]="operateur.code">
               
               <option  value="ooredoo"  >ooredoo</option>
-              <option  value="Telecome"  >Telecome</option>
-              <option  value="orange"  >orange</option>
+              <option  value="Telecome"  >Télècome</option>
+              <option  value="orange"  >Orange</option>
               
               </select>
             
@@ -55,14 +55,14 @@
             <label class="control-label column" for="serialNumber">Numero de Série</label>
             <input id="serialNumber" type="text"   name="serialNumber" class="form-control  column1" [(ngModel)]="article.serialNumber" >
 
-          </div>
-          <div class="form-group">
+          </div><br>
+          <div class="form-group" style="margin-top:-17px">
             <label class="control-label column" for="codeSecurite">Code De Securité</label>
             <input id="codeSecurite" type="text"   name="codeSecurite" class="form-control  column1" [(ngModel)]="article.codeSecurite" >
 
-          </div>
-          <div class="form-group">
-            <label class="control-label column" for="designation">Designation</label>
+          </div><br>
+          <div class="form-group" style="margin-top:-17px">
+            <label class="control-label column" for="designation">Désignation</label>
             <input id="designation" type="text"   name="designation" class="form-control  column1" [(ngModel)]="article.designation" >
 
           </div>
@@ -76,14 +76,14 @@
             </div>
         </div>
       </div>
-          <input type="submit" class="btn btn-success" value="save">
+          <input type="submit" class="btn btn-success" value="Enregistrer">
     
   </form>
 </div>
 </div>
   <div [hidden]="!submitted">
 	  <div class="btn-group ">
-		  <h4>You submitted successfully!</h4>
+		  <h4>Vous avez enregistrez correctement!</h4>
 	  </div>
   </div>
 

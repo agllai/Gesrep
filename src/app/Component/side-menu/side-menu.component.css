@@ -22,175 +22,121 @@
 /*
     DEMO STYLE
 */
-
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #fafafa;
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 230px; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: rgb(170, 170, 170); /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
-p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
-}
-
-a, a:hover, a:focus {
-    color: inherit;
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
     text-decoration: none;
-    transition: all 0.3s;
-}
-
-.navbar {
-    padding: 0px 10px 15px 0px;
-    background: #fff;
-    border: none;
-    border-radius: 0;
-    margin-bottom: 0px;
-    height: 100%;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-btn {
-    box-shadow: none;
-    outline: none !important;
-    border: none;
-}
-
-.line {
-    width: 100%;
-    height: 1px;
-    border-bottom: 1px dashed #ddd;
-    margin: 40px 0;
-}
-
-/* ---------------------------------------------------
-    SIDEBAR STYLE
------------------------------------------------------ */
-.wrapper {
-    display: flex;
-    align-items: stretch;
-    height: 100%;
-}
-
-#sidebar {
-    min-width: 180px;
-    max-width: 180px;
-    background: rgba(211, 210, 210, 0.801);
-    color: #333;
-    transition: all 0.3s;
-    margin-left: 0px;
-    height: 100%;
-}
-
-#sidebar.active {
-    margin-left: -200px;
-}
-
-#sidebar .sidebar-header {
-    padding: 20px;
-    background:rgba(211, 210, 210, 0.801);
-}
-
-#sidebar ul.components {
-    padding: 20px 0;
-    border-bottom: 1px solid #47748b;
-}
-
-#sidebar ul p {
-    color: #333;
-    padding: 10px;
-}
-
-#sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
+    font-size: 16px;
+    color: #494747;
     display: block;
-}
-#sidebar ul li a:hover {
-    color: rgba(211, 210, 210, 0.897);;
-    background: #333;
+    transition: 0.3s;
+    padding-left: 10px;
 }
 
-#sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #333;
-    background: rgba(238, 238, 238, 0.897);;
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover{
+    color: #000000;
+}
+li>a[ data-toggle="collapse"]{
+    font-size: 16px;
+}
+li>a>ul>li>a{
+font-size: 12px;
+display: flex;
+word-wrap: break-word;
 }
 
-#sidebar , .sidebar{
-    padding-right: 0px;
+li>a[aria-exapanded="true"]{
+    width: 150px;
+    content: "\e59"
 }
-a[data-toggle="collapse"] {
-    position: relative;
+li>a[aria-exapanded="false"]{
+    width: 130px;
 }
-
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    margin-left: 50px;
+}
+.navbar-header{
+    background-color: rgb(85, 85, 85);
+    color: rgb(170, 170, 170);
+    width: 100%;
+    padding-top:0px;
+    margin-top:-8px;
+}
+li{
+    padding:0px;
+}
+li>a{
+border-radius:5px;
+width: 200px;
+}
+li.active{
+ 
+    background-color: rgba(209, 209, 209, 0.911);
+    color: rgb(54, 54, 54);
+  
+    }
+li.active>a{
+ 
+    background-color: rgba(90, 89, 89, 0.911);
+    color: rgb(245, 244, 244);
+  
+    }
 a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
-    content: '\e259';
+    content: '\e259' ;
     display: block;
     position: absolute;
-    right: 20px;
+    right: 0px;
     font-family: 'Glyphicons Halflings';
     font-size: 0.6em;
 }
 a[aria-expanded="true"]::before {
     content: '\e260';
+
 }
-
-
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: rgba(206, 205, 205, 0.925);
+a[aria-expanded="true"]::after {
+   
+width: 140px;
+padding-right: 0px;
 }
-
-ul.CTAs {
+a.active{
+    background-color: rgba(85, 85, 85, 0.8);
+    color: rgb(170, 170, 170);
+}
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
     padding: 20px;
 }
 
-ul.CTAs a {
-    text-align: center;
-    font-size: 0.9em !important;
-    display: block;
-    border-radius: 5px;
-    margin-bottom: 5px;
-}
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 
-a.download {
-    background: #fff;
-    color: #7386D5;
-}
-
-a.article, a.article:hover {
-    background: #6d7fcc !important;
-    color: #fff !important;
-}
-
-
-
-/* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
-#content {
-    padding: 20px;
-    min-height: 100vh;
-    transition: all 0.3s;
-}
-li,a{
-    float: none;
-    align-content: initial;
-    margin-right: 70px;
-}
 
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
 @media (max-width: 768px) {
-    #sidebar {
-        margin-left: -180px;
+    #navbar {
+        margin-left: -200px;
     }
-    #sidebar.active {
+    #navbar.active {
         margin-left: 0;
     }
     #sidebarCollapse span {

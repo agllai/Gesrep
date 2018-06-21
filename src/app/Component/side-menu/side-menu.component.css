@@ -29,7 +29,7 @@
     z-index: 1; /* Stay on top */
     top: 0;
     left: 0;
-    background-color: rgb(170, 170, 170); /* Black*/
+    background-color: rgb(179, 214, 255); /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -50,15 +50,20 @@
 .sidenav a:hover{
     color: #000000;
 }
-li>a[ data-toggle="collapse"]{
+li>a[data-toggle="collapse"]{
     font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 li>a>ul>li>a{
 font-size: 12px;
+font-family: Arial, Helvetica, sans-serif;
 display: flex;
 word-wrap: break-word;
 }
-
+li>a>ul>li>a>sapn{
+    margin-left: 15px;
+    padding-left: 10px;
+}
 li>a[aria-exapanded="true"]{
     width: 150px;
     content: "\e59"
@@ -74,11 +79,12 @@ li>a[aria-exapanded="false"]{
     margin-left: 50px;
 }
 .navbar-header{
-    background-color: rgb(85, 85, 85);
-    color: rgb(170, 170, 170);
+    background-color: rgb(198, 157, 119);
+    color: rgb(61, 100, 240);
     width: 100%;
     padding-top:0px;
     margin-top:-8px;
+    align-self: center;
 }
 li{
     padding:0px;
@@ -95,8 +101,8 @@ li.active{
     }
 li.active>a{
  
-    background-color: rgba(90, 89, 89, 0.911);
-    color: rgb(245, 244, 244);
+    background-color: rgba(207, 207, 207, 0.911);
+    color: rgb(48, 48, 48);
   
     }
 a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
@@ -117,13 +123,18 @@ width: 140px;
 padding-right: 0px;
 }
 a.active{
-    background-color: rgba(85, 85, 85, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
     color: rgb(170, 170, 170);
 }
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
     transition: margin-left .5s;
     padding: 20px;
+}
+.navbar-brand{
+    align-content: center;
+    width: 100%;
+    padding-left: 30%;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -134,7 +145,7 @@ a.active{
 ----------------------------------------------------- */
 @media (max-width: 768px) {
     #navbar {
-        margin-left: -200px;
+        margin-left: -230px;
     }
     #navbar.active {
         margin-left: 0;

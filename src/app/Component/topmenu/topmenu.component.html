@@ -1,9 +1,8 @@
 <nav class="navbar navbar-default navbar-fixed-top nav-pills nav-stacked nav-justified navbar-top">
         <div class="container-fluid">
             <div class="navbar-header ">
-                    <a (click)="navbar()"><span style="font-size:30px;cursor:pointer; float:left;margin-right: 20px;" >&#9776; </span></a>
 
-                <a routerLink="../" class="navbar-brand navbar-link " style="margin-right: 30px;margin-left:5px;">GesRep</a>
+                <a routerLink="../" class="navbar-brand navbar-link " style="margin-right: 30px;margin-left:5px;"><span class="glyphicon glyphicon-home" style="float:left; padding-right:2px; " ></span> GesRep</a>
                 <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggle collapsed">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -13,10 +12,12 @@
             </div>
             <div class="collapse navbar-collapse nav-pills nav-stacked nav-justified" id="navcol-1">
                 <ul class="nav navbar-nav">
-                    <li routerLinkActive="active" role="presentation"><a routerLink="./FicheReparation" >Créer Demande réparation  </a></li>
+                    <li>                    <a (click)="navbar()"><span style="font-size:30px;cursor:pointer; float:left;margin-right: 20px;" >&#9776; </span></a>
+                    </li>
+                    <li routerLinkActive="active" role="presentation"><a routerLink="./FicheReparation" >Créer Demande Réparation  </a></li>
                     <li routerLinkActive="active" role="presentation"><a routerLink="./MakePayment" >Créer Encaissement </a></li>
                     <li routerLinkActive="active" role="presentation"><a routerLink="./CreateTacheReparations" >Créer Tache Réparation</a></li>
-                    <li routerLinkActive="active" role="presentation"><a routerLink="./CreatePiece" > Créer Piece</a></li>
+                    <li routerLinkActive="active" role="presentation"><a routerLink="./CreatePiece" > Créer Piéce</a></li>
                 </ul>
                 <button class="btn btn-primary navbar-btn navbar-right navbar-nav" type="button" style="margin-right: 10px;"><strong>Déconnetion</strong></button>
             

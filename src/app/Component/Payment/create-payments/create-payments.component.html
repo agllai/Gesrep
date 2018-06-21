@@ -2,7 +2,7 @@
 
     <div class="panel panel-success">
         <div class="panel-heading">
-            <h3 class="panel-title">Creer Encaissement</h3>
+            <h3 class="panel-title">Créer Encaissement</h3>
         </div>
         <div class="panel-body">
             <form (ngSubmit)="processForm()" #Enc="ngForm"> 
@@ -17,7 +17,7 @@
                         <option  value="chèque"  >Chèque</option>
                         <option  value="visa"  >Visa</option>
                     </select>
-                    <span class="help-block alert alert-danger" *ngIf="(!moyenPaymen.valid) && moyenPaymen.touched" > s'il vous plais slectionner un Moyen D'encaissement valide </span>
+                    <span class="help-block alert alert-danger" *ngIf="(!moyenPaymen.valid) && moyenPaymen.touched" > Moyen D'encaissement invalide </span>
 
                     <!--
                     <div class="row">
@@ -40,28 +40,28 @@
               
             
                 <div class="form-group c10" style="display: inline-block;margin-top:-20px">
-                    <label class="control-label column" for="tarif" >total</label>
+                    <label class="control-label column" for="tarif" >Total</label>
                     <input id="tarif" type="number" name="tarif" class="form-control column1" required minlength="1" maxlength="5"   [(ngModel)]="payment.tarif" #tarif="ngModel" (keyup)="changePaymentTarif($event)">
-                    <span class="help-block alert alert-danger" *ngIf="(!tarif.valid) && tarif.touched" > s'il vous plais saisir tarif d'encaissement valide </span>
+                    <span class="help-block alert alert-danger" *ngIf="(!tarif.valid) && tarif.touched" >Tarif d'encaissement invalide </span>
  
                 </div>
                 <div class="form-group">
-                    <label class="control-label column" for="TotalHT"> total HT</label>
+                    <label class="control-label column" for="TotalHT"> Total HT</label>
                      <input id="TotalHT" type="number" name="totalHT" class="form-control column1" [(ngModel)]="payment.totalHT" #TotalHT="ngModel"  minlength="1" maxlength="5" (keyup)="changePaymentTotal($event)">
-                     <span class="help-block alert alert-danger" *ngIf="(!TotalHT.valid) && TotalHT.touched" > s'il vous plais saisir un TotalHT D'encaissement valide </span>
+                     <span class="help-block alert alert-danger" *ngIf="(!TotalHT.valid) && TotalHT.touched" >TotalHT D'encaissement invalide </span>
 
                   </div> 
                 
                 <div class="form-group">
                   <label class="control-label column" for="TVA">TVA</label>
                    <input id="TVA" type="number" name="tva" class="form-control column1" [(ngModel)]="payment.tva" required minlength="1" maxlength="2" required #TVA="ngModel" (keyup)="changePaymentTVA($event)">
-                   <span class="help-block alert alert-danger" *ngIf="(!TVA.valid) && TVA.touched" > s'il vous plais un TVA valide </span>
+                   <span class="help-block alert alert-danger" *ngIf="(!TVA.valid) && TVA.touched" >TVA invalide </span>
 
                 </div> 
                 <div class="form-group">
-                    <label class="control-label column" for="TotalTTC">TotalTTC</label>
+                    <label class="control-label column" for="TotalTTC">Total TTC</label>
                      <input id="TotalTTC" type="number" name="totalTTC" class="form-control column1" required minlength="1" maxlength="6" [(ngModel)]="payment.totalTTC" #TotalTTC="ngModel" >
-                     <span class="help-block alert alert-danger" *ngIf="(!TotalTTC.valid) && TotalTTC.touched" > s'il vous plais saisir un TotalTTC valide </span>
+                     <span class="help-block alert alert-danger" *ngIf="(!TotalTTC.valid) && TotalTTC.touched" >Total TTC invalide </span>
 
                 </div>
                
@@ -73,7 +73,7 @@
                       name="reduction" class="form-control column1" 
                       required minlength="1" maxlength="2" required
                       [(ngModel)]="payment.reduction" #reduction="ngModel"  >
-                      <span class="help-block alert alert-danger" *ngIf="(!reduction.valid) && reduction.touched" > s'il vous plais saisir une reduction valide </span>
+                      <span class="help-block alert alert-danger" *ngIf="(!reduction.valid) && reduction.touched" >Réduction invalide </span>
 
                     
                     
@@ -116,7 +116,7 @@
                   (keyup)="changeMontantPaye($event)"
                   [(ngModel)]="payment.montantPaye" #montantpaye="ngModel">
                   
-                  <span class="help-block alert alert-danger" *ngIf="(!montantpaye.valid) && montantpaye.touched" > s'il vous plais saisir un montant valide </span>
+                  <span class="help-block alert alert-danger" *ngIf="(!montantpaye.valid) && montantpaye.touched" >Montant Payé invalide </span>
 
                 </div>    
                
@@ -129,11 +129,12 @@
                   class="form-control column1"
                   required minlength="1" maxlength="6"
                   [(ngModel)]="payment.resteAPaye" #resteApaye="ngModel" >
-                  <span class="help-block alert alert-danger" *ngIf="(!resteApaye.valid) && resteApaye.touched" > s'il vous plais saisir un Reste A Payé valide </span>
+                  <span class="help-block alert alert-danger" *ngIf="(!resteApaye.valid) && resteApaye.touched" >Reste A Payé invalide </span>
 
                 </div>
-              <input type="submit" [disabled]="!Enc.valid" class="btn btn-success" value="Enregistrer">
-            
+              <!--<input type="submit" [disabled]="!Enc.valid" class="btn btn-success" value="Enregistrer">-->
+              <button type="submit" [disabled]="!Enc.valid" class="btn btn-success" value="Enregistrer"><span class="glyphicon glyphicon-floppy-disk"></span> Enregistrer</button>
+
             </form>
             
         </div>

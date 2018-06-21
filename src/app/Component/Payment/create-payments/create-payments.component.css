@@ -45,7 +45,7 @@ label.control-label{
 }
 
 .panel-heading{
-    background-color: #c4ebddba;
+    
     align-items: center;
     border-radius: 10px;
     text-overflow: ellipsis; 
@@ -58,7 +58,7 @@ label.control-label{
 .panel-title{
     overflow: initial;
     align-self: center;
-    padding-right:20%;
+   
     padding-bottom: 0px;
     padding-top: 15px;
     
@@ -67,12 +67,12 @@ label.control-label{
 
 
   .panel-body{
-    background-color: rgba(211, 211, 211, 0.801);
+   
     overflow: unset;
     border-radius: 5px;
     margin-top: 10px;
     padding: 5px;
-    box-shadow: 3px 3px grey;
+    
   }
   .panel-heading>nav>a>h3{
       display: inline-block;
@@ -83,4 +83,23 @@ label.control-label{
     position: relative;
     display: table;
     border-collapse: separate;
+  }
+  .panel-heading{
+    background-color:#337ab7;
+   
+}
+  .panel-body{
+    background-color: rgba(211, 211, 211, 0);
+   
+   /* box-shadow: 3px 3px grey;*/
+  }
+  .panel-heading>h3{
+  
+      color: white;
+
+  }
+  nav,.navbar,.navbar-brand,h3,.panel-title{
+    width: 100%;
+    text-align: center;
+    vertical-align: center;
   }

@@ -1,3 +1,7 @@
 ul.navigation>li>a{
     cursor:pointer;
 }
+.wrapper{
+    width: 80%;
+    padding-left:15px; 
+}

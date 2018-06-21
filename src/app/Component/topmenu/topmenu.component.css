@@ -1,0 +1,12 @@
+.navbar-default .navbar-nav>.active>a, .navbar-nav>.active{
+  
+    border-bottom: 0px;
+    border-color: rgb(56, 55, 55);
+    background-color: white;
+    color: blue;
+    border-bottom-left-radius: -5px;
+    border-bottom-left-radius: -5px; 
+}
+.navbar-default .navbar-nav,ul,li,a,.active{
+    border-color: white;
+}

@@ -9,10 +9,58 @@
   
  
 }
-.panel,.panel-body{
-    padding-right: 10px;
-    margin-right: 0px;
+.panel{
+    margin:10px;
+    padding:10px;
+    width:100%;
+    align-items: center;
+    align-self: center;
+
 }
+
+.panel-heading{
+   
+    align-items: center;
+    border-radius: 10px;
+    text-overflow: ellipsis; 
+    height: 50px;
+    padding-bottom: 10px;
+    padding-top: 0px;
+    padding-left: 20%;
+}
+.panel-title{
+    overflow: initial;
+    align-self: center;
+   text-align: center;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin-left:20%;
+}
+
+.panel-body{
+    
+    overflow: unset;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 5px;
+  }
+  .panel-body{
+     
+    overflow: unset;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 5px;
+
+  }
+  .panel-heading>nav>a>h3{
+      display: inline-block;
+      white-space: normal; 
+      width: 300px;
+  }
+  .panel-heading{
+    box-shadow: 3px 3px grey;
+
+  }
  /**/
  #tachRep-list{
     width: 100%;
@@ -24,7 +72,7 @@
     float: left;
     background-attachment: fixed;
     background-position: relative;
-    background-color:silver;
+    background-color:#eaecec;
     width: 45%;
     max-width:100% ;
 
@@ -34,20 +82,21 @@
     box-shadow: 3px 3px grey;
     margin: 10px;
     padding: 10px;
+    
    
 }
 .List-item{
    
     width: 100%;
-    border-right:2px solid black ;
+  
     outline-width: 0px;
-    background-color:rgba(117, 96, 96, 0.384) ;
+    
  margin-left:0px; 
-
+ padding: 0px;
  border-radius: 5px;
  height: 100%;
 }
-.itemList:active,.itemList:focus,.itemList:hover {
+.item-List:active,.item-List:focus,.item-List:hover {
 
     outline-color: aqua;
     outline-width: 2px;
@@ -69,14 +118,14 @@
 
 .item-list-body{
    
-    border-top:1px solid black;
-    border-bottom:1px solid black;
+   
     padding-top:0px;
     padding-bottom: 0px;
-    margin: 2px 5px;
+    margin: 0px ;
     padding: 2px 5px;  
     border-radius: 3px;
-    box-shadow: 3px 3px 1px 1px  rgb(109, 107, 107);
+    background-color: #eaecec;
+    box-shadow: 3px 3px 1px 1px  rgb(139, 130, 130);
   
 }
 .item-list-footer{
@@ -85,7 +134,7 @@
     align-self: center;
     align-items: left;  
     border-radius: 0px;
-   
+   margin-top:10px;
     box-shadow: 3px 3px 1px 1px  rgb(109, 107, 107);
   
 }
@@ -98,12 +147,12 @@ float: right;
     height: 40px;
     width: 100%;
     align-self: center;
-    background-color:rgba(146, 143, 143, 0.897) ;
+    background-color:#3987cc;
     background-attachment: fixed;
-    border: 1px solid black;
+    
     border-radius: 5px 5px 0px 0px;
     padding-bottom: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
     border-radius: 3px;
     box-shadow: 3px 3px 1px 1px  rgb(109, 107, 107);
   
@@ -151,4 +200,23 @@ tr{
 }
 td{
     overflow:hidden;
+}
+.item-list-head>h4, .item-list-head>h3{
+text-align: center;
+vertical-align: center;
+padding-top: 10px;
+padding-bottom: 10px;
+color: white;
+}
+
+:host >>>.panel>.panel-body>form>#client>.form-group{
+    display: table-row;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  :host >>>#client>.form-group>.form-control{
+margin-top: 15px;
+}
+.wrapper{
+    width:100%;
 }

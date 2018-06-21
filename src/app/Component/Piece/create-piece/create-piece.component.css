@@ -47,7 +47,7 @@ label.control-label{
 }
 
 .panel-heading{
-    background-color: #c4ebddba;
+  
     align-items: center;
     border-radius: 10px;
     text-overflow: ellipsis; 
@@ -69,16 +69,24 @@ label.control-label{
 
 
   .panel-body{
-    background-color: rgba(211, 211, 211, 0.801);
+ 
     overflow: unset;
     border-radius: 5px;
     margin-top: 10px;
     padding: 10px 5px;
-    box-shadow: 3px 3px grey;
+   
   }
-  .panel-heading>nav>a>h3{
+  .panel-heading>h3{
       display: inline-block;
       white-space: normal; 
       width: fit-content;
+      color: white;
+      text-align: center;
+      vertical-align: middle;
+      width: 100%;
   }
-  
+  nav,.navbar,.navbar-brand,h3,.panel-title,.panel-heading{
+    width: 100%;
+    text-align: center;
+    vertical-align: center;
+  }

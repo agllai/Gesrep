@@ -53,7 +53,7 @@ listArticle:Article[]=[];
 
   ngOnInit() {
 
-
+    this.submitted=false;
 /*
     this.ArticleForm=new FormGroup({
       'marque':new FormControl(

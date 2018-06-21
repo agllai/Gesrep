@@ -215,10 +215,109 @@ input.ng-invalid.ng-touched:focus{
     text-overflow: ellipsis; 
 
 }
+.panel{
+    border-width:1px;
+    border-color: white;
+}
 .panel-title{
     align-self: center;
-    padding-left:40%;
+   
+}
+.panel-heading{
+    background-color:#337ab7;
+   
+}
+  .panel-body{
+    background-color: rgba(211, 211, 211, 0);
+   
+   /* box-shadow: 3px 3px grey;*/
+  }
+  .panel-heading>nav>a>h3{
+  
+      color: white;
+
+  }
+  .wrapper{
+    width: 80%;
+    padding-left:15px; 
 }
 
-
 /*///*/
+@media (max-width: 900px){
+    
+    .sidenav, #navbar{
+        width: 0px;
+        margin: 0px;
+        height: 0px;
+        font-size: 10px;
+    }
+    .wrapper{
+        width: 100%;
+        padding: 15px 5px 5px 5px;
+        margin: 0px;
+        font-size: 10px;
+    }
+    .container,#main,#page-wrapper{
+        width: 100%;
+        padding: 15px 5px 5px 5px;
+        font-size: 10px;
+        margin-left: -30%;
+    }
+    body,label,.label-control,.form-control,column,column1, button,.btn,.btn-success{
+        font-size: 10px;
+
+    }
+.panel,.panel-body{
+    padding:2px;
+    margin:5px;
+    width:100%;
+    font-size: 10px;
+}
+.panel-heading,.panel-title{
+    font-size: 12px;
+}
+ul.nav.navbar-nav>li>a{
+    font-size: 12px;
+    text-decoration-style: solid;
+    text-shadow: #337ab7; 
+}
+}
+@media (max-width: 1000px){
+    
+    .sidenav, #navbar{
+        width: 0px;
+        margin: 0px;
+        height: 0px;
+        font-size: 11px;
+    }
+    .wrapper{
+        width: 100%;
+        padding: 15px 5px 5px 5px;
+        margin: 0px;
+        font-size: 11px;
+    }
+    .container,#main,#page-wrapper{
+        width: 100%;
+        padding: 15px 5px 5px 5px;
+        font-size: 11px;
+        margin-left: -30%;
+    }
+    body,label,.label-control,.form-control,column,column1, button,.btn,.btn-success{
+        font-size: 11px;
+
+    }
+.panel,.panel-body{
+    padding:2px;
+    margin:5px;
+    width:100%;
+    font-size: 11px;
+}
+.panel-heading,.panel-title{
+    font-size: 14px;
+}
+ul.nav.navbar-nav>li>a{
+    font-size: 14px;
+    text-decoration-style: solid;
+    text-shadow: #337ab7; 
+}
+}

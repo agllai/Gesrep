@@ -15,14 +15,14 @@ ul>li>a{
     }
     
     .panel-heading{
-        background-color: #c4ebddba;
+       
         align-items: center;
         border-radius: 10px;
         text-overflow: ellipsis; 
         height: 50px;
         padding-bottom: 10px;
         padding-top: 0px;
-        padding-left: 20%;
+        
     }
     .panel-title{
         overflow: initial;
@@ -30,11 +30,11 @@ ul>li>a{
        text-align: center;
         padding-bottom: 0px;
         padding-top: 0px;
-        margin-left:20%;
+       
     }
  
     .panel-body{
-        background-color: rgba(231, 231, 231, 0.89);
+        
         overflow: unset;
         border-radius: 5px;
         margin-top: 10px;
@@ -71,12 +71,12 @@ ul>li>a{
      
     }
     .panel-body{
-      background-color: rgba(211, 211, 211, 0.801);
+     
       overflow: unset;
       border-radius: 5px;
       margin-top: 10px;
       padding: 5px;
-      box-shadow: 3px 3px grey;
+
     }
     .panel-heading>nav>a>h3{
         display: inline-block;
@@ -88,3 +88,8 @@ ul>li>a{
 
     }
     
+    nav,.navbar,.navbar-brand,h3,.panel-title{
+      width: 100%;
+      text-align: center;
+      vertical-align: center;
+    }

@@ -77,7 +77,7 @@ export class ClientComponent implements OnInit {
       if(this.client.idClient===undefined){
       this.data=this._ClientService.createClient(this.client).subscribe((client:Client)=>{
         console.log(client);
-        this._rotuer.navigate(['../ListeClient']);
+       // this._rotuer.navigate(['../ListeClient']);
       },(error)=>{
         console.log(error);
       });
@@ -86,7 +86,7 @@ export class ClientComponent implements OnInit {
         console.log(this.client);
           this.data=this._ClientService.updateClient(this.client).subscribe((client:Client)=>{
             console.log(client);
-            this._rotuer.navigate(['../ListeClient']);
+           // this._rotuer.navigate(['../ListeClient']);
           },(error)=>{
             console.log(error);
           });

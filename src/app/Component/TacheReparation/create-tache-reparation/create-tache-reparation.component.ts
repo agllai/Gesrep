@@ -17,22 +17,16 @@ import { Subject } from 'rxjs/Subject';
   styleUrls: ['./create-tache-reparation.component.css']
 })
 export class CreateTacheReparationComponent implements OnInit {
- // @ViewChild('list') list:ElementRef;
-//@Output() addtacheReparation:EventEmitter<TacheReparation[]>=new EventEmitter<TacheReparation[]>();
-
 
 tacheReparation:TacheReparation=new TacheReparation();
-tacheReparation1:TacheReparation=new TacheReparation();
 listTacheRep:TacheReparation[]=[];
 article:Article=new Article();
-  piece:Piece=new Piece();
-  composants:Composant[]=[];
-  active:any;
-  composant:Composant=new Composant();
-  composant2:Composant=new Composant();
-  
-
-  etat:Etat=new Etat();
+piece:Piece=new Piece();
+composants:Composant[]=[];
+active:any;
+composant:Composant=new Composant();
+composant2:Composant=new Composant();
+etat:Etat=new Etat();
 
   constructor(private tacheReparationService:TacheReparationService,
     private composantService:ComposantService,
@@ -43,13 +37,13 @@ article:Article=new Article();
       }
   
   ngOnInit() {
-    //this.article=this.articleService.getter();
-    //this.piece=this.article.piece;
-    
     this.etatService.getetat(1).subscribe(
-      (etat:Etat)=>{this.etat=etat;console.log(etat,":etat",this.etat,":this.etat")},(error:ErrorHandler)=>console.log(error,"error")
-    ); 
-    console.log(this.etat,"etrtttat 1");
+      (etat:Etat)=>{
+        this.etat=etat;
+        console.log(etat,":etat",this.etat,":this.etat")
+      },
+      (error:ErrorHandler)=>{console.log(error,"error etat ");}
+    );
     this.composantService.getComposants().subscribe(
       (composants:Composant[])=>{this.composants=composants;console.log(composants) },
       (error:ErrorHandler)=>{console.log("error happened when getting the composant list",error)}
@@ -57,41 +51,20 @@ article:Article=new Article();
     
     console.log(this.etat,"etrtttat 2");
     this.tacheReparation.etat=this.etat;
-    //this.tacheReparation1.etat=this.etat;
     this.listTacheRep=[];
-  //  this.tacheReparation1.etat=this.etat;
-   // this.composant2.nomComposant="ecran";
-   // this.composant2.tarif=21;
-   // this.composant2.tarifMinimal=18;
-   // this.composantService.createComposant(this.composant2).subscribe((composant:Composant)=>console.log(composant),(error:Error)=>console.log(error));
-  /*this.tacheReparationService.TacheRepobserbale.subscribe(
-    (tacheRep:TacheReparation[])=>
-    {this.listTacheRep=tacheRep;
-      console.log(this.listTacheRep,tacheRep);
-    },
-    (error)=>console.log(error)
-    )*/
   }
 
 
   add(){
-    //this.tacheReparation.etat=this.etat;
-    //this.tacheReparation1= form.value;
-    //console.log(form,form.value);
-    //this.tacheReparation.etat=this.etat;
-    //console.log("tache Reparation1 before pushing",this.tacheReparation1, this.etat);
-    this.listTacheRep.push(this.tacheReparation);
-    //this.listTacheRep.forEach((tacheRep)=>tacheRep.etat=this.etat);
-    //this.addtacheReparation.emit(this.listTacheRep);
-        console.log(this.listTacheRep,this.tacheReparation,this.tacheReparation1,this.etat);
-    this.tacheReparation=new TacheReparation();
-   // this.tacheReparation.etat=this.etat;
-    //this.tacheReparation.Composant=new Composant();
+    
     this.tacheReparation.etat=this.etat;
-    console.log("listtacheRep",this.listTacheRep,"tacheRep",this.tacheReparation,"tacheRep1",this.tacheReparation1);
-  //form.reset();
-  //this.composant=new Composant();
-  //this.tacheReparation.etat=this.etat;
+    console.log("tache Reparation1 before pushing",this.tacheReparation, this.etat);
+    this.listTacheRep.push(this.tacheReparation);
+      console.log(this.listTacheRep,this.tacheReparation,this.etat);
+    this.tacheReparation=new TacheReparation();
+    this.tacheReparation.Composant=new Composant();
+    this.tacheReparation.etat=this.etat;
+    console.log("listtacheRep",this.listTacheRep,"tacheRep",this.tacheReparation,"tacheRep1",this.tacheReparation);
   console.log(this.tacheReparation.etat,"tacheRep Etat");
 
   this.tacheReparationService.TacheRepobserbale.next(this.listTacheRep);
@@ -115,19 +88,7 @@ article:Article=new Article();
   choose(composant:Composant){
     this.tacheReparation.Composant=composant;
     this.composant=composant;
-    this.tacheReparation.etat=this.etat;
     console.log(this.tacheReparation,composant);
-  }
-  changeClass(article1:any){
-    this.active=article1;
-  }
-  isactive(article1:any):String{
-    if(article1!==this.active){  
-    return "";
-  }
-    else{
-      return "active";
-    }
   }
 
 

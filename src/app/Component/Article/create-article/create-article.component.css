@@ -46,14 +46,14 @@ ul>li>a{
   }
   
   .panel-heading{
-      background-color: #c4ebddba;
+      background-color:#337ab7;
       align-items: center;
       border-radius: 10px;
       text-overflow: ellipsis; 
       height: 50px;
       padding-bottom: 10px;
       padding-top: 0px;
-      padding-left: 20%;
+   
       box-shadow: 3px 3px grey;
   }
   .panel-title{
@@ -62,21 +62,27 @@ ul>li>a{
       text-align: justify;
       padding-bottom: 0px;
       padding-top: 0px;
-   
+    display: inline;
   }
 
 
     .panel-body{
-      background-color: rgba(211, 211, 211, 0.801);
+      background-color: rgba(211, 211, 211, 0);
       overflow: unset;
       border-radius: 5px;
       margin-top: 10px;
       padding: 5px;
-      box-shadow: 3px 3px grey;
+     /* box-shadow: 3px 3px grey;*/
     }
     .panel-heading>nav>a>h3{
         display: inline-block;
         white-space: normal; 
         width: 300px;
+        color: white;
+
     }
-    
+    nav,.navbar,.navbar-brand,h3,.panel-title{
+      width: 100%;
+      text-align: center;
+      vertical-align: center;
+    }

@@ -1,11 +1,11 @@
-<div class="container" style="width:100%;"> 
+<div class="wrapper" > 
     <div class="row"> 
         <!-- dividing the main section of the page into  2 sub-Sections -->
         <div class="col-lg-6 col-xs-6 col-sm-6"> 
             <!-- list of the objects section -->
             <div class="List-item">
                 <!-- list head -->
-                <div class="list-head">
+                <div class="item-list-head">
 
                     <h3> Fiche Réparation  </h3>
 
@@ -26,7 +26,7 @@
                             <div class="column"><strong>Type Client :</strong></div> {{client.typeClient}}
                             
                         </div>
-                        <div class="btn-group show"> 
+                        <div class="btn-group show item-list-footer"> 
                             <div class="dropdown show item-list-btn" >
                                 <button type="button" class="btn btn-success dropdown-toggle" id="client" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         options <span class="caret"></span>
@@ -84,7 +84,7 @@
                         </div>
                         <div class="item-list-body">
                             <table class="table table-responsive table-bordered" style="width: 200%;justify-self: center;justify-items: center ">
-                                <div class="panel-heading">
+                                <div >
                                     <thead>
                                                
                                         <tr>
@@ -170,9 +170,9 @@
             </div>    
         </div> 
         <!-- editing and actions section -->
-        <div class="col-lg-6 col-xs-6 col-sm-6 "  style="float:left;">
-            <div style="width: 100%; padding:0px;margin-right: -200px;">
-                <router-outlet ></router-outlet>
+        <div class="col-lg-6 col-xs-6 col-sm-6 " >
+            <div style="width: 100%; height: 100%; padding:0px;margin-right: 0px;" >
+                <router-outlet></router-outlet>
             </div>
         </div>
     </div> 

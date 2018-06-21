@@ -26,7 +26,7 @@ export class FicheReparationComponent implements OnInit {
  Composant:Composant=new Composant();
  payment:Encaissement=new Encaissement();
  ficheReparation:DemandeReparation=new DemandeReparation();
-
+style:string="margin-top:10px;";
 
   constructor(
     private ArticleService :ArticleService,
@@ -40,7 +40,7 @@ export class FicheReparationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-   
+    this.style="margin-top:10px;";
    this.client= this.ClientService.getter();
    this.article=this.ArticleService.getter();
    this.ListtacheReparation=this.tacheReparationService.getterTacheReparations();
@@ -59,7 +59,7 @@ export class FicheReparationComponent implements OnInit {
   this.ClientService.CLientobserbale.subscribe(
     (client:Client)=>{
       this.client=client;
-      console.log(this.client,client);
+      console.log(this.client,client,"client");
     },
     (error:Error)=>{
       console.log(error);
@@ -86,6 +86,7 @@ export class FicheReparationComponent implements OnInit {
 
   }
   CreateArticle(){
+    this.style="margin-top:10px;";
   this.article=new Article();
   this.ArticleService.setter(this.article);
   this._rotuer.navigate(['Article'],{relativeTo: this.route});
@@ -93,6 +94,8 @@ export class FicheReparationComponent implements OnInit {
 
   }
   UpdateArticle(){
+    this.style="margin-top:10px;";
+
     this.ArticleService.setter(this.article);
     this._rotuer.navigate(['Article'],{relativeTo: this.route});
     this.ArticleService.articleobserbale.next(this.article);
@@ -100,17 +103,21 @@ export class FicheReparationComponent implements OnInit {
   }
 
  ResetArticle(){
+
   this.article=new Article();
   this.ArticleService.articleobserbale.next(new Article());
 
  }
  CreateClient(){
+  this.style="margin-top:10px;";
+
    this.client=new Client();
   this.ClientService.setter(this.client);
   this._rotuer.navigate(['Client'],{relativeTo: this.route});
   this.ClientService.CLientobserbale.next(this.client);
 }
 UpdateClient(){
+  this.style="margin-top:10px;";
   this.ClientService.setter(this.client);
   this._rotuer.navigate(['Client'],{relativeTo: this.route});
   this.ClientService.CLientobserbale.next(this.client);
@@ -121,12 +128,16 @@ ResetClient(){
   this.ClientService.CLientobserbale.next(this.client);
 }
 CreateTacheReparations(){
+  this.style="margin-top:400px;";
+
   this.ListtacheReparation=[];
   this.tacheReparationService.settertacheReparation(this.ListtacheReparation);
   this._rotuer.navigate(['tacheReparation'],{relativeTo: this.route});
   this.tacheReparationService.TacheRepobserbale.next(this.ListtacheReparation);
 }
 UpdateTacheReparations(){
+  this.style="margin-top:400px;";
+
   this.tacheReparationService.settertacheReparation(this.ListtacheReparation);
   this._rotuer.navigate(['tacheReparation'],{relativeTo: this.route});
   this.tacheReparationService.TacheRepobserbale.next(this.ListtacheReparation);
@@ -137,12 +148,15 @@ ResetTacheReparations(){
   this.tacheReparationService.TacheRepobserbale.next(this.ListtacheReparation);
 }
 CreatePayment(){
+  this.style="margin-top:800px;";
+
   this.payment=new Encaissement();
   this.paymentService.setter(this.payment);
   this._rotuer.navigate(['Payment'],{relativeTo: this.route});
   this.paymentService.Paymentobserbale.next(this.payment);
 }
 UpdatePayment(){
+  this.style="margin-top:800px;";
   this.paymentService.setter(this.payment);
   this._rotuer.navigate(['Payment'],{relativeTo: this.route});
   this.paymentService.Paymentobserbale.next(this.payment);
